@@ -1,9 +1,17 @@
-# Compiled class file
+# Ignored compiled class file
 **/*.class
-**/.gradle/
-**/.project
-**/.classpath
+
+# Ignored Directories
+project/build
+project/bin
+
+# Ignored IDE files
 **/.vscode/
-**/*.jar
-**/build
-**/bin
+**/.project
+project/.classpath
+
+# Ignored packaged files
+*.jar
+
+# Ignored Gradle cache directory
+.gradle
