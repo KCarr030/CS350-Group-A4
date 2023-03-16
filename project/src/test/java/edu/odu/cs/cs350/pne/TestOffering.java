@@ -28,7 +28,7 @@ public class TestOffering {
     @Test
     public void setup() {
         date = LocalDate.of(2023, 3, 16);
-        courseName = "Introduction to Java";
+        courseName = "CS 361";
         time = "10:00-12:00";
         group = "A";
         seats = 20;
