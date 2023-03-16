@@ -17,5 +17,12 @@ public class TestCourse {
         assertTrue(course.getOfferings().isEmpty());
         assertTrue(course.getOfferings() instanceof ArrayList);
     }
+    @Test
+    public void testGetName() {
+        Course course = new Course("Test Course");
+        assertEquals("Test Course", course.getName());
+        assertNotNull(course.getName());
+        assertFalse(course.getName().isEmpty());
+    }
     
 }
