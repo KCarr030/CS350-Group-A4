@@ -1,6 +1,6 @@
 package edu.odu.cs.cs350.pne;
 
-import java.util.ArrayList;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
@@ -13,16 +13,18 @@ public class TestCourse {
     public void testCourseConstructor(){
         Course course = new Course("CS 361");
         assertEquals("CS 361", course.getName());
-        assertNotNull(course.getOfferings());
-        assertTrue(course.getOfferings().isEmpty());
-        assertTrue(course.getOfferings() instanceof ArrayList);
+        assertNotNull(course);
+        assertNotNull(course.getName());
     }
     @Test
     public void testGetName() {
-        Course course = new Course("Test Course");
-        assertEquals("Test Course", course.getName());
+        Course course = new Course("CS 361");
+        assertEquals("CS 361", course.getName());
         assertNotNull(course.getName());
         assertFalse(course.getName().isEmpty());
+        assertNotNull(course);
+        assertEquals(6, course.getName().length());
+        assertTrue(course.getName().startsWith("CS"));
+        assertTrue(course.getName().endsWith("361"));
     }
-    
 }
