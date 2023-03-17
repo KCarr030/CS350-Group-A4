@@ -25,3 +25,4 @@ public class TestOffering {
         assertEquals(LocalDate.parse(endDateStr), offering.getEndTime());
     }
 }
+
