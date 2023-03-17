@@ -21,6 +21,8 @@ import java.time.format.DateTimeParseException;
         this.startTime = LocalDate.parse(startDateStr);
         this.endTime = LocalDate.parse(endDateStr);
     }
+
+    //setters
     public void setDateRange(String startDateStr, String endDateStr) throws DateTimeParseException{
         LocalDate startDate = LocalDate.parse(startDateStr);
         LocalDate endDate = LocalDate.parse(endDateStr);

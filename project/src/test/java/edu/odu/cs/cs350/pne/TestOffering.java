@@ -24,5 +24,16 @@ public class TestOffering {
         assertEquals(LocalDate.parse(startDateStr), offering.getStartTime());
         assertEquals(LocalDate.parse(endDateStr), offering.getEndTime());
     }
+
+    @Test
+    public void testSetDateRange(){
+        Offering offering = null;
+        try {
+            offering = new Offering("2022-08-10", "2022-12-31");
+            offering.setDateRange("2022-08-10", "2022-12-31");
+        }catch (DateTimeParseException e) {
+            
+        }
+    }
 }
 
