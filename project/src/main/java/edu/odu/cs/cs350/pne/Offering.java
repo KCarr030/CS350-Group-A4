@@ -19,5 +19,11 @@ import java.time.format.DateTimeParseException;
         this.startTime = LocalDate.parse(startDateStr);
         this.endTime = LocalDate.parse(endDateStr);
     }
+    public LocalDate getStartTime(){
+        return startTime;
+    }
+    public LocalDate getEndTime(){
+        return endTime;
+    }
     
  }
