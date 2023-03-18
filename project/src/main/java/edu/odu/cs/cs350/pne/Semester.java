@@ -1,6 +1,5 @@
 package edu.odu.cs.cs350.pne;
 
-<<<<<<< HEAD
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -101,10 +100,7 @@ public class Semester
          this.offering = nOffering;
      }
 
-   
      
-=======
-public class Semester {
-    lzdcns
->>>>>>> 720b8d66e84e81e8b86e48c024e0c67ec033dcf3
-}
+    }
+
+   
