@@ -6,101 +6,105 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
+import java.io.File;
 
-/** This is the Directory class
+/**
+ * This is the Directory class
+ * 
  * @author Group A4
- * The Directory class is responsible for storing the list of files and their paths for a SINGLE directory.
+ *         The Directory class is responsible for storing the list of files and
+ *         their paths for a SINGLE directory.
  */
 
- public class Directory {
-    
-    private String dir; //The directory selected
-    private Vector<String> files; //The filenames within the directory
+public class Directory {
 
-        /**
-         * Constructor of Directory takes a directory path as input
-         * 
-         * @param d A path leading to a directory (ex. /data/History/202010)
-         */
-        public Directory(String d) {
-            this.dir = d;
-            grabFiles(dir);
-        }
+    private String dir; // The directory selected
+    private Vector<String> files; // The filenames within the directory
 
-        /**
-         * setDirectory sets the directory currently stored
-         * 
-         * @param d the directory to store
-         */
-        public void setDirectory(String d){
-            this.dir = d;
-            grabFiles(dir);
-        }
+    /**
+     * Constructor of Directory takes a directory path as input
+     * 
+     * @param d A path leading to a directory (ex. /data/History/202010)
+     */
+    public Directory(String d) {
+        this.dir = d;
+        grabFiles(dir);
+    }
 
-        /**
-         * grabFiles fills the Vector files with the names of all files
-         * currently contained in the directory specified by dir.
-         * 
-         * DO NOT call this function directly,
-         * it is meant to be called by other functions
-         * to update existing data,
-         * and will be called automatically when needed in
-         * this class.
-         */
-        private void grabFiles() {
-            String[] files;
-            File f = new file(dir);
-            files = f.list();
+    /**
+     * setDirectory sets the directory currently stored
+     * 
+     * @param d the directory to store
+     */
+    public void setDirectory(String d) {
+        this.dir = d;
+        grabFiles(dir);
+    }
 
-            for(String names : files){
-                files.add(names);
-            }
-        }
-        
-        /**
-         * printContents is a function for checking output
-         * its sole purpose is to print the content of the directory
-         * to the CLI
-         */
-        public void printContents(){
-            for(String name: files){
-                System.out.println(name);
-            }
-        }
+    /**
+     * grabFiles fills the Vector files with the names of all files
+     * currently contained in the directory specified by dir.
+     * 
+     * DO NOT call this function directly,
+     * it is meant to be called by other functions
+     * to update existing data,
+     * and will be called automatically when needed in
+     * this class.
+     */
+    private void grabFiles() {
+        String[] filearr;
+        File f = new file(dir);
+        filearr = f.list();
 
-        /**
-         * getFileName returns the name of a file inside the directory
-         * it DOES NOT give the full path to said file
-         * 
-         * @param index the index of the requested file
-         * @return the name of the file, "" if invalid
-         */
-        public String getFileName(int index){
-            if(index >= 0 && index < files.size()){
-                return files.elementAt(index);
-            }
-            return "";
+        for (String names : filearr) {
+            files.add(names);
         }
+    }
 
-        /**
-         * getFilePath returns the path to a file inside
-         * the directory
-         * 
-         * @param index the index of the requested file
-         * @return the full path to the file
-         */
-        public String getFilePath(int index){
-            String name = getFileName(index);
-            return dir + '/' + name;
+    /**
+     * printContents is a function for checking output
+     * its sole purpose is to print the content of the directory
+     * to the CLI
+     */
+    public void printContents() {
+        for (String name : files) {
+            System.out.println(name);
         }
+    }
 
-        /**
-         * the size of the directory
-         * measured by the number of files inside
-         * 
-         * @return the number of files inside the directory
-         */
-        public int dirSize(){
-            return files.size();
+    /**
+     * getFileName returns the name of a file inside the directory
+     * it DOES NOT give the full path to said file
+     * 
+     * @param index the index of the requested file
+     * @return the name of the file, "" if invalid
+     */
+    public String getFileName(int index) {
+        if (index >= 0 && index < files.size()) {
+            return files.elementAt(index);
         }
- }
+        return "";
+    }
+
+    /**
+     * getFilePath returns the path to a file inside
+     * the directory
+     * 
+     * @param index the index of the requested file
+     * @return the full path to the file
+     */
+    public String getFilePath(int index) {
+        String name = getFileName(index);
+        return dir + '/' + name;
+    }
+
+    /**
+     * the size of the directory
+     * measured by the number of files inside
+     * 
+     * @return the number of files inside the directory
+     */
+    public int dirSize() {
+        return files.size();
+    }
+}
