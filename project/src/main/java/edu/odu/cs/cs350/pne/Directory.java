@@ -19,7 +19,7 @@ import java.io.File;
 public class Directory {
 
     private String dir; // The directory selected
-    private Vector<String> files; // The filenames within the directory
+    private Vector<String> files = new Vector(10); // The filenames within the directory
 
     /**
      * Constructor of Directory takes a directory path as input
@@ -28,7 +28,7 @@ public class Directory {
      */
     public Directory(String d) {
         this.dir = d;
-        grabFiles(dir);
+        grabFiles();
     }
 
     /**
@@ -38,7 +38,7 @@ public class Directory {
      */
     public void setDirectory(String d) {
         this.dir = d;
-        grabFiles(dir);
+        grabFiles();
     }
 
     /**
@@ -51,12 +51,15 @@ public class Directory {
      * and will be called automatically when needed in
      * this class.
      */
-    private void grabFiles() {
-        String[] filearr;
-        File f = new file(dir);
-        filearr = f.list();
-
+    public void grabFiles() {
+        File root = new File(".");
+        System.out.println(root.list());
+        File f = new File(dir);
+        System.out.println(f);
+        String[] filearr = f.list();
+        System.out.println(filearr);
         for (String names : filearr) {
+            System.out.println(names);
             files.add(names);
         }
     }
