@@ -46,5 +46,19 @@ public class TestOffering {
             
         }
     }
+    
+    @Test
+    public void testNumSeats() {
+    	Offering offer = new Offering("2022-08-10", "2022-12-31");
+    	int seats = offer.setnumSeats(25);
+    	AssertEquals(offer.getnumSeats(seats), 25);
+    }
+    
+    @Test
+    public void testMaxCap() {
+    	Offering offer = new Offering("2022-08-10", "2022-12-31");
+    	int max = offer.setMaxCap(40);
+    	AssertEquals(offer.getMaxCap(max), 40);
+    }
 }
 
