@@ -73,6 +73,15 @@ import java.util.Set;
         public double getPercentFilled() {
             return (double) enrollment / maxCapacity * 100;
         }
+        public Set<String> getFileNames() {
+            Set<String> fileNames = new HashSet<>();
+            for (int i = 0; i < directory.dirSize(); i++) {
+                fileNames.add(directory.getFileName(i));
+            }
+            return fileNames;
+        }
+
+
 
 
    /* 
