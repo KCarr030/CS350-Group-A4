@@ -18,9 +18,9 @@ public class TestOffering {
         LocalDate time = LocalDate.of(2022, 4, 1);
         String directoryPath = "test/data/History/202010";
         String group = "A";
-        int seats = 20;
-        int enrollment = 10;
-        int maxCapacity = 30;
+        int seats = 50;
+        int enrollment = 0;
+        int maxCapacity = 50;
         String instructorName = "Jay Morris";
         Offering offering = new Offering(courseName, time, directoryPath, group, seats, enrollment, maxCapacity, instructorName);
         
@@ -32,7 +32,16 @@ public class TestOffering {
         assertEquals(enrollment, offering.getEnrollment());
         assertEquals(maxCapacity, offering.getMaxCapacity());
         assertEquals(instructorName, offering.getInstructorName());
+
     }
+    @Test
+    public void testGetCourseName(){
+        Offering offering = new Offering("CS 361", LocalDate.now(), "test/data/History/202010", "A", 50, 0, 50, "Jay Morris");
+        String expected = "CS 361";
+        String actual = offering.getCourseName();
+        assertEquals(expected, actual);
+    }
+    
 
     /* 
     @Test
