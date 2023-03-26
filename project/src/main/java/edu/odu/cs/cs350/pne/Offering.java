@@ -34,6 +34,38 @@ import java.util.Set;
         this.instructorName = instructorName;
         }
 
+        public String getCourseName() {
+            return courseName;
+        }
+    
+        public LocalDate getTime() {
+            return time;
+        }
+    
+        public Directory getDirectory() {
+            return directory;
+        }
+    
+        public String getGroup() {
+            return group;
+        }
+    
+        public int getSeats() {
+            return seats;
+        }
+    
+        public int getEnrollment() {
+            return enrollment;
+        }
+    
+        public int getMaxCapacity() {
+            return maxCapacity;
+        }
+    
+        public String getInstructorName() {
+            return instructorName;
+        }
+
 
    /* 
     public int setMaxCap(int maxCap) {
