@@ -70,6 +70,10 @@ import java.util.Set;
             return courseName.equals(other.courseName) && time.equals(other.time) && group.equals(other.group);
         }
 
+        public double getPercentFilled() {
+            return (double) enrollment / maxCapacity * 100;
+        }
+
 
    /* 
     public int setMaxCap(int maxCap) {
