@@ -89,6 +89,11 @@ import java.util.Set;
             return filePaths;
         }
 
+        public String toString() {
+            return String.format("%s %s %s %d/%d (%.1f%%) %s", courseName, time, group, enrollment, maxCapacity,
+                    getPercentFilled(), instructorName);
+        }
+
 
 
 
