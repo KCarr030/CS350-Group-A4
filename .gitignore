@@ -1,6 +1,6 @@
 # Ignored compiled class file
 **/*.class
-
+.classpath
 # Ignored Directories
 project/build
 project/bin
