@@ -22,6 +22,16 @@ public class TestOffering {
         int enrollment = 10;
         int maxCapacity = 30;
         String instructorName = "Jay Morris";
+        Offering offering = new Offering(courseName, time, directoryPath, group, seats, enrollment, maxCapacity, instructorName);
+        
+        assertEquals(courseName, offering.getCourseName());
+        assertEquals(time, offering.getTime());
+        assertEquals(directoryPath, offering.getDirectory().getPath());
+        assertEquals(group, offering.getGroup());
+        assertEquals(seats, offering.getSeats());
+        assertEquals(enrollment, offering.getEnrollment());
+        assertEquals(maxCapacity, offering.getMaxCapacity());
+        assertEquals(instructorName, offering.getInstructorName());
     }
 
     /* 
