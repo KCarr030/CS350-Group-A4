@@ -8,6 +8,7 @@ import static org.hamcrest.Matchers.*;
 
 public class TestDirectory {
 
+
     @Test
     public void testDirectoryConstructor() {
         Directory dir = new Directory(
@@ -43,4 +44,5 @@ public class TestDirectory {
 
         System.out.println("testSetDirectory: Success");
     }
+    
 }

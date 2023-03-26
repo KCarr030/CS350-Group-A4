@@ -18,6 +18,7 @@ import java.io.File;
 
 public class Directory {
 
+
     private String dir; // The directory selected
     private Vector<String> files = new Vector(10); // The filenames within the directory
 
@@ -109,5 +110,9 @@ public class Directory {
      */
     public int dirSize() {
         return files.size();
+    }
+
+    public String getPath() {
+        return dir;
     }
 }
