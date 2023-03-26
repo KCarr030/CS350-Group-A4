@@ -81,6 +81,14 @@ import java.util.Set;
             return fileNames;
         }
 
+        public Set<String> getFilePaths() {
+            Set<String> filePaths = new HashSet<>();
+            for (int i = 0; i < directory.dirSize(); i++) {
+                filePaths.add(directory.getFilePath(i));
+            }
+            return filePaths;
+        }
+
 
 
 
