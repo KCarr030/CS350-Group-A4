@@ -22,6 +22,8 @@ import java.util.Set;
     private int maxCapacity;
     private String instructorName;
 
+
+    //Constructor for integers and string variables
     public Offering(String courseName, LocalDate time, String directoryPath, String group, int seats,
                     int enrollment, int maxCapacity, String instructorName) {
         this.courseName = courseName;
@@ -33,7 +35,7 @@ import java.util.Set;
         this.maxCapacity = maxCapacity;
         this.instructorName = instructorName;
         }
-
+// getters
         public String getCourseName() {
             return courseName;
         }
