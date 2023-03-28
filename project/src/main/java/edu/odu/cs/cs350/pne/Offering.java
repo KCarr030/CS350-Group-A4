@@ -44,10 +44,6 @@ import java.util.Set;
             return time;
         }
     
-        public Directory getDirectory() {
-            return directory;
-        }
-    
         public String getGroup() {
             return group;
         }
