@@ -47,6 +47,13 @@ public class TestOffering {
         Offering offering = new Offering("CS 361", expected, "test/data/History/202010", "A", 50, 0, 50, "Jay Morris");
         assertEquals(expected, offering.getTime());
     }
+    @Test
+    public void testGetGroup() {
+    Offering offering = new Offering("CS 361", LocalDate.now(), "test/data/History/202010", "A", 50, 0, 50, "Jay Morris");
+    String expectedGroup = "A";
+    String actualGroup = offering.getGroup();
+    assertEquals(expectedGroup, actualGroup);
+}
 
     /* 
     @Test
