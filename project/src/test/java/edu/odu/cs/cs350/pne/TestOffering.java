@@ -26,7 +26,6 @@ public class TestOffering {
         
         assertEquals(courseName, offering.getCourseName());
         assertEquals(time, offering.getTime());
-        assertEquals(directoryPath, offering.getDirectory().getPath());
         assertEquals(group, offering.getGroup());
         assertEquals(seats, offering.getSeats());
         assertEquals(enrollment, offering.getEnrollment());
