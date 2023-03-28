@@ -48,7 +48,6 @@ public class TestOffering {
         Offering offering = new Offering("CS 361", expected, "test/data/History/202010", "A", 50, 0, 50, "Jay Morris");
         assertEquals(expected, offering.getTime());
     }
-    
 
     /* 
     @Test
