@@ -54,6 +54,12 @@ public class TestOffering {
     String actualGroup = offering.getGroup();
     assertEquals(expectedGroup, actualGroup);
 }
+@Test
+    public void testGetSeats() {
+        Offering offering = new Offering("CS 361", LocalDate.now(), "test/data/History/202010", "A", 50, 0, 50, "Jay Morris");
+        int seats = offering.getSeats();
+        assertEquals(50, seats);
+}
 
     /* 
     @Test
