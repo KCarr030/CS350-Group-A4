@@ -60,6 +60,12 @@ public class TestOffering {
         int seats = offering.getSeats();
         assertEquals(50, seats);
 }
+@Test
+    public void testGetEnrollment() {
+        Offering offering = new Offering("CS 361", LocalDate.now(), "test/data/History/202010", "A", 50, 0, 50, "Jay Morris");
+        int enrollment = offering.getEnrollment();
+        assertEquals(50, enrollment);
+}
 
     /* 
     @Test
