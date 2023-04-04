@@ -27,12 +27,34 @@ public class TestOffering {
 
     @Test
     public void testGetCourseName() {
-        Offering offering = new Offering("CS361", LocalDate.of(2022, 4, 1), "A", 50, 0, 50, "John Smith");
+        Offering offering = new Offering("CS361", LocalDate.of(2022, 4, 1), "A", 50, 0, 50, "J.Morris");
         assertEquals("CS361", offering.getCourseName());
     }
 
-    
+    @Test
+    public void testGetTime() {
+        LocalDate expectedTime = LocalDate.of(2022, 4, 1);
+        Offering offering = new Offering("CS 361", expectedTime, "A", 50, 20, 30, "J.Morris");
+        LocalDate actualTime = offering.getTime();
+        assertEquals(expectedTime, actualTime);
+    }
 
+    @Test
+    public void testGetGroup() {
+        Offering offering = new Offering("CS 361", LocalDate.of(2023, 3, 27), "A", 50, 10, 60, "J.Morris");
+        assertEquals("A", offering.getGroup());
+    }
+
+    @Test
+    public void testGetSeats() {
+        Offering offering = new Offering("CS101", LocalDate.of(2023, 3, 27), "A", 50, 30, 100, "J.Morris");
+        assertEquals(50, offering.getSeats());
+}
+    @Test
+    public void testGetEnrollment() {
+        Offering offering = new Offering("CS 361", LocalDate.of(2023, 3, 27), "A", 50, 10, 60, "J.Morris");
+        assertEquals(10, offering.getEnrollment());
+    }
 
     @Test
     public void testIsDuplicate() {
