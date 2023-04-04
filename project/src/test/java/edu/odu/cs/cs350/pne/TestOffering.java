@@ -15,7 +15,6 @@ public class TestOffering {
     @Test
     public void testGetters() {
         Offering offering = new Offering("CS 361", LocalDate.of(2022, 4, 1), "A", 20, 10, 30, "J.Morris");
-
         assertEquals("CS 361", offering.getCourseName());
         assertEquals(LocalDate.of(2022, 4, 1), offering.getTime());
         assertEquals("A", offering.getGroup());
@@ -57,6 +56,12 @@ public class TestOffering {
     }
 
     @Test
+    public void testGetMaxCapacity() {
+        Offering offering = new Offering("CS 361", LocalDate.of(2022, 4, 1),  "A", 50, 20, 100, "J.Morris");
+        assertEquals(100, offering.getMaxCapacity());
+}
+
+    @Test
     public void testIsDuplicate() {
         Offering offering1 = new Offering("CS 361", LocalDate.of(2022, 4, 1), "A", 20, 10, 30, "J.Morris");
 
@@ -66,6 +71,16 @@ public class TestOffering {
 
         assertTrue(offering1.isDuplicate(offering2));
         assertFalse(offering1.isDuplicate(offering3));
+    }
+
+    @Test
+    public void testGetInstructorName() {
+        Offering offering = new Offering("CS350", LocalDate.of(2022, 9, 1), "A", 50, 30, 50, "J.Morris");
+        Offering offering2 = new Offering("CS 361", LocalDate.of(2022, 4, 1), "A", 20, 5, 30, "F.Wang");
+        Offering offering3 = new Offering("CS 361", LocalDate.of(2022, 4, 1), "B", 20, 10, 30, "J.Sun");
+        assertEquals("J.Morris", offering.getInstructorName());
+        assertEquals("F.Wang", offering2.getInstructorName());
+        assertEquals("J.Sun", offering3.getInstructorName());
     }
 
     @Test
