@@ -27,11 +27,21 @@ public class TestOffering {
 
     @Test
     public void testGetCourseName() {
-        Offering offering = new Offering("CS361", LocalDate.of(2022, 4, 1), "A", 50, 0, 50, "John Smith");
+        Offering offering = new Offering("CS361", LocalDate.of(2022, 4, 1), "A", 50, 0, 50, "J.Morris");
+        Offering offering2 = new Offering("CS 361", LocalDate.of(2022, 4, 1), "A", 20, 5, 30, "F.Wang");
+        Offering offering3 = new Offering("CS 361", LocalDate.of(2022, 4, 1), "B", 20, 10, 30, "J.Sun");
         assertEquals("CS361", offering.getCourseName());
     }
 
-    
+    @Test
+    public void testGetTime() {
+        LocalDate expectedTime = LocalDate.of(2022, 4, 1);
+        Offering offering = new Offering("CS 361", expectedTime, "A", 50, 20, 30, "J.Morris");
+        Offering offering2 = new Offering("CS 361", LocalDate.of(2022, 4, 1), "A", 20, 5, 30, "F.Wang");
+        Offering offering3 = new Offering("CS 361", LocalDate.of(2022, 4, 1), "B", 20, 10, 30, "J.Sun");
+        LocalDate actualTime = offering.getTime();
+        assertEquals(expectedTime, actualTime);
+    }
 
 
     @Test
@@ -49,6 +59,8 @@ public class TestOffering {
     @Test
     public void testGetPercentFilled() {
         Offering offering = new Offering("CS 361", LocalDate.of(2022, 4, 1), "A", 20, 10, 30, "J.Morris");
+        Offering offering3 = new Offering("CS 361", LocalDate.of(2022, 4, 1), "B", 20, 10, 30, "J.Sun");
+        Offering offering2 = new Offering("CS 361", LocalDate.of(2022, 4, 1), "A", 20, 5, 30, "F.Wang");
 
         assertEquals(33.3, offering.getPercentFilled(), 0.1);
     }
