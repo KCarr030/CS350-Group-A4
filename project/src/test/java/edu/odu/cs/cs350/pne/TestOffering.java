@@ -26,6 +26,15 @@ public class TestOffering {
     }
 
     @Test
+    public void testGetCourseName() {
+        Offering offering = new Offering("CS361", LocalDate.of(2022, 4, 1), "A", 50, 0, 50, "John Smith");
+        assertEquals("CS361", offering.getCourseName());
+    }
+
+    
+
+
+    @Test
     public void testIsDuplicate() {
         Offering offering1 = new Offering("CS 361", LocalDate.of(2022, 4, 1), "A", 20, 10, 30, "J.Morris");
 
