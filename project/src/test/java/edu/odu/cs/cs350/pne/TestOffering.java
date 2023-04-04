@@ -57,6 +57,12 @@ public class TestOffering {
     }
 
     @Test
+    public void testGetMaxCapacity() {
+        Offering offering = new Offering("CS 361", LocalDate.of(2022, 4, 1),  "A", 50, 20, 100, "J.Morris");
+        assertEquals(100, offering.getMaxCapacity());
+}
+
+    @Test
     public void testIsDuplicate() {
         Offering offering1 = new Offering("CS 361", LocalDate.of(2022, 4, 1), "A", 20, 10, 30, "J.Morris");
 
