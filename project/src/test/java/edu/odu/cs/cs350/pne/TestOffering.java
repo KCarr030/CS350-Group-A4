@@ -50,6 +50,11 @@ public class TestOffering {
         Offering offering = new Offering("CS101", LocalDate.of(2023, 3, 27), "A", 50, 30, 100, "J.Morris");
         assertEquals(50, offering.getSeats());
 }
+    @Test
+    public void testGetEnrollment() {
+        Offering offering = new Offering("CS 361", LocalDate.of(2023, 3, 27), "A", 50, 10, 60, "J.Morris");
+        assertEquals(10, offering.getEnrollment());
+    }
 
     @Test
     public void testIsDuplicate() {
