@@ -58,7 +58,7 @@ public class Semester
 
     public int getHistory()
     {
-        return history;
+       return history;
     }
 
     public int getCurrent()

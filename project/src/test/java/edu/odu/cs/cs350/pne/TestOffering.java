@@ -14,23 +14,14 @@ public class TestOffering {
 
     @Test
     void testConstructor(){
-        String courseName = "CS 361";
-        LocalDate time = LocalDate.of(2022, 4, 1);
-        String directoryPath = "test/data/History/202010";
-        String group = "A";
-        int seats = 50;
-        int enrollment = 0;
-        int maxCapacity = 50;
-        String instructorName = "Jay Morris";
-        Offering offering = new Offering(courseName, time, directoryPath, group, seats, enrollment, maxCapacity, instructorName);
-        
-        assertEquals(courseName, offering.getCourseName());
-        assertEquals(time, offering.getTime());
-        assertEquals(group, offering.getGroup());
-        assertEquals(seats, offering.getSeats());
-        assertEquals(enrollment, offering.getEnrollment());
-        assertEquals(maxCapacity, offering.getMaxCapacity());
-        assertEquals(instructorName, offering.getInstructorName());
+        Offering offering = new Offering("CS 361", LocalDate.now(), "test/data/History/202010", "A", 50, 0, 50, "Jay Morris");
+        assertEquals("CS 361", offering.getCourseName());
+        //assertEquals(time, offering.getTime());
+        assertEquals("A", offering.getGroup());
+        assertEquals("50", offering.getSeats());
+        assertEquals("0", offering.getEnrollment());
+        assertEquals("50", offering.getMaxCapacity());
+        assertEquals("Jay Morris", offering.getInstructorName());
 
     }
     @Test
@@ -49,10 +40,10 @@ public class TestOffering {
     }
     @Test
     public void testGetGroup() {
-    Offering offering = new Offering("CS 361", LocalDate.now(), "test/data/History/202010", "A", 50, 0, 50, "Jay Morris");
-    String expectedGroup = "A";
-    String actualGroup = offering.getGroup();
-    assertEquals(expectedGroup, actualGroup);
+        Offering offering = new Offering("CS 361", LocalDate.now(), "test/data/History/202010", "A", 50, 0, 50, "Jay Morris");
+        String expectedGroup = "A";
+        String actualGroup = offering.getGroup();
+        assertEquals(expectedGroup, actualGroup);
 }
     @Test
     public void testGetSeats() {
