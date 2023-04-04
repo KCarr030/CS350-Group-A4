@@ -39,6 +39,11 @@ public class TestOffering {
         assertEquals(expectedTime, actualTime);
     }
 
+    @Test
+    public void testGetGroup() {
+        Offering offering = new Offering("CS 361", LocalDate.of(2023, 3, 27), "A", 50, 10, 60, "J.Morris");
+        assertEquals("A", offering.getGroup());
+    }
 
     @Test
     public void testIsDuplicate() {
