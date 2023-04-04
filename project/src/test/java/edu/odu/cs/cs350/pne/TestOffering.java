@@ -1,5 +1,5 @@
 package edu.odu.cs.cs350.pne;
-
+import java.util.Set;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
@@ -13,57 +13,56 @@ import static org.hamcrest.Matchers.*;
 public class TestOffering {
 
     @Test
-    void testConstructor(){
-        Offering offering = new Offering("CS 361", LocalDate.now(), "test/data/History/202010", "A", 50, 0, 50, "Jay Morris");
+    public void testGetters() {
+        Offering offering = new Offering("CS 361", LocalDate.of(2022, 4, 1), "A", 20, 10, 30, "J.Morris");
+
         assertEquals("CS 361", offering.getCourseName());
-        //assertEquals(time, offering.getTime());
+        assertEquals(LocalDate.of(2022, 4, 1), offering.getTime());
         assertEquals("A", offering.getGroup());
-        assertEquals("50", offering.getSeats());
-        assertEquals("0", offering.getEnrollment());
-        assertEquals("50", offering.getMaxCapacity());
-        assertEquals("Jay Morris", offering.getInstructorName());
-
-    }
-    @Test
-    public void testGetCourseName(){
-        Offering offering = new Offering("CS 361", LocalDate.now(), "test/data/History/202010", "A", 50, 0, 50, "Jay Morris");
-        String expected = "CS 361";
-        String actual = offering.getCourseName();
-        assertEquals(expected, actual);
+        assertEquals(20, offering.getSeats());
+        assertEquals(10, offering.getEnrollment());
+        assertEquals(30, offering.getMaxCapacity());
+        assertEquals("J.Morris", offering.getInstructorName());
     }
 
     @Test
-    public void testGetTime(){
-        LocalDate expected = LocalDate.of(2023, 4, 1);
-        Offering offering = new Offering("CS 361", expected, "test/data/History/202010", "A", 50, 0, 50, "Jay Morris");
-        assertEquals(expected, offering.getTime());
-    }
-    @Test
-    public void testGetGroup() {
-        Offering offering = new Offering("CS 361", LocalDate.now(), "test/data/History/202010", "A", 50, 0, 50, "Jay Morris");
-        String expectedGroup = "A";
-        String actualGroup = offering.getGroup();
-        assertEquals(expectedGroup, actualGroup);
-}
-    @Test
-    public void testGetSeats() {
-        Offering offering = new Offering("CS 361", LocalDate.now(), "test/data/History/202010", "A", 50, 0, 50, "Jay Morris");
-        int seats = offering.getSeats();
-        assertEquals(50, seats);
-}
-    @Test
-    public void testGetEnrollment() {
-        Offering offering = new Offering("CS 361", LocalDate.now(), "test/data/History/202010", "A", 50, 0, 50, "Jay Morris");
-        int enrollment = offering.getEnrollment();
-        assertEquals(50, enrollment);
-}
-    @Test
-    public void testGetMaxCapacity() {
-        Offering offering = new Offering("CS 361", LocalDate.now(),"test/data/History/202010", "A", 50, 0, 50, "Jay Morris");
-        int maxCapacity = offering.getMaxCapacity();
-        assertEquals(25, maxCapacity);
-}
+    public void testIsDuplicate() {
+        Offering offering1 = new Offering("CS 361", LocalDate.of(2022, 4, 1), "A", 20, 10, 30, "J.Morris");
 
+        Offering offering2 = new Offering("CS 361", LocalDate.of(2022, 4, 1), "A", 20, 5, 30, "F.Wang");
+
+        Offering offering3 = new Offering("CS 361", LocalDate.of(2022, 4, 1), "B", 20, 10, 30, "J.Sun");
+
+        assertTrue(offering1.isDuplicate(offering2));
+        assertFalse(offering1.isDuplicate(offering3));
+    }
+
+    @Test
+    public void testGetPercentFilled() {
+        Offering offering = new Offering("CS 361", LocalDate.of(2022, 4, 1), "A", 20, 10, 30, "J.Morris");
+
+        assertEquals(33.3, offering.getPercentFilled(), 0.1);
+    }
+/* 
+    @Test
+    public void testGetFileNames() {
+        Offering offering = new Offering("CS 361", LocalDate.of(2022, 4, 1), "A", 20, 10, 30, "J.Morris");
+
+        Set<String> fileNames = offering.getFileNames();
+
+        assertTrue(fileNames.contains("2020-04-01.csv"));
+        assertTrue(fileNames.contains("2020-04-01.csv"));
+        assertFalse(fileNames.contains("2020-04-01.csv"));
+    }
+    */
+/* 
+    @Test
+    public void testToString() {
+        Offering offering = new Offering("CS 361", LocalDate.of(2022, 4, 1), "A", 20, 10, 30, "J.Morris");
+
+     assertEquals("CS 361", offering.toString());
+    }
+ */
     /* 
     @Test
     public void testConstructor(){

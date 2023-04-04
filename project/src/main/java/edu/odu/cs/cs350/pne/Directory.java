@@ -52,7 +52,8 @@ public class Directory {
      * and will be called automatically when needed in
      * this class.
      */
-    public void grabFiles() {
+    
+     public void grabFiles() {
         File root = new File(".");
         System.out.println(root.list());
         File f = new File(dir);
@@ -64,7 +65,6 @@ public class Directory {
             files.add(names);
         }
     }
-
     /**
      * printContents is a function for checking output
      * its sole purpose is to print the content of the directory

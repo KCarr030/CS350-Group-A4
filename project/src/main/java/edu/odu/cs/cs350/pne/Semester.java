@@ -135,7 +135,7 @@ public class Semester
         }
         catch (IOException e)
         {
-            e.printStackTrace()
+            e.printStackTrace();
         }
         
 

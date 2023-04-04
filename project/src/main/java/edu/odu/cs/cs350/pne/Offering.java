@@ -15,7 +15,7 @@ import java.util.Set;
  public class Offering {
     private String courseName;
     private LocalDate time;
-    private Directory directory;
+   // private Directory directory;
     private String group;
     private int seats;
     private int enrollment;
@@ -24,11 +24,11 @@ import java.util.Set;
 
 
     //Constructor for integers and string variables
-    public Offering(String courseName, LocalDate time, String directoryPath, String group, int seats,
+    public Offering(String courseName, LocalDate time, String group, int seats,
                     int enrollment, int maxCapacity, String instructorName) {
         this.courseName = courseName;
         this.time = time;
-        this.directory = new Directory(directoryPath);
+       // this.directory = new Directory(directoryPath);
         this.group = group;
         this.seats = seats;
         this.enrollment = enrollment;
@@ -71,6 +71,7 @@ import java.util.Set;
         public double getPercentFilled() {
             return (double) enrollment / maxCapacity * 100;
         }
+        /*
         public Set<String> getFileNames() {
             Set<String> fileNames = new HashSet<>();
             for (int i = 0; i < directory.dirSize(); i++) {
@@ -78,20 +79,13 @@ import java.util.Set;
             }
             return fileNames;
         }
-
-        public Set<String> getFilePaths() {
-            Set<String> filePaths = new HashSet<>();
-            for (int i = 0; i < directory.dirSize(); i++) {
-                filePaths.add(directory.getFilePath(i));
-            }
-            return filePaths;
-        }
-
+        */
+/*
         public String toString() {
             return String.format("%s %s %s %d/%d (%.1f%%) %s", courseName, time, group, enrollment, maxCapacity,
                     getPercentFilled(), instructorName);
         }
-
+        */
 
 
 
