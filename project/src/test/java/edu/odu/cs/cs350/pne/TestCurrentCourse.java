@@ -6,5 +6,14 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 
 public class TestCurrentCourse {
+
+    @Test
+    public void testCurrentCourseConstructor() {
+        String courseName = "CS 361";
+        CurrentCourse currentCourse = new CurrentCourse(courseName);
+        assertEquals(courseName, currentCourse.getCourseName());
+        assertTrue(currentCourse.getOfferings().isEmpty());
+}
+
     
 }
