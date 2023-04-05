@@ -24,17 +24,6 @@ public class TestCurrentCourse {
     void testGetOfferingsEmpty() {
         CurrentCourse currentCourse = new CurrentCourse("CS 361");
         assertTrue(currentCourse.getOfferings().isEmpty());
-        }
-  /*  @Test
-    void testGetOfferingsNonEmpty() {
-        CurrentCourse currentCourse = new CurrentCourse("CS61");
-        Offering offering1 = new Offering(LocalDate.of(2022, 1, 1), LocalDate.of(2022, 5, 1), "CS 361", "MWF", "10:00 AM", "11:00 AM", "Dragas", "J.Morris", 50, 0);
-        Offering offering2 = new Offering(LocalDate.of(2022, 1, 1), LocalDate.of(2022, 5, 1), "CS 361", "TR", "2:00 PM", "3:15 PM", "Dragas", "J.Sun", 40, 0);
-        currentCourse.addOffering(offering1);
-        currentCourse.addOffering(offering2);
-        assertFalse(currentCourse.getOfferings().isEmpty());
-        assertEquals(2, currentCourse.getOfferings().size());
-        }
+    }
 
-        */
 }
