@@ -16,4 +16,14 @@ public class CurrentCourse {
     public List<Offering> getOfferings() {
         return offerings;
     }
+    public void addOffering(Offering offering) {
+        offerings.add(offering);
+    }
+    public int getCurrentEnrollment() {
+        int totalEnrollment = 0;
+        for (Offering offering : offerings) {
+            totalEnrollment += offering.getEnrollment();
+        }
+        return totalEnrollment;
+    }
 }
