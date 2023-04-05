@@ -15,14 +15,27 @@ import java.util.List;
  public class Course {
       // Course properties
     private String name;
+    private List<Offering> offerings;
 
     // Constructor
         public Course(String name) {
             this.name = name; 
         }
 
-        // Getters
         public String getName() {
             return name;
+        }
+        public List<Offering> getOfferings() {
+            return offerings;
+        }
+        public void addOffering(Offering offering) {
+            offerings.add(offering);
+        }
+        public int getCourseEnrollment() {
+            int totalEnrollment = 0;
+            for (Offering offering : offerings) {
+                totalEnrollment += offering.getEnrollment();
+            }
+            return totalEnrollment;
         }
  }
