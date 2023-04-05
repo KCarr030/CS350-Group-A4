@@ -18,9 +18,8 @@ import java.io.File;
 
 public class Directory {
 
-
     private String dir; // The directory selected
-    private Vector<String> files = new Vector(10); // The filenames within the directory
+    private Vector<File> files = new Vector(10); // The filenames within the directory
 
     /**
      * Constructor of Directory takes a directory path as input
@@ -52,27 +51,27 @@ public class Directory {
      * and will be called automatically when needed in
      * this class.
      */
-    
-     public void grabFiles() {
-        File root = new File(".");
-        System.out.println(root.list());
-        File f = new File(dir);
-        System.out.println(f);
-        String[] filearr = f.list();
-        System.out.println(filearr);
-        for (String names : filearr) {
-            System.out.println(names);
+    public void grabFiles() {
+        files.clear(); /// The vector needs to be emptied prior to refilling with new data
+        File d = new File(dir);
+        // System.out.println(d);
+        // System.out.println(d.listFiles());
+        File[] filearr = d.listFiles();
+        // System.out.println(filearr);
+        for (File names : filearr) {
+            // System.out.println(names);
             files.add(names);
         }
     }
+
     /**
      * printContents is a function for checking output
      * its sole purpose is to print the content of the directory
      * to the CLI
      */
     public void printContents() {
-        for (String name : files) {
-            System.out.println(name);
+        for (File name : files) {
+            System.out.println(name.getName());
         }
     }
 
@@ -81,13 +80,13 @@ public class Directory {
      * it DOES NOT give the full path to said file
      * 
      * @param index the index of the requested file
-     * @return the name of the file, "" if invalid
+     * @return the name of the file, null if invalid
      */
     public String getFileName(int index) {
         if (index >= 0 && index < files.size()) {
-            return files.elementAt(index);
+            return files.elementAt(index).getName();
         }
-        return "";
+        return null;
     }
 
     /**
@@ -95,11 +94,11 @@ public class Directory {
      * the directory
      * 
      * @param index the index of the requested file
-     * @return the full path to the file
+     * @return the File describing the full path to the file
      */
-    public String getFilePath(int index) {
+    public File getFilePath(int index) {
         String name = getFileName(index);
-        return dir + '/' + name;
+        return new File(dir + '/' + name);
     }
 
     /**
@@ -114,5 +113,19 @@ public class Directory {
 
     public String getPath() {
         return dir;
+    }
+
+    /**
+     * Returns the index of the dates.txt file within the File array
+     * 
+     * @return the index of dates.txt, -1 if it does not exist
+     */
+    public int datesIndex() {
+        for (int x = dirSize() - 1; x >= 0; x--) {
+            if (files.get(x).getName().equals("dates.txt")) {
+                return x;
+            }
+        }
+        return -1;
     }
 }
