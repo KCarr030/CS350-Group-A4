@@ -91,18 +91,6 @@ public class TestOffering {
     }
 /* 
     @Test
-    public void testGetFileNames() {
-        Offering offering = new Offering("CS 361", LocalDate.of(2022, 4, 1), "A", 20, 10, 30, "J.Morris");
-
-        Set<String> fileNames = offering.getFileNames();
-
-        assertTrue(fileNames.contains("2020-04-01.csv"));
-        assertTrue(fileNames.contains("2020-04-01.csv"));
-        assertFalse(fileNames.contains("2020-04-01.csv"));
-    }
-    */
-/* 
-    @Test
     public void testToString() {
         Offering offering = new Offering("CS 361", LocalDate.of(2022, 4, 1), "A", 20, 10, 30, "J.Morris");
 

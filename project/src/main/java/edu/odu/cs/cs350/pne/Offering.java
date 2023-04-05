@@ -6,7 +6,6 @@ import java.util.Set;
 
 
 
-
 /** This is the class
  * @author Group A4
  * 
@@ -71,19 +70,10 @@ import java.util.Set;
         public double getPercentFilled() {
             return (double) enrollment / maxCapacity * 100;
         }
-
+        
         
 
     }
-        /*
-        public Set<String> getFileNames() {
-            Set<String> fileNames = new HashSet<>();
-            for (int i = 0; i < directory.dirSize(); i++) {
-                fileNames.add(directory.getFileName(i));
-            }
-            return fileNames;
-        }
-        */
 /*
         public String toString() {
             return String.format("%s %s %s %d/%d (%.1f%%) %s", courseName, time, group, enrollment, maxCapacity,
