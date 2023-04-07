@@ -4,7 +4,11 @@ import java.time.format.DateTimeParseException;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/*
+ * Object that will contain all the information for each individual offerings. 
+ * (each unique class offering in CSV files)
+ * 
+ */
 
 /** This is the class
  * @author Group A4
@@ -23,8 +27,7 @@ import java.util.Set;
 
 
     //Constructor for integers and string variables
-    public Offering(String courseName, LocalDate time, String group, int seats,
-                    int enrollment, int maxCapacity, String instructorName) {
+    public Offering(String courseName, LocalDate time, String group, int seats, int enrollment, int maxCapacity, String instructorName) {
         this.courseName = courseName;
         this.time = time;
        // this.directory = new Directory(directoryPath);
@@ -70,7 +73,20 @@ import java.util.Set;
         public double getPercentFilled() {
             return (double) enrollment / maxCapacity * 100;
         }
+
         
+        //create an offering object by providing a row of data (String) from the CSV file as param.         
+        public Offering(String[] fields)
+        {
+            this.courseName = fields[3];
+           // this.time = time;
+           // this.directory = new Directory(directoryPath);
+            this.group = fields[9];
+            this.seats = Integer.parseInt(fields[23]);
+            this.enrollment = 0;
+            this.maxCapacity = Integer.parseInt(fields[6]);
+            this.instructorName = fields[20];
+        }
         
 
     }
