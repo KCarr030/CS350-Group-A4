@@ -1,5 +1,4 @@
 package edu.odu.cs.cs350.pne;
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -10,6 +9,7 @@ import java.util.List;
 //Semester
 public class Semester 
 {
+
     /*Parts of Semester Class
         semestDirct =  Semester Directory 
         RegistDate = Registration Date

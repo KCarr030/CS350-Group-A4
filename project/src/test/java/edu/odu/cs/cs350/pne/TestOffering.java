@@ -89,6 +89,27 @@ public class TestOffering {
 
         assertEquals(33.3, offering.getPercentFilled(), 0.1);
     }
+
+    @Test
+    public void testOfferingConstructor() {
+        // Prepare test data
+        String[] fields = new String[] { "field0", "field1", "field2", "courseName", "field4", "field5", "field6",
+                "field7", "field8", "group", "field10", "field11", "field12", "field13", "field14", "field15", "field16",
+                "field17", "field18", "field19", "field20", "field21", "field22", "23" };
+
+        // Create Offering object using the constructor
+        Offering offering = new Offering(fields);
+
+        // Assert that the Offering object is created correctly
+        assertEquals("courseName", offering.getCourseName());
+        assertEquals("group", offering.getGroup());
+        assertEquals(0, offering.getEnrollment());
+        assertEquals(23, offering.getMaxCapacity());
+        assertEquals("23", offering.getSeats());
+        assertEquals("instructorName", offering.getInstructorName());
+    }
+
+    
 /* 
     @Test
     public void testToString() {
