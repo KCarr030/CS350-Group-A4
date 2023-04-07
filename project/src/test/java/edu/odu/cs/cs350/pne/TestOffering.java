@@ -108,6 +108,8 @@ public class TestOffering {
         assertEquals("23", offering.getSeats());
         assertEquals("instructorName", offering.getInstructorName());
     }
+
+    
 /* 
     @Test
     public void testToString() {
