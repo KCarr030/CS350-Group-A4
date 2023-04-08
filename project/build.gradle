@@ -27,3 +27,28 @@ java {
 	sourceCompatibility = JavaVersion.toVersion(11)
 	targetCompatibility = JavaVersion.toVersion(11)
 }
+
+task Reports (type: Copy) {
+    from(file('src/main/html/'))
+    into(file('build/reports'))
+}
+
+task deployReports (dependsOn: 'Reports') {
+	group = "Reporting"
+    description 'Copies reports to the website repo and pushes to Github'
+    doLast {	  
+		def pagesDir = "$buildDir/gh-pages"
+		exec {
+			workingDir = 'build/gh-pages'
+			commandLine = ['git', 'add', '.']
+		}
+		exec {
+			workingDir = 'build/gh-pages'
+			commandLine = ['git', 'commit', '-m', 'Updating-webpages']
+		}
+		exec {
+			workingDir = 'build/gh-pages'
+			commandLine = ['git', 'push']
+		}
+	}
+}

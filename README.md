@@ -7,3 +7,5 @@ Group A4
 
 * Shared Design Document:
 * https://docs.google.com/document/d/13cJSY2qR8l5DKS4NvOjM8kw0CPYlIHEu3OAH5MwYq5M/edit
+
+* [website] (https://kcarr030.github.io/CS350-Group-A4/)
