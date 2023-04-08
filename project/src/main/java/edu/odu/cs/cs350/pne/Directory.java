@@ -128,4 +128,41 @@ public class Directory {
         }
         return -1;
     }
+
+    /**
+     * Removes all data stored in the vector earlier than a date specified
+     * 
+     * @param lower The lower bound indicated in the format YYYY-MM-DD
+     */
+    public void trimStartDate(String lower) {
+        for (int i = dirSize() - 1; i >= 0; i--) {
+            if (files.get(i).getName().compareTo(lower) < 0) {
+                files.remove(i);
+            }
+        }
+    }
+
+    /**
+     * Removes all data stored in the vector later than a date specified
+     * 
+     * @param upper The upper bound indicated in the format YYYY-MM-DD
+     */
+    public void trimEndDate(String upper) {
+        for (int i = dirSize() - 1; i >= 0; i--) {
+            if (files.get(i).getName().compareTo(upper) > 0 && !(files.get(i).getName().equals("dates.txt")
+                    || files.get(i).getName().equals("dates.txt~"))) {
+                files.remove(i);
+            }
+        }
+    }
+
+    /**
+     * 
+     * @param lower The lower bound indicated in the format YYYY-MM-DD
+     * @param upper The upper bound indicated in the format YYYY-MM-DD
+     */
+    public void trimDates(String lower, String upper) {
+        trimStartDate(lower);
+        trimEndDate(upper);
+    }
 }
