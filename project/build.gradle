@@ -28,27 +28,31 @@ java {
 	targetCompatibility = JavaVersion.toVersion(11)
 }
 
-task Reports (type: Copy) {
+task Reports (type: Copy, dependsOn: ['javadoc', 'test']) {
     from(file('src/main/html/'))
     into(file('build/reports'))
 }
 
 task deployReports (dependsOn: 'Reports') {
 	group = "Reporting"
-    description 'Copies reports to the website repo and pushes to Github'
-    doLast {	  
-		def pagesDir = "$buildDir/gh-pages"
-		exec {
-			workingDir = 'build/gh-pages'
-			commandLine = ['git', 'add', '.']
+    description 'Copies and commits reports to the website repo and pushes to Github'
+    doLast {
+        copy {
+         from(file('build/reports'))
+         into(file('build/gh-pages'))
 		}
-		exec {
-			workingDir = 'build/gh-pages'
-			commandLine = ['git', 'commit', '-m', 'Updating-webpages']
-		}
-		exec {
-			workingDir = 'build/gh-pages'
-			commandLine = ['git', 'push']
-		}
+
+        Date now = new Date()
+
+        exec {
+            workingDir = pagesDir
+            commandLine = ['git', 'add', pagesDir]
+            ignoreExitValue = true
+        }
+        exec {
+            workingDir = pagesDir
+            commandLine = ['git', '-m', 'Updating webpages at ' + now.toString()]
+            ignoreExitValue = true
+        }
 	}
 }
