@@ -14,7 +14,7 @@ public class Section {
     private String building;
     private String room;
 	private String seats;
-    private String CRN;
+    private int CRN;
     private String subject;
     private String course;
     private String creditHours;
@@ -42,7 +42,7 @@ public class Section {
         this.building = fields[17];
         this.room = fields[18];
 		this.seats = String.valueOf(Integer.parseInt(fields[0]));
-        this.CRN = fields[1];
+        this.CRN = Integer.parseInt("0");
         this.subject = fields[2];
         this.course = fields[3];
         this.creditHours = fields[5];
@@ -93,7 +93,7 @@ public class Section {
         building = "";
         room = "";
         seats = "";
-        CRN = "0";
+        CRN = "";
         subject = "";
         course = "000L";
         creditHours = "";
@@ -218,7 +218,7 @@ public class Section {
     }
 
     public int getCRN() {
-        return Integer.parseInt(CRN);
+        return CRN;
     }
 
     public int getEnrollment() {
