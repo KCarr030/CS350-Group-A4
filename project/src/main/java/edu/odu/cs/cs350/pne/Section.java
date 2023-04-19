@@ -61,8 +61,21 @@ public class Section {
            return num1-num2;
        }};
 
+    public static Comparator<Section> eSnapNum = new Comparator<Section>() {
+		public int compare(Section s1, Section s2) {
+		   int num1 = s1.getNum();
+		   int num2 = s2.getNum();
+		   
+		   return num1-num2;
+	   }};
+
 	public String getCrse() {	
 		return crse;
+	}
+
+    public int getNum() {
+		int i = Integer.parseInt(crse.substring(0,3));
+		return i;
 	}
     public String getInstructor() {
         return instructor;
