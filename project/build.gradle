@@ -128,11 +128,11 @@ task deployReports (type: Delete, dependsOn: 'pushWebsite') {
         /*exec {
             workingDir = pagesDir
             commandLine = ['cmd', 'git', 'commit', '-m', 'Updating-Webpages']
-        }
+        }*/
         exec {
             workingDir = pagesDir
             commandLine = ['git', 'push']
-        }*/
+        }
     }
 }
 
