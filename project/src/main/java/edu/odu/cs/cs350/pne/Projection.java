@@ -93,7 +93,7 @@ import java.util.Vector;
         // Exclude the dates that are not needed.
         dir.trimDates(preRegString, addDeadlineString);
         files = dir.getFiles();
-        // Loop through files and set data.
+        // Loop through files and read data.
         for(int i = 0; i < files.size(); i++){
             // code here for summary projection output... (Use read function and calculate)
         }
