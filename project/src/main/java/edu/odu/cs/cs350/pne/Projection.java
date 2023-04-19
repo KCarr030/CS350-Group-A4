@@ -97,7 +97,6 @@ import java.util.Vector;
         for(int i = 0; i < files.size(); i++){
             // code here for summary projection output... (Use read function and calculate)
         }
-        
     }
 
     // Function that will allow a user to indicate a path for the file location where the detailed projection will be written.
