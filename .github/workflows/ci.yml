@@ -19,3 +19,13 @@ jobs:
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
     - name: Build and test
+      run: ./gradlew build
+    - name: Copy to reports
+      run: ./gradlew DeployReports
+    - name: Copy to reports
+      run: ./gradlew Reports
+    - name: Deploy to website
+      uses: KevinCarr/github-pages-deploy-action@v4.2.5
+      with:
+        branch: gh-pages
+        folder: project/build/reports
