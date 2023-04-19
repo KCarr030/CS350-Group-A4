@@ -181,6 +181,23 @@ public class Section {
         return subject + course;
     }
 
+	
+    public String getCampus() {
+        return campus;
+    }
+
+	public String getBuilding() {
+        return building;
+    }
+
+	public String getLink() {
+        return link;
+    }
+
+	public String getDays() {
+        return days;
+    }
+
     public int getCourseNumber() {
         return Integer.parseInt(course.substring(0, 3));
     }
@@ -188,6 +205,7 @@ public class Section {
     public String getInstructor() {
         return instructor;
     }
+
 
     public int getNum() {
         return num;
@@ -216,5 +234,18 @@ public class Section {
     public void setCapacity(int capacity) {
         this.crossListCapacity = Integer.toString(capacity);
     }
+
+	public String getCrossListCapacity() {
+        return crossListCapacity;
+    }
+
+	public String getPtrmStart() {
+        return ptrmStart;
+    }
+
+    public String getPtrmEnd() {
+        return ptrmEnd;
+    }
+
 }
 
