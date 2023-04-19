@@ -69,7 +69,6 @@ public class Section {
 		wl_remain = fields[30];
 	}
 
-
 	public String getCrse() {	
 		return crse;
 	}
