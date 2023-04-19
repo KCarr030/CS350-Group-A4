@@ -103,17 +103,17 @@ public class Section {
 		int capSum = 0;
 		char spec = ' ';
 	
-		Collections.sort(data, Section.SnapCRN);
-		Collections.sort(data, Section.SnapNum);
+		Collections.sort(data, Section.getCRNComparator());
+		Collections.sort(data, Section.getNumComparator());
 	
-		for(int i = 0; i < data.size(); i++) {
+		for (int i = 0; i < data.size(); i++) {
 			Section current = data.get(i);
-			if(i + 1 < data.size() && current.getCourse().equals(data.get(i+1).getCourse())) {
-				sum += current.getEnr();
-				if(!current.getCRN().equals(data.get(i+1).getCRN())){
+			if (i + 1 < data.size() && current.getCourse().equals(data.get(i + 1).getCourse())) {
+				sum += current.getEnrollment();
+				if (!current.getCRN().equals(data.get(i + 1).getCRN())) {
 					int currentCap = 0;
 					try {
-						currentCap = Integer.parseInt(current.getCap());
+						currentCap = Integer.parseInt(current.getCapacity());
 					} catch (NumberFormatException e) {
 						// catch exception in case the cap field is empty or not a number
 					}
@@ -123,22 +123,23 @@ public class Section {
 				// create new section instance with the aggregated data
 				int currentCap = 0;
 				try {
-					currentCap = Integer.parseInt(current.getCap());
+					currentCap = Integer.parseInt(current.getCapacity());
 				} catch (NumberFormatException e) {
 					// catch exception in case the cap field is empty or not a number
 				}
-				alpha.add(new Section(new String[] {
+				alpha.add(new Section(new String[]{
 						current.getSeats(),
 						current.getCRN(),
-						current.getSubj(),
-						current.getCrse(),
+						current.getSubject(),
+						current.getCourse(),
 						current.getCampus(),
 						current.getDays(),
-						current.getCrHrs(),
+						current.getCreditHours(),
 						String.valueOf(sum),
 						current.getLink(),
 						"",
 						current.getInstructor(),
+						"",
 						"",
 						"",
 						"",
@@ -158,7 +159,7 @@ public class Section {
 						current.getPtrmEnd(),
 						"",
 						"",
-						current.getBldg(),
+						current.getBuilding(),
 						"",
 						current.getRoom(),
 						"",
@@ -168,36 +169,36 @@ public class Section {
 						"",
 						""
 				}));
-				sum = current.getEnr();
+				sum = current.getEnrollment();
 				capSum = currentCap;
 			}
 		}
 	
-		Collections.sort(alpha, Section.SnapNum);
+		Collections.sort(alpha, Section.getNumComparator());
 	
-		for(int i = 0; i < alpha.size(); i++) {
-			System.out.print(spec + alpha.get(i).getCourse() + "\t" + alpha.get(i).getEnr() + "\t\t\t\t" + alpha.get(i).getCap() + "\n");
+		for (int i = 0; i < alpha.size(); i++) {
+			System.out.print(spec + alpha.get(i).getCourse() + "\t" + alpha.get(i).getEnrollment() + "\t\t\t\t" + alpha.get(i).getCapacity() + "\n");
 		}
 	}
 	
-
-    public String getCourseCode() {
-        return subj + crse;
+	
+    public String getCourse() {
+        return subject + course;
     }
 
     public int getCourseNumber() {
-        return Integer.parseInt(crse.substring(0, 3));
+        return Integer.parseInt(course.substring(0, 3));
     }
 
     public String getInstructor() {
         return instructor;
     }
 
-	public int getNum() {
+    public int getNum() {
         return num;
     }
 
-	public void setNum(int num) {
+    public void setNum(int num) {
         this.num = num;
     }
 
@@ -206,19 +207,19 @@ public class Section {
     }
 
     public int getEnrollment() {
-        return enrollment;
+        return Integer.parseInt(enrollment);
     }
 
     public void setEnrollment(int enrollment) {
-        this.enrollment = enrollment;
+        this.enrollment = Integer.toString(enrollment);
     }
 
     public int getCapacity() {
-        return capacity;
+        return Integer.parseInt(crossListCapacity);
     }
 
     public void setCapacity(int capacity) {
-        this.capacity = capacity;
+        this.crossListCapacity = Integer.toString(capacity);
     }
 }
 
