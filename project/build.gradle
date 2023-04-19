@@ -11,6 +11,10 @@ dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter:5.7.0'
     testImplementation 'org.hamcrest:hamcrest-library:2.2'
     implementation 'com.opencsv:opencsv:5.5.2'
+    implementation 'org.apache.poi:poi:4.1.2'
+    implementation 'org.apache.poi:poi-ooxml:4.1.2'
+    implementation 'org.apache.poi:poi-ooxml-schemas:4.1.2'
+    implementation 'com.opencsv:opencsv:5.7.1'
 }
 
 def pagesDir = file("${project.rootDir}/../website-temp").absolutePath
