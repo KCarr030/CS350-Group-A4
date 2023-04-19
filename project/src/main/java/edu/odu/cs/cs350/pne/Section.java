@@ -53,15 +53,15 @@ public class Section {
 		ptrm_end = fields[27];
 	}
 
-    public static Comparator<Section> eSnapCRN = new Comparator<Section>() {
-        public int compare(Section s1, Section s2) {
-           int num1 = s1.getCRNum();
-           int num2 = s2.getCRNum();
+    public static Comparator<Section> SnapCRN = new Comparator<Section>() {
+        public int compare(Section x, Section j) {
+           int num1 = x.getCRNum();
+           int num2 = j.getCRNum();
            
            return num1-num2;
        }};
 
-    public static Comparator<Section> eSnapNum = new Comparator<Section>() {
+    public static Comparator<Section> SnapNum = new Comparator<Section>() {
 		public int compare(Section s1, Section s2) {
 		   int num1 = s1.getNum();
 		   int num2 = s2.getNum();
