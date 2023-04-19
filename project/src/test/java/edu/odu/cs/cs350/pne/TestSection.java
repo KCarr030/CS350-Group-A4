@@ -6,6 +6,11 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 
 public class TestSection {
+
+    
+	@BeforeEach
+	void setUp() throws Exception {
+	}
     @Test
     void testSectionConstructor() {
         Section section = new Section(12345, "J.Morris", "CS 361", 50, 25);
