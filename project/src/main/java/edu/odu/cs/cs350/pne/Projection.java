@@ -15,7 +15,7 @@ import java.util.Vector;
  * 
  */
 
- public class projection {
+ public class Projection {
     public static void main(String[] args) {
         System.out.println("Enter 6-digit directory code(s) or path to write detailed projection report");
 

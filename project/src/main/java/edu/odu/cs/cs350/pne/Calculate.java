@@ -7,7 +7,7 @@ package edu.odu.cs.cs350.pne;
 
 
  // Class for performing the projection calculations. Will be called in projection.java functions. 
- public class calculate {
+ public class Calculate {
 
 
 
