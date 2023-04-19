@@ -33,6 +33,7 @@ public class Section {
 //-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //This constructor takes an array of Strings as a parameter, which represents the fields of a section in a university course catalog.
 //It then assigns the values of each field to the corresponding instance variables of the Section object being constructed. 
+
 	public Section(String[] fields) {	
         this.campus = fields[12];
         this.print = fields[14];
@@ -169,7 +170,7 @@ public class Section {
 		Collections.sort(alpha, Section.SnapNum);
 	
 		for(int i = 0; i < alpha.size(); i++) {
-			System.out.print(spec + alpha.get(i).getCourse() + "\t" + alpha.get(i).getEnrollment() + "/" + alpha.get(i).getCapacity() + "\n");
+			System.out.print(spec + alpha.get(i).getCourse() + "/src/test/data/History/" + alpha.get(i).getEnrollment() + "/src/test/data/History/" + alpha.get(i).getCapacity() + "/src/test/data/History/");
 		}
 	}
 	
