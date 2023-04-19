@@ -63,6 +63,11 @@ public class Directory {
             files.add(names);
         }
     }
+    
+    // public getter for files vector.
+    public Vector<File> getFiles(){
+        return files;
+    }
 
     /**
      * printContents is a function for checking output
