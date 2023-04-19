@@ -70,7 +70,7 @@ task workTree(dependsOn: ['clearPages']) {
     }
 }
 
-task copyReports (type: Copy, dependsOn: ['reports', 'workTree']) {
+task copyReports (type: Copy, dependsOn: ['Reports', 'workTree']) {
     from 'build/reports'
     into pagesDir
 }
@@ -106,6 +106,8 @@ task deployReports (type: Delete, dependsOn: 'pushWebsite') {
     description  'Commit and push website changes to GitHub'
     delete pagesDir
 }
+
+javadoc{}
 
 /*task deployReports (dependsOn: 'Reports') {
 	group = "Reporting"
