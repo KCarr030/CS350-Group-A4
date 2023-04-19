@@ -12,14 +12,18 @@ public class TestSection {
 	void setUp() throws Exception {
 	}
     @Test
-    void testSectionConstructor() {
-        Section section = new Section(12345, "J.Morris", "CS 361", 50, 25);
-        assertEquals(12345, section.getCrn());
-        assertEquals("J.Morris", section.getInstructor());
-        assertEquals("CS 361", section.getCourseName());
-        assertEquals(50, section.getCapacity());
-        assertEquals(25, section.getEnrollment());
-}
+	void testDefaultConstructor() {
+		Section x = new Section();
+		
+		assertEquals(x.getNum(), 000);
+		assertEquals(x.getCRNum(), 0);
+		assertEquals(x.getEnr(), 0);
+		assertEquals(x.getCap(), "0");
+	//	assertEquals(x.getCRN(), "0");
+		assertEquals(x.getSubj(), "");
+		assertEquals(x.getCrse(), "000L");
+		assertEquals(x.getCourse(), x.getSubj()+x.getCrse());
+	}
     @Test
     void testGetCrn() {
         int crn = 12345;

@@ -53,6 +53,30 @@ public class Section {
 		ptrm_end = fields[27];
 	}
 
+    public Section() {	
+        link = "";
+        campus = "";
+        print = "";
+        time = "";
+        days = "";
+        bldg = "";
+        room = "";	
+        seats = "";
+        CRN = "0";
+        subj = "";
+        crse = "000L";
+        cr_hrs = "";
+        xlst_cap = "0";
+        enr = "0";
+        instructor = "";
+        overall_cap = "0";
+        overall_enr = "0";
+        ptrm_start = "";
+        ptrm_end = "";
+         notes = "";
+         comments = "";
+}
+
     public static Comparator<Section> SnapCRN = new Comparator<Section>() {
         public int compare(Section x, Section j) {
            int num1 = x.getCRNum();
