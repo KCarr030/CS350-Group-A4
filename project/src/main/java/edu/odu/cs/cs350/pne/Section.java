@@ -180,7 +180,9 @@ public class Section {
     public String getCourse() {
         return subject + course;
     }
-
+	public String getTime() {
+        return time;
+    }
 	
     public String getCampus() {
         return campus;

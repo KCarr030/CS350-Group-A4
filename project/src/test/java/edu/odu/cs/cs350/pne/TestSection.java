@@ -26,7 +26,7 @@ public void testSectionConstructor() {
     Section section = new Section(fields);
 
     assertEquals("12345", section.getCRN());
-    assertEquals("CS361", section.getSubject());
+    assertEquals("CS361", section.getCourse());
     assertEquals("101", section.getCourse());
     assertEquals("30", section.getCrossListCapacity());
     assertEquals("20", section.getEnrollment());
