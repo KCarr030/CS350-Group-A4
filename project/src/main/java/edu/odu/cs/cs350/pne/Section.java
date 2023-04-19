@@ -93,7 +93,7 @@ public class Section {
         building = "";
         room = "";
         seats = "";
-        CRN = "";
+        CRN = 0;
         subject = "";
         course = "000L";
         creditHours = "";
