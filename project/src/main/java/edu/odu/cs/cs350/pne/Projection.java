@@ -4,10 +4,13 @@ import com.opencsv.CSVReader;
 import com.opencsv.exceptions.CsvValidationException;
 import java.io.FileReader;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Scanner;
 import java.util.Vector;
 
 /** This is the class
@@ -16,7 +19,7 @@ import java.util.Vector;
  */
 
  public class Projection {
-    public static void main(String[] args) {
+    public static void main(String[] args){
         System.out.println("Enter 6-digit directory code(s) or path to write detailed projection report");
 
         if (args.length == 1) {
@@ -54,10 +57,31 @@ import java.util.Vector;
             System.out.println(dirCode + " is an invalid directory code...");
         }
         String dirPath = "/src/test/data/History" + dirCode;
+        // Check if the dates.txt file is in the directory.
+        File datesFile = new File(dirPath + "/dates.txt");
+        if (!datesFile.exists()){
+            System.out.println("Error: dates.txt file not in directory " + dirPath);
+            return;
+        }
         Directory dir = new Directory(dirPath);
         dir.setDirectory(dirPath);
         Vector<File> files = dir.getFiles();
-        
+        // Read dates.txt to find the pre-registration date and add deadline date.
+        LocalDate preReg = null;
+        LocalDate addDeadline = null;
+        String preRegString;
+        String addDeadlineString;
+        try (Scanner scanner = new Scanner(datesFile)){
+            preRegString = scanner.nextLine().trim();
+            addDeadlineString = scanner.nextLine().trim();
+            preReg = LocalDate.parse(preRegString);
+            addDeadline = LocalDate.parse(addDeadlineString);
+        } catch (FileNotFoundException e){
+            return;
+        }
+        // Exclude the dates that are not needed.
+        dir.trimDates(preRegString, addDeadlineString);
+        files = dir.getFiles();
         // Loop through files and set data.
         for(int i = 0; i < files.size(); i++){
             
