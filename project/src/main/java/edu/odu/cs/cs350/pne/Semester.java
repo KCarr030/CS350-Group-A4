@@ -73,10 +73,10 @@ public class Semester
 
    
 
-/*
+
      public void readData()
      {
-        Vector<File> tempRead = this.semestDirct.files; // private member error, fix in next sprint
+        Vector<File> tempRead = this.semestDirct.getFiles();
 
         for(File itr : tempRead)
         {
@@ -88,23 +88,23 @@ public class Semester
                 {
                     String curLine = scanner.nextLine();
                     curLine = curLine.trim();
-                    String[] selected = curLine.split("",""); // splits line into separate strings by comma, causes error
+                    String[] selected = curLine.split(","); // splits line into separate strings by comma
                     Offering tempOff = new Offering(selected);
                     offering.add(tempOff);
                 }
                 scanner.close();
                 
             }
-            catch (FileNotFoundException e) // cannot find symbol error
+            catch (java.io.FileNotFoundException e)
             {
-                System.err.printIn("Error in finding files"); // cannot find symbol error
+                System.err.println("Error in finding files");
                 System.exit(1);
             }
         }
 
      
     }
-    */
+
 }
 
    
