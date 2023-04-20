@@ -25,9 +25,9 @@ test {
     useJUnitPlatform()
 }
 
-mainClassName = 'edu.odu.cs.Semester'
+mainClassName = 'edu.odu.cs.Projection'
 application {
-    mainClass = 'edu.odu.cs.Semester'
+    mainClass = 'edu.odu.cs.Projection'
 }
 
 java {
