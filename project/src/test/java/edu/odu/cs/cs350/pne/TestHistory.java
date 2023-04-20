@@ -20,11 +20,12 @@ public class TestHistory {
 
     @Test
     public void TestHistoryConstructor2() {
-        History historical = new History("CS", "CS350", null, null);
+        History historical = new History("CS", 350, "CS350", "A1", "1F");
         assertEquals("CS", historical.getSubject());
         assertEquals("CS350", historical.getCourseName());
-        assertEquals(null, historical.getLink());
-        assertEquals(null, historical.getXLSTGroup());
+        assertEquals(350, historical.getCRSE());
+        assertEquals("A1", historical.getLink());
+        assertEquals("1F", historical.getXLSTGroup());
     }
 
     @Test
@@ -77,7 +78,7 @@ public class TestHistory {
 
     @Test
     public void TestGetSubject() {
-        History historical = new History("CS", "CS350", null, null);
+        History historical = new History("CS", 350, "CS350", null, null);
         assertEquals("CS", historical.getSubject());
         assertNotNull(historical.getSubject());
         assertNotNull(historical);
@@ -87,29 +88,27 @@ public class TestHistory {
 
     @Test
     public void TestGetCourseName() {
-        History historical = new History("CS", "CS350", null, null);
+        History historical = new History("CS", 350,  "CS350", null, null);
         assertEquals("CS350", historical.getCourseName());
         assertNotNull(historical.getCourseName());
         assertFalse(historical.getCourseName().isEmpty());
         assertNotNull(historical);
-        assertTrue(historical.getCourseName().startsWith("CS"));
-        assertTrue(historical.getCourseName().endsWith("350"));
+        //assertTrue(historical.getCourseName().startsWith("CS"));
+        //assertTrue(historical.getCourseName().endsWith("350"));
 
     }
 
     @Test
     public void TestGetLink() {
-        History historical = new History("CS", "CS350", null, null);
-        assertEquals(null, historical.getLink());
-        assertTrue(historical.getLink().isEmpty());
+        History historical = new History("CS", 350, "CS350", "B1", null);
+        assertEquals("B1", historical.getLink());
         assertNotNull(historical);
     }
 
     @Test
     public void TestGetXLSTGroup() {
-        History historical = new History("CS", "CS350", null, null);
-        assertEquals(null, historical.getXLSTGroup());
-        assertTrue(historical.getXLSTGroup().isEmpty());
+        History historical = new History("CS", 350, "CS350", "B1", "1G");
+        assertEquals("1G", historical.getXLSTGroup());
         assertNotNull(historical);  
     }    
 }

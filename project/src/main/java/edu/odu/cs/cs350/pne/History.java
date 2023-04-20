@@ -30,10 +30,11 @@ import java.util.List;
             this.TotalStudEnr = TotalStudEnr;
         }
 
-        public History(String Subj, String CrseName, String Link, String XLSTGroup) {
+        public History(String Subj, int CRSE, String CrseName, String Link, String XLSTGroup) {
             this.Subj = Subj;
             this.CrseName = CrseName;
             this.Link = Link;
+            this.CRSE = CRSE;
             this.XLSTGroup = XLSTGroup;
         }
 
@@ -67,7 +68,8 @@ import java.util.List;
         }
 
         public String getCourseName() {
-            CrseName = Subj + CRSE;
+            String crse = String.valueOf(CRSE);
+            CrseName = Subj + crse;
             return CrseName;
         }
 
