@@ -16,24 +16,24 @@ public class TestSection {
 	}
 
     @Test
-public void testSectionConstructor() {
-    String csvFilePath = "/src/test/data/History/";
-    String[] fields = null;
-    try (BufferedReader reader = new BufferedReader(new FileReader(csvFilePath))) {
-        // Read the first line of the file and split it into fields
-        fields = reader.readLine().split(",");
-    } catch (IOException e) {
-        fail("Error reading CSV file: " + e.getMessage());
-    }
+    public void testSectionConstructor() {
+        String csvFilePath = "./src/test/data/201910/202020/2020-10-05.csv";
+        String[] fields = null;
+        try (BufferedReader reader = new BufferedReader(new FileReader(csvFilePath))) {
+            // Read the first line of the file and split it into fields
+            fields = reader.readLine().split(",");
+        } catch (IOException e) {
+            fail("Error reading CSV file: " + e.getMessage());
+        }
 
-    Section section = new Section(fields);
+        Section section = new Section(fields);
 
-    assertEquals("12345", section.getCRN());
-    assertEquals("CS361", section.getCourse());
-    assertEquals("101", section.getCourse());
-    assertEquals("30", section.getCrossListCapacity());
-    assertEquals("20", section.getEnrollment());
-    assertEquals("9:00am-9:50am", section.getTime());
+        assertEquals("12345", section.getCRN());
+        assertEquals("CS361", section.getCourse());
+        assertEquals("101", section.getCourse());
+        assertEquals("30", section.getCrossListCapacity());
+        assertEquals("20", section.getEnrollment());
+        assertEquals("9:00am-9:50am", section.getTime());
 }
 
     @Test
