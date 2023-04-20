@@ -1,12 +1,11 @@
-package edu.odu.cs.cs350;
+package edu.odu.cs.cs350.pne;
 import java.io.File;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.net.URL;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-
-import edu.odu.cs.cs350.pne.Projection;
+import edu.odu.cs.cs350.pne.Read;
 import edu.odu.cs.cs350.pne.Section;
 
 
@@ -21,12 +20,12 @@ public class Snapshot {
 
     public Snapshot(Path filePath) {
         this.date = getDateFromFileName(filePath.getFileName().toString());
-        this.sections = Projection.historicalEnrollment(filePath.toFile());
+        this.sections = Read.csvReadFunction(filePath.toFile());
     }
 
     public Snapshot(URL url) {
         this.date = null; 
-        this.sections = Projection.historicalEnrollment(url);
+        this.sections = Read.csvReadFunction(url);
     }
 
     public LocalDate getDate() {
