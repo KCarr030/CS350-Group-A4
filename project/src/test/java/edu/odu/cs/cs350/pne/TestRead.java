@@ -17,8 +17,8 @@ import static org.hamcrest.Matchers.*;
 public class TestRead {
 
     @Test
-    public void testCSV() throws CsvValidationException, IOException {
-        Read.file = "../../../../../data/History/202010/2020-04-01.csv";
+    public void testCSVRead() throws CsvValidationException, IOException {
+        Read.file = "./2020-04-01.csv";
         Read.csvReadFunction();
         assertFalse(Read.sections.isEmpty());
     }
