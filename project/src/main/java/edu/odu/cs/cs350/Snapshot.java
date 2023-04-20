@@ -1,5 +1,6 @@
 package edu.odu.cs.cs350;
 import java.io.File;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.net.URL;
 import java.time.LocalDate;
@@ -14,21 +15,18 @@ public class Snapshot {
     private ArrayList<Section> sections;
 
     public Snapshot() {
-        date = null;
-        sections = new ArrayList<Section>();
+        this.date = null;
+        this.sections = new ArrayList<>();
     }
 
-    public Snapshot(File f) {
-        String fileName = f.getName();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        LocalDate date = LocalDate.parse(fileName, formatter);
-        this.date = date;
-        this.sections = Projection.historicalEnrollment(f);
+    public Snapshot(Path filePath) {
+        this.date = getDateFromFileName(filePath.getFileName().toString());
+        this.sections = Projection.historicalEnrollment(filePath.toFile());
     }
 
-    public Snapshot(URL u) {
+    public Snapshot(URL url) {
         this.date = null; 
-        this.sections = Projection.getAllSections(u);
+        this.sections = Projection.historicalEnrollment(url);
     }
 
     public LocalDate getDate() {
@@ -41,5 +39,10 @@ public class Snapshot {
 
     public Section getSection(int index) {
         return this.sections.get(index);
+    }
+
+    private LocalDate getDateFromFileName(String fileName) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        return LocalDate.parse(fileName.substring(0, 10), formatter);
     }
 }
