@@ -2,5 +2,5 @@
 
 Group A4
 
-* [Tests](./reports/tests/test/)
-* [JavaDoc](./reports/javadoc/)
+* [Tests](./build/reports/tests/test/)
+* [JavaDoc](./build/reports/javadoc/)
