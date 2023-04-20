@@ -191,6 +191,18 @@ public class Section {
         return print;
     }
 
+    public String getSeats() {
+        return seats;
+    }
+
+    public String getSubject() {
+        return subject;
+    }
+    public String getCreditHours() {
+        return creditHours;
+    }
+
+
 	public String getBuilding() {
         return building;
     }
@@ -211,6 +223,9 @@ public class Section {
         return instructor;
     }
 
+    public String getRoom() {
+        return room;
+    }
 
     public int getNum() {
         return num;
@@ -250,6 +265,18 @@ public class Section {
 
     public String getPtrmEnd() {
         return ptrmEnd;
+    }
+
+    public String getOverallCapacity() {
+        return overallCapacity;
+    }
+    public String getOverallEnrollment() {
+        return overallEnrollment;
+    }
+
+
+    public void setCRN(int crn) {
+        this.CRN = crn;
     }
 
 }
