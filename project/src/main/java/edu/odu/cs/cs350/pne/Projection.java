@@ -109,7 +109,7 @@ import java.util.Vector;
                 // Perform the Summary projection.
                 Section.math(sections2);
             }
-            catch (IOException | CsvValidationException e) {
+            catch (IOException e) {
             // Handle exceptions from csvReadFunction
             e.printStackTrace();
             }

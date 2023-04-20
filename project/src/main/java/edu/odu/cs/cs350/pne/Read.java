@@ -21,15 +21,18 @@ public class Read {
     static String file;
     static ArrayList<Section> sections = new ArrayList<>();
     // Function for reading CSV files and setting each file as a section object. 
-    public static void csvReadFunction() throws IOException, CsvValidationException{
+    public static void csvReadFunction() throws IOException{
         FileReader fileReader = new FileReader(file);
         CSVReader csvRead = new CSVReaderBuilder(fileReader).withSkipLines(1).build();
         String[] numLine;
-        while ((numLine = csvRead.readNext()) != null){
-            Section currentSection = new Section(numLine);
-            sections.add(currentSection);
+        try{
+            while ((numLine = csvRead.readNext()) != null){
+                Section currentSection = new Section(numLine);
+                sections.add(currentSection);
+            }
+        }catch (CsvValidationException e){
+            e.printStackTrace();
         }
-
         csvRead.close();
         fileReader.close();
     }
