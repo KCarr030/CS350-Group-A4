@@ -1,6 +1,5 @@
 package edu.odu.cs.cs350.pne;
 
-import com.opencsv.CSVReader;
 import com.opencsv.exceptions.CsvValidationException;
 //import org.apache.poi.ss.usermodel.*;
 //import org.apache.poi.xssf.usermodel.XSSFWorkbook;
@@ -11,7 +10,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 import java.util.Vector;
@@ -99,10 +97,26 @@ import java.util.Vector;
         if(files.size() < 2){
             throw new IOException("Insufficient snapshots in " + dirCode);
         }
+
         // Loop through files and read data.
         for(int i = 0; i < files.size(); i++){
-            // code here for summary projection output... (Use read function and calculate).
+            // code here for summary projection output
+            Read.file = files.get(i).getAbsolutePath();
+            Read.sections.clear();
+            ArrayList<Section> sections2 = Read.sections;
+            try {
+                Read.csvReadFunction();
+                // Perform the Summary projection.
+                Section.math(sections2);
+            }
+            catch (IOException | CsvValidationException e) {
+            // Handle exceptions from csvReadFunction
+            e.printStackTrace();
+            }
         }
+        System.out.println(" of enrollment period has elapsed");
+        System.out.println("Course  Enrollment  Projected  Cap");
+        // Print the summary projection report data.
     }
 
     // Function that will allow a user to indicate a path for the file location where the detailed projection will be written.

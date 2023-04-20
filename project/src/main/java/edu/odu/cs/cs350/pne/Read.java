@@ -19,7 +19,7 @@ import java.util.List;
 
 public class Read {
     static String file;
-    static List<Section> sections = new ArrayList<>();
+    static ArrayList<Section> sections = new ArrayList<>();
     // Function for reading CSV files and setting each file as a section object. 
     public static void csvReadFunction() throws IOException, CsvValidationException{
         FileReader fileReader = new FileReader(file);
