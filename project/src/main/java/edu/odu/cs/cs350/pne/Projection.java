@@ -22,7 +22,7 @@ import java.util.Vector;
  */
 
  public class Projection {
-    public static void main(String[] args){
+    public static void main(String[] args) throws IOException{
         System.out.println("Enter 6-digit directory code(s) or path to write detailed projection report");
         // If a file location is written at the command line then call detailedProjection.
         if (args.length == 1) {
@@ -57,7 +57,7 @@ import java.util.Vector;
 
     // Function for a single directory location that indicates enrollment data for the semester for which a projection is desired.
     // Summary projection will be output.
-    public static void projectionSem(String dirCode){
+    public static void projectionSem(String dirCode) throws IOException{
         
         // error message if the code is not 6 digits.
         if (dirCode.length() != 6) {
@@ -93,9 +93,13 @@ import java.util.Vector;
         // Exclude the dates that are not needed.
         dir.trimDates(preRegString, addDeadlineString);
         files = dir.getFiles();
+        // Check if there are at least two snapshots remaining.
+        if(files.size() < 2){
+            throw new IOException("Insufficient snapshots in " + dirCode);
+        }
         // Loop through files and read data.
         for(int i = 0; i < files.size(); i++){
-            // code here for summary projection output... (Use read function and calculate)
+            // code here for summary projection output... (Use read function and calculate).
         }
     }
 
@@ -103,10 +107,10 @@ import java.util.Vector;
     public static void detailedProjection(String filepath){
         // Create an excel workbook that data will be written to.
         String fileLocation = filepath;
-        XSSFWorkbook workbook = new XSSFWorkbook();
+        //XSSFWorkbook workbook = new XSSFWorkbook();
 
         try (FileOutputStream out = new FileOutputStream(new File(fileLocation))) {
-            workbook.write(out);
+            //workbook.write(out);
             System.out.println("Excel spreadsheet created at file location typed");
         } catch (Exception e) {
             System.out.println("Could not create Excel spreadsheet: " + e.getMessage());
