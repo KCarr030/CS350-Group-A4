@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.Vector;
 
-/** This is the class
+/** This is the Projection class
  * @author Group A4
  * 
  */
