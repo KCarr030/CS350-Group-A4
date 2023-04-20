@@ -93,9 +93,6 @@ public class TestHistory {
         assertNotNull(historical.getCourseName());
         assertFalse(historical.getCourseName().isEmpty());
         assertNotNull(historical);
-        //assertTrue(historical.getCourseName().startsWith("CS"));
-        //assertTrue(historical.getCourseName().endsWith("350"));
-
     }
 
     @Test
