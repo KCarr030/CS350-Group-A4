@@ -17,23 +17,28 @@ public class TestSection {
 
     @Test
     public void testSectionConstructor() {
-        String csvFilePath = "./src/test/data/201910/202020/2020-10-05.csv";
-        String[] fields = null;
-        try (BufferedReader reader = new BufferedReader(new FileReader(csvFilePath))) {
-            // Read the first line of the file and split it into fields
-            fields = reader.readLine().split(",");
-        } catch (IOException e) {
-            fail("Error reading CSV file: " + e.getMessage());
-        }
-
-        Section section = new Section(fields);
-
-        assertEquals("12345", section.getCRN());
-        assertEquals("CS361", section.getCourse());
+        Section section = new Section();
+        assertEquals("Main", section.getCampus());
+        assertEquals("LEC", section.getPrint());
+        assertEquals("8:00 AM - 9:50 AM", section.getTime());
+        assertEquals("MWF", section.getDays());
+        assertEquals("Building A", section.getBuilding());
+        assertEquals("Room 101", section.getRoom());
+        assertEquals("50", section.getSeats());
+        assertEquals(12345, section.getCRN());
+        assertEquals("CS", section.getSubject());
         assertEquals("101", section.getCourse());
-        assertEquals("30", section.getCrossListCapacity());
-        assertEquals("20", section.getEnrollment());
-        assertEquals("9:00am-9:50am", section.getTime());
+        assertEquals("3.0", section.getCreditHours());
+        assertEquals("50", section.getCrossListCapacity());
+        assertEquals(0, section.getEnrollment());
+        assertEquals("https://example.com/cs101", section.getLink());
+        assertEquals("M. Smith", section.getInstructor());
+        assertEquals("50", section.getOverallCapacity());
+        assertEquals("0", section.getOverallEnrollment());
+        assertEquals("8:00 AM", section.getPtrmStart());
+        assertEquals("9:50 AM", section.getPtrmEnd());
+        assertEquals(50, section.getCapacity());
+        assertEquals(1, section.getNum());
 }
 
     @Test

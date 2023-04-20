@@ -187,6 +187,9 @@ public class Section {
     public String getCampus() {
         return campus;
     }
+    public String getPrint() {
+        return print;
+    }
 
 	public String getBuilding() {
         return building;
