@@ -49,6 +49,8 @@ import java.util.Vector;
             }
             String dirPath = "/src/test/data/History/" + dirCode;
             Directory dir = new Directory(dirPath);
+            System.out.println(dirCode + "Stored");
+
             dir.setDirectory(dirPath);
             List<File> snapshots = dir.getFiles();
         }
