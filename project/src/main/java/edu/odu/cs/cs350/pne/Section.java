@@ -19,7 +19,7 @@ public class Section {
     private String course;
     private String creditHours;
     private String crossListCapacity;
-    private String enrollment;
+    private int enrollment;
     private String link;
     private String instructor;
     private String overallCapacity;
@@ -47,7 +47,7 @@ public class Section {
         this.course = fields[3];
         this.creditHours = fields[5];
         this.crossListCapacity = fields[6];
-        this.enrollment = fields[7];
+        this.enrollment = Integer.parseInt("7");
         this.link = fields[8];
         this.instructor = fields[20];
         this.overallCapacity = fields[22];
@@ -98,7 +98,7 @@ public class Section {
         course = "000L";
         creditHours = "";
         crossListCapacity = "0";
-        enrollment = "0";
+        enrollment = 7;
         instructor = "";
         overallCapacity = "0";
         overallEnrollment = "0";
@@ -222,11 +222,11 @@ public class Section {
     }
 
     public int getEnrollment() {
-        return Integer.parseInt(enrollment);
+        return enrollment;
     }
 
     public void setEnrollment(int enrollment) {
-        this.enrollment = Integer.toString(enrollment);
+        this.enrollment = enrollment;
     }
 
     public int getCapacity() {

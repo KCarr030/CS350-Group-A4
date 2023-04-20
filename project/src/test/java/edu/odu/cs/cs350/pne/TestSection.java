@@ -46,9 +46,9 @@ public void testSectionConstructor() {
         assertEquals("", section.getInstructor());
         assertEquals("", section.getLink());
         assertEquals("000L", section.getCourse());
-        assertEquals("0", section.getCRN());
+        assertEquals(0, section.getCRN());
         assertEquals("0", section.getCrossListCapacity());
-        assertEquals("0", section.getEnrollment());
+        assertEquals(7, section.getEnrollment());
         assertEquals("", section.getPtrmStart());
         assertEquals("", section.getPtrmEnd());
     }
