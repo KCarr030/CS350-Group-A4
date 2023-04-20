@@ -21,7 +21,8 @@ public class Semester
         history = previous semester
         current = current semester*/
     
-    private List<Offering> offering;
+    private List<Offering> offering; // not needed potentially?
+    private List<Section> sections;
     private Directory semestDirct; // don't know if we needed a list of directory -nolan
     private List<History> history;
 
@@ -29,7 +30,7 @@ public class Semester
    
     
     //Constructor for integers and string variables
-    public Semester(Directory semesterDirct, String registDate, String withwDate, History history, String current, Offering offering)
+    public Semester(Directory semesterDirct, String registDate, String withwDate, History history, String current, Offering offering, Section sections)
     {
         
         this.registDate = registDate;
@@ -89,8 +90,8 @@ public class Semester
                     String curLine = scanner.nextLine();
                     curLine = curLine.trim();
                     String[] selected = curLine.split(","); // splits line into separate strings by comma
-                    Offering tempOff = new Offering(selected);
-                    offering.add(tempOff);
+                    Section tempOff = new Section(selected);
+                    sections.add(tempOff); // quickly switched to sections
                 }
                 scanner.close();
                 
