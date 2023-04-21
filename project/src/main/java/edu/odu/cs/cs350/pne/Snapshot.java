@@ -30,11 +30,11 @@ public class Snapshot {
         sections = Read.sections;
     }
 
-    public Snapshot(URL url) {
-        this.date = null; 
-       // this.sections = Read.csvReadFunction(url);
+    public Snapshot(URL url) throws IOException {
+        Read.file = url.toString();
+        Read.csvReadFunction();
+        sections = Read.sections;
     }
-
     public LocalDate getDate() {
         return this.date;
     }
