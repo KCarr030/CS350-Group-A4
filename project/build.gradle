@@ -3,6 +3,7 @@ plugins {
     id 'application'
     id 'project-report'
     id 'jacoco'
+    id 'pmd'
 }
 
 repositories {
@@ -30,6 +31,12 @@ test {
 jacocoTestReport{
     dependsOn test
 }
+
+pmd {
+    ignoreFailures = true
+    consoleOutput = false
+}
+pmdTest.enabled = false
 
 mainClassName = 'edu.odu.cs.Projection'
 application {
@@ -60,6 +67,11 @@ task Reports (dependsOn: ['javadoc', 'test', 'jacocoTestReport', 'projectReport'
 
         copy{
             from(file('build/reports/project'))
+            into(file('build/reports'))
+        }
+        
+        copy{
+            from(file('build/reports/pmd'))
             into(file('build/reports'))
         }
     }
