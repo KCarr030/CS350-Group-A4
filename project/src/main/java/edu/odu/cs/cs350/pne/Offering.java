@@ -16,6 +16,7 @@ import java.util.Set;
  */
 
  public class Offering {
+     // private member variables
     private String courseName;
     private LocalDate time;
    // private Directory directory;
@@ -37,7 +38,7 @@ import java.util.Set;
         this.maxCapacity = maxCapacity;
         this.instructorName = instructorName;
         }
-// getters
+ // Getter methods for the private member variables
         public String getCourseName() {
             return courseName;
         }
@@ -66,10 +67,12 @@ import java.util.Set;
             return instructorName;
         }
 
+         // Checks if the given Offering object has the same course, time and group
         public boolean isDuplicate(Offering other) {
             return courseName.equals(other.courseName) && time.equals(other.time) && group.equals(other.group);
         }
 
+        // Calculates the percentage of seats filled
         public double getPercentFilled() {
             return (double) enrollment / maxCapacity * 100;
         }
@@ -88,6 +91,7 @@ import java.util.Set;
             this.instructorName = fields[20];
         }
 
+        // Returns a string representation of the Offering object
         public String toString() {
             return String.format("%s %s %s %d/%d (%.1f%%) %s", courseName, time, group, enrollment, maxCapacity,
                     getPercentFilled(), instructorName);
