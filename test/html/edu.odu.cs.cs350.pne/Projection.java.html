@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Projection.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">project</a> &gt; <a href="index.source.html" class="el_package">edu.odu.cs.cs350.pne</a> &gt; <span class="el_source">Projection.java</span></div><h1>Projection.java</h1><pre class="source lang-java linenums">package edu.odu.cs.cs350.pne;
+
+import com.opencsv.exceptions.CsvValidationException;
+//import org.apache.poi.ss.usermodel.*;
+//import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import java.io.FileReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+import java.util.Vector;
+
+/** This is the Projection class
+ * @author Group A4
+ * 
+ */
+
+<span class="nc" id="L22"> public class Projection {</span>
+    public static void main(String[] args) throws IOException{
+<span class="nc" id="L24">        System.out.println(&quot;Enter 6-digit directory code(s) or path to write detailed projection report&quot;);</span>
+        // If a file location is written at the command line then call detailedProjection.
+<span class="nc bnc" id="L26" title="All 2 branches missed.">        if (args.length == 1) {</span>
+<span class="nc bnc" id="L27" title="All 2 branches missed.">            if (args[0].contains(&quot;/&quot;)){</span>
+<span class="nc" id="L28">                detailedProjection(args[0]);</span>
+            } else{
+                    // Call projectionSem for a single directory code entry.
+<span class="nc" id="L31">                    projectionSem(args[0]);</span>
+            
+                } 
+<span class="nc bnc" id="L34" title="All 2 branches missed.">        } else if (args.length &gt; 1) {</span>
+            // Call historicalEnrollment for multiple directory codes being entered.
+<span class="nc" id="L36">            historicalEnrollment(args);</span>
+        }
+<span class="nc" id="L38">    }</span>
+
+    // Function that takes a list of semester directories, indicating the location of historical enrollment data.
+    public static void historicalEnrollment(String[] dirCodes){
+        // Error message if the code is not 6 digits.
+<span class="nc bnc" id="L43" title="All 2 branches missed.">        for (String dirCode : dirCodes){</span>
+<span class="nc bnc" id="L44" title="All 2 branches missed.">            if (dirCode.length() != 6) {</span>
+<span class="nc" id="L45">                System.out.println(dirCode + &quot; is an invalid directory code...&quot;);</span>
+<span class="nc" id="L46">                continue;</span>
+            }
+<span class="nc" id="L48">            String dirPath = &quot;/src/test/data/History/&quot; + dirCode;</span>
+<span class="nc" id="L49">            Directory dir = new Directory(dirPath);</span>
+<span class="nc" id="L50">            System.out.println(dirCode + &quot;Stored&quot;);</span>
+
+<span class="nc" id="L52">            dir.setDirectory(dirPath);</span>
+<span class="nc" id="L53">            List&lt;File&gt; snapshots = dir.getFiles();</span>
+        }
+            
+<span class="nc" id="L56">    }</span>
+
+    // Function for a single directory location that indicates enrollment data for the semester for which a projection is desired.
+    // Summary projection will be output.
+    public static void projectionSem(String dirCode) throws IOException{
+        
+        // error message if the code is not 6 digits.
+<span class="pc bpc" id="L63" title="1 of 2 branches missed.">        if (dirCode.length() != 6) {</span>
+<span class="nc" id="L64">            System.out.println(dirCode + &quot; is an invalid directory code...&quot;);</span>
+        }
+<span class="fc" id="L66">        String dirPath = &quot;/src/test/data/History&quot; + dirCode;</span>
+        // Check if the dates.txt file is in the directory.
+<span class="fc" id="L68">        File datesFile = new File(dirPath + &quot;/dates.txt&quot;);</span>
+<span class="pc bpc" id="L69" title="1 of 2 branches missed.">        if (!datesFile.exists()){</span>
+<span class="fc" id="L70">            System.out.println(&quot;Error: dates.txt file not in directory &quot; + dirPath);</span>
+<span class="fc" id="L71">            return;</span>
+        }
+<span class="nc" id="L73">        Directory dir = new Directory(dirPath);</span>
+<span class="nc" id="L74">        dir.setDirectory(dirPath);</span>
+<span class="nc" id="L75">        Vector&lt;File&gt; files = dir.getFiles();</span>
+        // Display the files inside of the selected directory at the command line.
+<span class="nc bnc" id="L77" title="All 2 branches missed.">        for (File file : files) {</span>
+<span class="nc" id="L78">            System.out.println(file.getName());</span>
+<span class="nc" id="L79">        }</span>
+        // Read dates.txt to find the pre-registration date and add deadline date.
+<span class="nc" id="L81">        LocalDate preReg = null;</span>
+<span class="nc" id="L82">        LocalDate addDeadline = null;</span>
+        String preRegString;
+        String addDeadlineString;
+<span class="nc" id="L85">        try (Scanner scanner = new Scanner(datesFile)){</span>
+<span class="nc" id="L86">            preRegString = scanner.nextLine().trim();</span>
+<span class="nc" id="L87">            addDeadlineString = scanner.nextLine().trim();</span>
+<span class="nc" id="L88">            preReg = LocalDate.parse(preRegString);</span>
+<span class="nc" id="L89">            addDeadline = LocalDate.parse(addDeadlineString);</span>
+<span class="nc" id="L90">        } catch (FileNotFoundException e){</span>
+<span class="nc" id="L91">            return;</span>
+<span class="nc" id="L92">        }</span>
+        // Exclude the dates that are not needed.
+<span class="nc" id="L94">        dir.trimDates(preRegString, addDeadlineString);</span>
+<span class="nc" id="L95">        files = dir.getFiles();</span>
+        // Check if there are at least two snapshots remaining.
+<span class="nc bnc" id="L97" title="All 2 branches missed.">        if(files.size() &lt; 2){</span>
+<span class="nc" id="L98">            throw new IOException(&quot;Insufficient snapshots in &quot; + dirCode);</span>
+        }
+
+        // Loop through files and read data.
+<span class="nc bnc" id="L102" title="All 2 branches missed.">        for(int i = 0; i &lt; files.size(); i++){</span>
+            // code here for summary projection output
+<span class="nc" id="L104">            Read.file = files.get(i).getAbsolutePath();</span>
+<span class="nc" id="L105">            Read.sections.clear();</span>
+<span class="nc" id="L106">            ArrayList&lt;Section&gt; sections2 = Read.sections;</span>
+            try {
+<span class="nc" id="L108">                Read.csvReadFunction();</span>
+                // Perform the Summary projection.
+<span class="nc" id="L110">                Section.math(sections2);</span>
+            }
+<span class="nc" id="L112">            catch (IOException e) {</span>
+            // Handle exceptions from csvReadFunction
+<span class="nc" id="L114">            e.printStackTrace();</span>
+<span class="nc" id="L115">            }</span>
+        }
+<span class="nc" id="L117">        System.out.println(&quot; of enrollment period has elapsed&quot;);</span>
+<span class="nc" id="L118">        System.out.println(&quot;Course  Enrollment  Projected  Cap&quot;);</span>
+        // Print the summary projection report data.
+<span class="nc" id="L120">    }</span>
+
+    // Function that will allow a user to indicate a path for the file location where the detailed projection will be written.
+    public static void detailedProjection(String filepath){
+        // Create an excel workbook that data will be written to.
+<span class="nc" id="L125">        String fileLocation = filepath;</span>
+        //XSSFWorkbook workbook = new XSSFWorkbook();
+
+<span class="nc" id="L128">        try (FileOutputStream out = new FileOutputStream(new File(fileLocation))) {</span>
+            //workbook.write(out);
+<span class="nc" id="L130">            System.out.println(&quot;Excel spreadsheet created at file location typed&quot;);</span>
+<span class="nc" id="L131">        } catch (Exception e) {</span>
+<span class="nc" id="L132">            System.out.println(&quot;Could not create Excel spreadsheet: &quot; + e.getMessage());</span>
+<span class="nc" id="L133">        }</span>
+<span class="nc" id="L134">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
