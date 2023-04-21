@@ -41,7 +41,7 @@ java {
 	targetCompatibility = JavaVersion.toVersion(11)
 }
 
-task Reports (dependsOn: ['javadoc', 'test', 'jacocoTestReport']) {
+task Reports (dependsOn: ['javadoc', 'test', 'jacocoTestReport', 'projectReport']) {
     doLast() {
         copy {
             from(file('src/main/html/'))
@@ -55,6 +55,11 @@ task Reports (dependsOn: ['javadoc', 'test', 'jacocoTestReport']) {
 
         copy {
             from(file('build/reports/jacoco'))
+            into(file('build/reports'))
+        }
+
+        copy{
+            from(file('build/reports/project'))
             into(file('build/reports'))
         }
     }
@@ -144,3 +149,4 @@ task deployReports (type: Delete, dependsOn: 'pushWebsite') {
 }
 
 javadoc{}
+projectReport{}
