@@ -9,3 +9,7 @@ Testing
 
 * [Tests](./tests/test/)
 * [Unit Test Coverage](./jacoco/test/html/)
+
+Analysis
+
+* [PMD](./)

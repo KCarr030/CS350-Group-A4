@@ -72,6 +72,22 @@ jacocoAnt - The Jacoco ant tasks to use to get execute Gradle tasks.
 mainSourceElements - List of source directories contained in the Main SourceSet. (n)
 No dependencies
 
+pmd - The PMD libraries to be used for this project.
+\--- net.sourceforge.pmd:pmd-java:6.48.0
+     +--- net.sourceforge.pmd:pmd-core:6.48.0
+     |    +--- org.antlr:antlr4-runtime:4.7.2
+     |    +--- com.beust:jcommander:1.48
+     |    +--- net.sourceforge.saxon:saxon:9.1.0.8
+     |    +--- org.apache.commons:commons-lang3:3.8.1
+     |    +--- org.ow2.asm:asm:9.3
+     |    \--- com.google.code.gson:gson:2.8.9
+     +--- net.sourceforge.saxon:saxon:9.1.0.8
+     +--- org.ow2.asm:asm:9.3
+     \--- org.apache.commons:commons-lang3:3.8.1
+
+pmdAux - The additional libraries that are available for type resolution during analysis (n)
+No dependencies
+
 runtimeClasspath - Runtime classpath of source set 'main'.
 +--- com.opencsv:opencsv:5.5.2 -> 5.7.1
 |    +--- org.apache.commons:commons-lang3:3.12.0
@@ -153,6 +169,60 @@ No dependencies
 testImplementation - Implementation only dependencies for source set 'test'. (n)
 +--- org.junit.jupiter:junit-jupiter:5.7.0 (n)
 \--- org.hamcrest:hamcrest-library:2.2 (n)
+
+testPmdAuxClasspath
++--- com.opencsv:opencsv:5.5.2 -> 5.7.1
+|    +--- org.apache.commons:commons-lang3:3.12.0
+|    +--- org.apache.commons:commons-text:1.10.0
+|    |    \--- org.apache.commons:commons-lang3:3.12.0
+|    +--- commons-beanutils:commons-beanutils:1.9.4
+|    |    +--- commons-logging:commons-logging:1.2
+|    |    \--- commons-collections:commons-collections:3.2.2
+|    \--- org.apache.commons:commons-collections4:4.4
++--- org.apache.poi:poi:4.1.2
+|    +--- commons-codec:commons-codec:1.13
+|    +--- org.apache.commons:commons-collections4:4.4
+|    +--- org.apache.commons:commons-math3:3.6.1
+|    \--- com.zaxxer:SparseBitSet:1.2
++--- org.apache.poi:poi-ooxml:4.1.2
+|    +--- org.apache.poi:poi:4.1.2 (*)
+|    +--- org.apache.poi:poi-ooxml-schemas:4.1.2
+|    |    \--- org.apache.xmlbeans:xmlbeans:3.1.0
+|    +--- org.apache.commons:commons-compress:1.19
+|    \--- com.github.virtuald:curvesapi:1.06
++--- org.apache.poi:poi-ooxml-schemas:4.1.2 (*)
++--- com.opencsv:opencsv:5.7.1 (*)
++--- org.junit.jupiter:junit-jupiter:5.7.0
+|    +--- org.junit:junit-bom:5.7.0
+|    |    +--- org.junit.jupiter:junit-jupiter:5.7.0 (c)
+|    |    +--- org.junit.jupiter:junit-jupiter-api:5.7.0 (c)
+|    |    +--- org.junit.jupiter:junit-jupiter-engine:5.7.0 (c)
+|    |    +--- org.junit.jupiter:junit-jupiter-params:5.7.0 (c)
+|    |    +--- org.junit.platform:junit-platform-commons:1.7.0 (c)
+|    |    \--- org.junit.platform:junit-platform-engine:1.7.0 (c)
+|    +--- org.junit.jupiter:junit-jupiter-api:5.7.0
+|    |    +--- org.junit:junit-bom:5.7.0 (*)
+|    |    +--- org.apiguardian:apiguardian-api:1.1.0
+|    |    +--- org.opentest4j:opentest4j:1.2.0
+|    |    \--- org.junit.platform:junit-platform-commons:1.7.0
+|    |         +--- org.junit:junit-bom:5.7.0 (*)
+|    |         \--- org.apiguardian:apiguardian-api:1.1.0
+|    +--- org.junit.jupiter:junit-jupiter-params:5.7.0
+|    |    +--- org.junit:junit-bom:5.7.0 (*)
+|    |    +--- org.apiguardian:apiguardian-api:1.1.0
+|    |    \--- org.junit.jupiter:junit-jupiter-api:5.7.0 (*)
+|    \--- org.junit.jupiter:junit-jupiter-engine:5.7.0
+|         +--- org.junit:junit-bom:5.7.0 (*)
+|         +--- org.apiguardian:apiguardian-api:1.1.0
+|         +--- org.junit.platform:junit-platform-engine:1.7.0
+|         |    +--- org.junit:junit-bom:5.7.0 (*)
+|         |    +--- org.apiguardian:apiguardian-api:1.1.0
+|         |    +--- org.opentest4j:opentest4j:1.2.0
+|         |    \--- org.junit.platform:junit-platform-commons:1.7.0 (*)
+|         \--- org.junit.jupiter:junit-jupiter-api:5.7.0 (*)
+\--- org.hamcrest:hamcrest-library:2.2
+     \--- org.hamcrest:hamcrest-core:2.2
+          \--- org.hamcrest:hamcrest:2.2
 
 testResultsElementsForTest - Directory containing binary results of running tests for the test Test Suite's test target. (n)
 No dependencies
