@@ -8,6 +8,10 @@ import java.time.format.DateTimeFormatter;
 import edu.odu.cs.cs350.pne.Read;
 import java.io.IOException;
 
+import com.opencsv.CSVReader;
+import com.opencsv.CSVReaderBuilder;
+import com.opencsv.exceptions.CsvValidationException;
+
 
 /** This is the Snapshot class
  * @author Group A4
@@ -15,7 +19,7 @@ import java.io.IOException;
  */
 
 
-public class Snapshot {
+ public class Snapshot {
     private LocalDate date;
     private ArrayList<Section> sections = new ArrayList<>();
 
@@ -35,6 +39,7 @@ public class Snapshot {
         Read.csvReadFunction();
         sections = Read.sections;
     }
+
     public LocalDate getDate() {
         return this.date;
     }
@@ -47,9 +52,18 @@ public class Snapshot {
         this.sections = sections;
     }
 
-    private LocalDate getDateFromFileName(String fileName) {
+    public LocalDate getLocalDateFromFileName(String fileName) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         return LocalDate.parse(fileName.substring(0, 10), formatter);
+    }
+
+    private static class Read {
+        static String file;
+        static ArrayList<Section> sections = new ArrayList<>();
+
+        public static void csvReadFunction() throws IOException {
+            // code for reading CSV file and creating Section objects
+        }
     }
 
     public static void main(String[] args) {
