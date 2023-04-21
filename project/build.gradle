@@ -2,6 +2,7 @@ plugins {
     id 'java'
     id 'application'
     id 'project-report'
+    id 'jacoco'
 }
 
 repositories {
@@ -23,6 +24,11 @@ def pagesDir = file("${project.rootDir}/../website-temp").absolutePath
 test {
     ignoreFailures = true
     useJUnitPlatform()
+    finalizedBy jacocoTestReport
+}
+
+jacocoTestReport{
+    dependsOn test
 }
 
 mainClassName = 'edu.odu.cs.Projection'
@@ -35,7 +41,7 @@ java {
 	targetCompatibility = JavaVersion.toVersion(11)
 }
 
-task Reports (dependsOn: ['javadoc', 'test']) {
+task Reports (dependsOn: ['javadoc', 'test', 'jacocoTestReport']) {
     doLast() {
         copy {
             from(file('src/main/html/'))
@@ -44,6 +50,11 @@ task Reports (dependsOn: ['javadoc', 'test']) {
 
         copy {
             from(file('build/docs'))
+            into(file('build/reports'))
+        }
+
+        copy {
+            from(file('build/reports/jacoco/test/html'))
             into(file('build/reports'))
         }
     }
@@ -125,10 +136,6 @@ task deployReports (type: Delete, dependsOn: 'pushWebsite') {
             workingDir = pagesDir
             commandLine = ['git', 'add', '.']
         }
-        /*exec {
-            workingDir = pagesDir
-            commandLine = ['cmd', 'git', 'commit', '-m', 'Updating-Webpages']
-        }*/
         exec {
             workingDir = pagesDir
             commandLine = ['git', 'push']
