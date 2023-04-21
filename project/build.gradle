@@ -50,6 +50,10 @@ spotbugsMain {
 }
 spotbugsTest.enabled = false
 
+javadoc{}
+
+projectReport{}
+
 mainClassName = 'edu.odu.cs.Projection'
 application {
     mainClass = 'edu.odu.cs.Projection'
@@ -60,7 +64,7 @@ java {
 	targetCompatibility = JavaVersion.toVersion(11)
 }
 
-task Reports (dependsOn: ['javadoc', 'test', 'jacocoTestReport', 'projectReport', 'spotbugsMain']) {
+task Reports (dependsOn: ['javadoc', 'test']) {
     doLast() {
         copy {
             from(file('src/main/html/'))
@@ -69,26 +73,6 @@ task Reports (dependsOn: ['javadoc', 'test', 'jacocoTestReport', 'projectReport'
 
         copy {
             from(file('build/docs'))
-            into(file('build/reports'))
-        }
-
-        copy {
-            from(file('build/reports/jacoco'))
-            into(file('build/reports'))
-        }
-
-        copy{
-            from(file('build/reports/project'))
-            into(file('build/reports'))
-        }
-        
-        copy{
-            from(file('build/reports/pmd'))
-            into(file('build/reports'))
-        }
-
-        copy{
-            from(file('build/reports/spotbugs'))
             into(file('build/reports'))
         }
     }
@@ -176,6 +160,3 @@ task deployReports (type: Delete, dependsOn: 'pushWebsite') {
         }
     }
 }
-
-javadoc{}
-projectReport{}
