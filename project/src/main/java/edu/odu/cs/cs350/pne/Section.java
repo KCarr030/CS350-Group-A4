@@ -294,6 +294,7 @@ public class Section {
     public String getName() {
         return this.name;
     }
+    
 
 }
 

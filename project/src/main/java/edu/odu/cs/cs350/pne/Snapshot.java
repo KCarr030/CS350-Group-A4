@@ -3,6 +3,7 @@ import java.io.File;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.net.URL;
+import java.io.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import edu.odu.cs.cs350.pne.Read;
@@ -62,8 +63,17 @@ import com.opencsv.exceptions.CsvValidationException;
         static ArrayList<Section> sections = new ArrayList<>();
 
         public static void csvReadFunction() throws IOException {
-            // code for reading CSV file and creating Section objects
-        }
+            BufferedReader br = new BufferedReader(new FileReader(file));
+                String line = "";
+                while ((line = br.readLine()) != null) {
+                    String[] data = line.split(",");
+                    String sectionName = data[0];
+                    int sectionNumber = Integer.parseInt(data[1]);
+                    // create a new Section object and add it to the sections list
+                    //sections.add(new Section(sectionName, sectionNumber));
+                }
+                br.close();
+            }
     }
 
     public static void main(String[] args) {
