@@ -1,0 +1,730 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta charset="UTF-8"/>
+      <title>SpotBugs Report</title>
+      <style type="text/css">
+		.tablerow0 {
+			background: #EEEEEE;
+		}
+
+		.tablerow1 {
+			background: white;
+		}
+
+		.detailrow0 {
+			background: #EEEEEE;
+		}
+
+		.detailrow1 {
+			background: white;
+		}
+
+		.tableheader {
+			background: #b9b9fe;
+			font-size: larger;
+		}
+
+		.tablerow0:hover, .tablerow1:hover {
+			background: #aaffaa;
+		}
+
+		.priority-1 {
+				color: red;
+				font-weight: bold;
+		}
+		.priority-2 {
+				color: orange;
+				font-weight: bold;
+		}
+		.priority-3 {
+				color: green;
+				font-weight: bold;
+		}
+		.priority-4 {
+				color: blue;
+				font-weight: bold;
+		}
+		</style>
+      <script type="text/javascript">
+			function toggleRow(elid) {
+				if (document.getElementById) {
+					element = document.getElementById(elid);
+					if (element) {
+						if (element.style.display == 'none') {
+							element.style.display = 'block';
+							//window.status = 'Toggle on!';
+						} else {
+							element.style.display = 'none';
+							//window.status = 'Toggle off!';
+						}
+					}
+				}
+			}
+		</script>
+   </head>
+   <body>
+      <h1>
+         <a href="https://spotbugs.github.io/">SpotBugs</a> Report</h1>
+      <h2>Project Information</h2>
+      <p>Project: 
+		project (spotbugsMain)</p>
+      <p>SpotBugs version: 4.5.0</p>
+      <p>Code analyzed:</p>
+      <ul>
+         <li>/home/cs_mbank010/PROJECT/CS350-Group-A4/project/build/classes/java/main/edu/odu/cs/cs350/pne/Course.class</li>
+         <li>/home/cs_mbank010/PROJECT/CS350-Group-A4/project/build/classes/java/main/edu/odu/cs/cs350/pne/Offering.class</li>
+         <li>/home/cs_mbank010/PROJECT/CS350-Group-A4/project/build/classes/java/main/edu/odu/cs/cs350/pne/CurrentCourse.class</li>
+         <li>/home/cs_mbank010/PROJECT/CS350-Group-A4/project/build/classes/java/main/edu/odu/cs/cs350/pne/Directory.class</li>
+         <li>/home/cs_mbank010/PROJECT/CS350-Group-A4/project/build/classes/java/main/edu/odu/cs/cs350/pne/History.class</li>
+         <li>/home/cs_mbank010/PROJECT/CS350-Group-A4/project/build/classes/java/main/edu/odu/cs/cs350/pne/Section$1.class</li>
+         <li>/home/cs_mbank010/PROJECT/CS350-Group-A4/project/build/classes/java/main/edu/odu/cs/cs350/pne/Section$2.class</li>
+         <li>/home/cs_mbank010/PROJECT/CS350-Group-A4/project/build/classes/java/main/edu/odu/cs/cs350/pne/Section.class</li>
+         <li>/home/cs_mbank010/PROJECT/CS350-Group-A4/project/build/classes/java/main/edu/odu/cs/cs350/pne/Semester.class</li>
+         <li>/home/cs_mbank010/PROJECT/CS350-Group-A4/project/build/classes/java/main/edu/odu/cs/cs350/pne/Calculate.class</li>
+         <li>/home/cs_mbank010/PROJECT/CS350-Group-A4/project/build/classes/java/main/edu/odu/cs/cs350/pne/Read.class</li>
+         <li>/home/cs_mbank010/PROJECT/CS350-Group-A4/project/build/classes/java/main/edu/odu/cs/cs350/pne/Projection.class</li>
+         <li>/home/cs_mbank010/PROJECT/CS350-Group-A4/project/build/classes/java/main/edu/odu/cs/cs350/pne/Snapshot.class</li>
+      </ul>
+      <p>
+         <br/>
+         <br/>
+      </p>
+      <h2>Metrics</h2>
+      <p>565 lines of code analyzed,
+	in 13 classes, 
+	in 1 packages.</p>
+      <table width="500" cellpadding="5" cellspacing="2">
+         <tr class="tableheader">
+            <th align="left">Metric</th>
+            <th align="right">Total</th>
+            <th align="right">Density*</th>
+         </tr>
+         <tr class="tablerow0">
+            <td>High Priority Warnings</td>
+            <td align="right">5</td>
+            <td align="right">8.85</td>
+         </tr>
+         <tr class="tablerow1">
+            <td>Medium Priority Warnings</td>
+            <td align="right">23</td>
+            <td align="right">40.71</td>
+         </tr>
+         <tr class="$totalClass">
+            <td>
+               <b>Total Warnings</b>
+            </td>
+            <td align="right">
+               <b>28</b>
+            </td>
+            <td align="right">
+               <b>49.56</b>
+            </td>
+         </tr>
+      </table>
+      <p>
+         <i>(* Defects per Thousand lines of non-commenting source statements)</i>
+      </p>
+      <p>
+         <br/>
+         <br/>
+      </p>
+      <h2>Contents</h2>
+      <ul>
+         <li>
+            <a href="#Warnings_BAD_PRACTICE">Bad practice Warnings</a>
+         </li>
+         <li>
+            <a href="#Warnings_CORRECTNESS">Correctness Warnings</a>
+         </li>
+         <li>
+            <a href="#Warnings_I18N">Internationalization Warnings</a>
+         </li>
+         <li>
+            <a href="#Warnings_MALICIOUS_CODE">Malicious code vulnerability Warnings</a>
+         </li>
+         <li>
+            <a href="#Warnings_STYLE">Dodgy code Warnings</a>
+         </li>
+         <li>
+            <a href="#Details">Details</a>
+         </li>
+      </ul>
+      <h1>Summary</h1>
+      <table width="500" cellpadding="5" cellspacing="2">
+         <tr class="tableheader">
+            <th align="left">Warning Type</th>
+            <th align="right">Number</th>
+         </tr>
+         <tr class="tablerow0">
+            <td>
+               <a href="#Warnings_BAD_PRACTICE">Bad practice Warnings</a>
+            </td>
+            <td align="right">3</td>
+         </tr>
+         <tr class="tablerow1">
+            <td>
+               <a href="#Warnings_CORRECTNESS">Correctness Warnings</a>
+            </td>
+            <td align="right">9</td>
+         </tr>
+         <tr class="tablerow0">
+            <td>
+               <a href="#Warnings_I18N">Internationalization Warnings</a>
+            </td>
+            <td align="right">3</td>
+         </tr>
+         <tr class="tablerow1">
+            <td>
+               <a href="#Warnings_MALICIOUS_CODE">Malicious code vulnerability Warnings</a>
+            </td>
+            <td align="right">9</td>
+         </tr>
+         <tr class="tablerow0">
+            <td>
+               <a href="#Warnings_STYLE">Dodgy code Warnings</a>
+            </td>
+            <td align="right">4</td>
+         </tr>
+         <tr class="tablerow1">
+            <td>
+               <b>Total</b>
+            </td>
+            <td align="right">
+               <b>28</b>
+            </td>
+         </tr>
+      </table>
+      <h1>Warnings</h1>
+      <p>Click on a warning row to see full context information.</p>
+      <h2>
+         <a name="Warnings_BAD_PRACTICE">Bad practice Warnings</a>
+      </h2>
+      <table class="warningtable" width="100%" cellspacing="0">
+         <tr class="tableheader">
+            <th align="left">Code</th>
+            <th align="left">Warning</th>
+         </tr>
+         <tr class="tablerow1" onclick="toggleRow('d1e275');">
+            <td>
+               <span class="priority-2">Dm</span>
+            </td>
+            <td>edu.odu.cs.cs350.pne.Semester.readData() invokes System.exit(...), which shuts down the entire virtual machine</td>
+         </tr>
+         <tr class="detailrow1">
+            <td/>
+            <td>
+               <p id="d1e275" style="display: none;">
+                  <a href="#DM_EXIT">Bug type DM_EXIT (click for details)</a>
+                  <br/>In class edu.odu.cs.cs350.pne.Semester<br/>In method edu.odu.cs.cs350.pne.Semester.readData()<br/>At Semester.java:[line 102]</p>
+            </td>
+         </tr>
+         <tr class="tablerow0" onclick="toggleRow('d1e234');">
+            <td>
+               <span class="priority-2">Nm</span>
+            </td>
+            <td>The field name edu.odu.cs.cs350.pne.Section.SnapCRN doesn't start with a lower case letter</td>
+         </tr>
+         <tr class="detailrow0">
+            <td/>
+            <td>
+               <p id="d1e234" style="display: none;">
+                  <a href="#NM_FIELD_NAMING_CONVENTION">Bug type NM_FIELD_NAMING_CONVENTION (click for details)</a>
+                  <br/>In class edu.odu.cs.cs350.pne.Section<br/>Field edu.odu.cs.cs350.pne.Section.SnapCRN<br/>In Section.java</p>
+            </td>
+         </tr>
+         <tr class="tablerow1" onclick="toggleRow('d1e247');">
+            <td>
+               <span class="priority-2">Nm</span>
+            </td>
+            <td>The field name edu.odu.cs.cs350.pne.Section.SnapNum doesn't start with a lower case letter</td>
+         </tr>
+         <tr class="detailrow1">
+            <td/>
+            <td>
+               <p id="d1e247" style="display: none;">
+                  <a href="#NM_FIELD_NAMING_CONVENTION">Bug type NM_FIELD_NAMING_CONVENTION (click for details)</a>
+                  <br/>In class edu.odu.cs.cs350.pne.Section<br/>Field edu.odu.cs.cs350.pne.Section.SnapNum<br/>In Section.java</p>
+            </td>
+         </tr>
+      </table>
+      <h2>
+         <a name="Warnings_CORRECTNESS">Correctness Warnings</a>
+      </h2>
+      <table class="warningtable" width="100%" cellspacing="0">
+         <tr class="tableheader">
+            <th align="left">Code</th>
+            <th align="left">Warning</th>
+         </tr>
+         <tr class="tablerow1" onclick="toggleRow('d1e52');">
+            <td>
+               <span class="priority-2">NP</span>
+            </td>
+            <td>Read of unwritten field offerings in edu.odu.cs.cs350.pne.Course.addOffering(Offering)</td>
+         </tr>
+         <tr class="detailrow1">
+            <td/>
+            <td>
+               <p id="d1e52" style="display: none;">
+                  <a href="#NP_UNWRITTEN_FIELD">Bug type NP_UNWRITTEN_FIELD (click for details)</a>
+                  <br/>In class edu.odu.cs.cs350.pne.Course<br/>In method edu.odu.cs.cs350.pne.Course.addOffering(Offering)<br/>Field edu.odu.cs.cs350.pne.Course.offerings<br/>At Course.java:[line 32]</p>
+            </td>
+         </tr>
+         <tr class="tablerow0" onclick="toggleRow('d1e68');">
+            <td>
+               <span class="priority-2">NP</span>
+            </td>
+            <td>Read of unwritten field offerings in edu.odu.cs.cs350.pne.Course.getCourseEnrollment()</td>
+         </tr>
+         <tr class="detailrow0">
+            <td/>
+            <td>
+               <p id="d1e68" style="display: none;">
+                  <a href="#NP_UNWRITTEN_FIELD">Bug type NP_UNWRITTEN_FIELD (click for details)</a>
+                  <br/>In class edu.odu.cs.cs350.pne.Course<br/>In method edu.odu.cs.cs350.pne.Course.getCourseEnrollment()<br/>Field edu.odu.cs.cs350.pne.Course.offerings<br/>At Course.java:[line 36]</p>
+            </td>
+         </tr>
+         <tr class="tablerow1" onclick="toggleRow('d1e335');">
+            <td>
+               <span class="priority-2">NP</span>
+            </td>
+            <td>Read of unwritten field sections in edu.odu.cs.cs350.pne.Semester.readData()</td>
+         </tr>
+         <tr class="detailrow1">
+            <td/>
+            <td>
+               <p id="d1e335" style="display: none;">
+                  <a href="#NP_UNWRITTEN_FIELD">Bug type NP_UNWRITTEN_FIELD (click for details)</a>
+                  <br/>In class edu.odu.cs.cs350.pne.Semester<br/>In method edu.odu.cs.cs350.pne.Semester.readData()<br/>Field edu.odu.cs.cs350.pne.Semester.sections<br/>At Semester.java:[line 94]</p>
+            </td>
+         </tr>
+         <tr class="tablerow0" onclick="toggleRow('d1e352');">
+            <td>
+               <span class="priority-2">NP</span>
+            </td>
+            <td>Read of unwritten field semestDirct in edu.odu.cs.cs350.pne.Semester.readData()</td>
+         </tr>
+         <tr class="detailrow0">
+            <td/>
+            <td>
+               <p id="d1e352" style="display: none;">
+                  <a href="#NP_UNWRITTEN_FIELD">Bug type NP_UNWRITTEN_FIELD (click for details)</a>
+                  <br/>In class edu.odu.cs.cs350.pne.Semester<br/>In method edu.odu.cs.cs350.pne.Semester.readData()<br/>Field edu.odu.cs.cs350.pne.Semester.semestDirct<br/>At Semester.java:[line 80]</p>
+            </td>
+         </tr>
+         <tr class="tablerow1" onclick="toggleRow('d1e84');">
+            <td>
+               <span class="priority-2">UwF</span>
+            </td>
+            <td>Unwritten field: edu.odu.cs.cs350.pne.Course.offerings</td>
+         </tr>
+         <tr class="detailrow1">
+            <td/>
+            <td>
+               <p id="d1e84" style="display: none;">
+                  <a href="#UWF_UNWRITTEN_FIELD">Bug type UWF_UNWRITTEN_FIELD (click for details)</a>
+                  <br/>In class edu.odu.cs.cs350.pne.Course<br/>Field edu.odu.cs.cs350.pne.Course.offerings<br/>At Course.java:[line 29]</p>
+            </td>
+         </tr>
+         <tr class="tablerow0" onclick="toggleRow('d1e368');">
+            <td>
+               <span class="priority-2">UwF</span>
+            </td>
+            <td>Unwritten field: edu.odu.cs.cs350.pne.Semester.history</td>
+         </tr>
+         <tr class="detailrow0">
+            <td/>
+            <td>
+               <p id="d1e368" style="display: none;">
+                  <a href="#UWF_UNWRITTEN_FIELD">Bug type UWF_UNWRITTEN_FIELD (click for details)</a>
+                  <br/>In class edu.odu.cs.cs350.pne.Semester<br/>Field edu.odu.cs.cs350.pne.Semester.history<br/>At Semester.java:[line 60]</p>
+            </td>
+         </tr>
+         <tr class="tablerow1" onclick="toggleRow('d1e381');">
+            <td>
+               <span class="priority-2">UwF</span>
+            </td>
+            <td>Unwritten field: edu.odu.cs.cs350.pne.Semester.offering</td>
+         </tr>
+         <tr class="detailrow1">
+            <td/>
+            <td>
+               <p id="d1e381" style="display: none;">
+                  <a href="#UWF_UNWRITTEN_FIELD">Bug type UWF_UNWRITTEN_FIELD (click for details)</a>
+                  <br/>In class edu.odu.cs.cs350.pne.Semester<br/>Field edu.odu.cs.cs350.pne.Semester.offering<br/>At Semester.java:[line 70]</p>
+            </td>
+         </tr>
+         <tr class="tablerow0" onclick="toggleRow('d1e394');">
+            <td>
+               <span class="priority-2">UwF</span>
+            </td>
+            <td>Unwritten field: edu.odu.cs.cs350.pne.Semester.sections</td>
+         </tr>
+         <tr class="detailrow0">
+            <td/>
+            <td>
+               <p id="d1e394" style="display: none;">
+                  <a href="#UWF_UNWRITTEN_FIELD">Bug type UWF_UNWRITTEN_FIELD (click for details)</a>
+                  <br/>In class edu.odu.cs.cs350.pne.Semester<br/>Field edu.odu.cs.cs350.pne.Semester.sections<br/>At Semester.java:[line 94]</p>
+            </td>
+         </tr>
+         <tr class="tablerow1" onclick="toggleRow('d1e407');">
+            <td>
+               <span class="priority-2">UwF</span>
+            </td>
+            <td>Unwritten field: edu.odu.cs.cs350.pne.Semester.semestDirct</td>
+         </tr>
+         <tr class="detailrow1">
+            <td/>
+            <td>
+               <p id="d1e407" style="display: none;">
+                  <a href="#UWF_UNWRITTEN_FIELD">Bug type UWF_UNWRITTEN_FIELD (click for details)</a>
+                  <br/>In class edu.odu.cs.cs350.pne.Semester<br/>Field edu.odu.cs.cs350.pne.Semester.semestDirct<br/>At Semester.java:[line 45]</p>
+            </td>
+         </tr>
+      </table>
+      <h2>
+         <a name="Warnings_I18N">Internationalization Warnings</a>
+      </h2>
+      <table class="warningtable" width="100%" cellspacing="0">
+         <tr class="tableheader">
+            <th align="left">Code</th>
+            <th align="left">Warning</th>
+         </tr>
+         <tr class="tablerow1" onclick="toggleRow('d1e177');">
+            <td>
+               <span class="priority-1">Dm</span>
+            </td>
+            <td>Found reliance on default encoding in edu.odu.cs.cs350.pne.Projection.projectionSem(String): new java.util.Scanner(File)</td>
+         </tr>
+         <tr class="detailrow1">
+            <td/>
+            <td>
+               <p id="d1e177" style="display: none;">
+                  <a href="#DM_DEFAULT_ENCODING">Bug type DM_DEFAULT_ENCODING (click for details)</a>
+                  <br/>In class edu.odu.cs.cs350.pne.Projection<br/>In method edu.odu.cs.cs350.pne.Projection.projectionSem(String)<br/>Called method new java.util.Scanner(File)<br/>At Projection.java:[line 85]</p>
+            </td>
+         </tr>
+         <tr class="tablerow0" onclick="toggleRow('d1e193');">
+            <td>
+               <span class="priority-1">Dm</span>
+            </td>
+            <td>Found reliance on default encoding in edu.odu.cs.cs350.pne.Read.csvReadFunction(): new java.io.FileReader(String)</td>
+         </tr>
+         <tr class="detailrow0">
+            <td/>
+            <td>
+               <p id="d1e193" style="display: none;">
+                  <a href="#DM_DEFAULT_ENCODING">Bug type DM_DEFAULT_ENCODING (click for details)</a>
+                  <br/>In class edu.odu.cs.cs350.pne.Read<br/>In method edu.odu.cs.cs350.pne.Read.csvReadFunction()<br/>Called method new java.io.FileReader(String)<br/>At Read.java:[line 25]</p>
+            </td>
+         </tr>
+         <tr class="tablerow1" onclick="toggleRow('d1e260');">
+            <td>
+               <span class="priority-1">Dm</span>
+            </td>
+            <td>Found reliance on default encoding in edu.odu.cs.cs350.pne.Semester.readData(): new java.util.Scanner(File)</td>
+         </tr>
+         <tr class="detailrow1">
+            <td/>
+            <td>
+               <p id="d1e260" style="display: none;">
+                  <a href="#DM_DEFAULT_ENCODING">Bug type DM_DEFAULT_ENCODING (click for details)</a>
+                  <br/>In class edu.odu.cs.cs350.pne.Semester<br/>In method edu.odu.cs.cs350.pne.Semester.readData()<br/>Called method new java.util.Scanner(File)<br/>At Semester.java:[line 86]</p>
+            </td>
+         </tr>
+      </table>
+      <h2>
+         <a name="Warnings_MALICIOUS_CODE">Malicious code vulnerability Warnings</a>
+      </h2>
+      <table class="warningtable" width="100%" cellspacing="0">
+         <tr class="tableheader">
+            <th align="left">Code</th>
+            <th align="left">Warning</th>
+         </tr>
+         <tr class="tablerow1" onclick="toggleRow('d1e36');">
+            <td>
+               <span class="priority-2">EI</span>
+            </td>
+            <td>edu.odu.cs.cs350.pne.Course.getOfferings() may expose internal representation by returning Course.offerings</td>
+         </tr>
+         <tr class="detailrow1">
+            <td/>
+            <td>
+               <p id="d1e36" style="display: none;">
+                  <a href="#EI_EXPOSE_REP">Bug type EI_EXPOSE_REP (click for details)</a>
+                  <br/>In class edu.odu.cs.cs350.pne.Course<br/>In method edu.odu.cs.cs350.pne.Course.getOfferings()<br/>Field edu.odu.cs.cs350.pne.Course.offerings<br/>At Course.java:[line 29]</p>
+            </td>
+         </tr>
+         <tr class="tablerow0" onclick="toggleRow('d1e97');">
+            <td>
+               <span class="priority-2">EI</span>
+            </td>
+            <td>edu.odu.cs.cs350.pne.CurrentCourse.getOfferings() may expose internal representation by returning CurrentCourse.offerings</td>
+         </tr>
+         <tr class="detailrow0">
+            <td/>
+            <td>
+               <p id="d1e97" style="display: none;">
+                  <a href="#EI_EXPOSE_REP">Bug type EI_EXPOSE_REP (click for details)</a>
+                  <br/>In class edu.odu.cs.cs350.pne.CurrentCourse<br/>In method edu.odu.cs.cs350.pne.CurrentCourse.getOfferings()<br/>Field edu.odu.cs.cs350.pne.CurrentCourse.offerings<br/>At CurrentCourse.java:[line 17]</p>
+            </td>
+         </tr>
+         <tr class="tablerow1" onclick="toggleRow('d1e113');">
+            <td>
+               <span class="priority-2">EI</span>
+            </td>
+            <td>edu.odu.cs.cs350.pne.Directory.getFiles() may expose internal representation by returning Directory.files</td>
+         </tr>
+         <tr class="detailrow1">
+            <td/>
+            <td>
+               <p id="d1e113" style="display: none;">
+                  <a href="#EI_EXPOSE_REP">Bug type EI_EXPOSE_REP (click for details)</a>
+                  <br/>In class edu.odu.cs.cs350.pne.Directory<br/>In method edu.odu.cs.cs350.pne.Directory.getFiles()<br/>Field edu.odu.cs.cs350.pne.Directory.files<br/>At Directory.java:[line 69]</p>
+            </td>
+         </tr>
+         <tr class="tablerow0" onclick="toggleRow('d1e287');">
+            <td>
+               <span class="priority-2">EI</span>
+            </td>
+            <td>edu.odu.cs.cs350.pne.Semester.getHistory() may expose internal representation by returning Semester.history</td>
+         </tr>
+         <tr class="detailrow0">
+            <td/>
+            <td>
+               <p id="d1e287" style="display: none;">
+                  <a href="#EI_EXPOSE_REP">Bug type EI_EXPOSE_REP (click for details)</a>
+                  <br/>In class edu.odu.cs.cs350.pne.Semester<br/>In method edu.odu.cs.cs350.pne.Semester.getHistory()<br/>Field edu.odu.cs.cs350.pne.Semester.history<br/>At Semester.java:[line 60]</p>
+            </td>
+         </tr>
+         <tr class="tablerow1" onclick="toggleRow('d1e303');">
+            <td>
+               <span class="priority-2">EI</span>
+            </td>
+            <td>edu.odu.cs.cs350.pne.Semester.getOffering() may expose internal representation by returning Semester.offering</td>
+         </tr>
+         <tr class="detailrow1">
+            <td/>
+            <td>
+               <p id="d1e303" style="display: none;">
+                  <a href="#EI_EXPOSE_REP">Bug type EI_EXPOSE_REP (click for details)</a>
+                  <br/>In class edu.odu.cs.cs350.pne.Semester<br/>In method edu.odu.cs.cs350.pne.Semester.getOffering()<br/>Field edu.odu.cs.cs350.pne.Semester.offering<br/>At Semester.java:[line 70]</p>
+            </td>
+         </tr>
+         <tr class="tablerow0" onclick="toggleRow('d1e319');">
+            <td>
+               <span class="priority-2">EI</span>
+            </td>
+            <td>edu.odu.cs.cs350.pne.Semester.getSemestDirect() may expose internal representation by returning Semester.semestDirct</td>
+         </tr>
+         <tr class="detailrow0">
+            <td/>
+            <td>
+               <p id="d1e319" style="display: none;">
+                  <a href="#EI_EXPOSE_REP">Bug type EI_EXPOSE_REP (click for details)</a>
+                  <br/>In class edu.odu.cs.cs350.pne.Semester<br/>In method edu.odu.cs.cs350.pne.Semester.getSemestDirect()<br/>Field edu.odu.cs.cs350.pne.Semester.semestDirct<br/>At Semester.java:[line 45]</p>
+            </td>
+         </tr>
+         <tr class="tablerow1" onclick="toggleRow('d1e420');">
+            <td>
+               <span class="priority-2">EI</span>
+            </td>
+            <td>edu.odu.cs.cs350.pne.Snapshot.getSections() may expose internal representation by returning Snapshot.sections</td>
+         </tr>
+         <tr class="detailrow1">
+            <td/>
+            <td>
+               <p id="d1e420" style="display: none;">
+                  <a href="#EI_EXPOSE_REP">Bug type EI_EXPOSE_REP (click for details)</a>
+                  <br/>In class edu.odu.cs.cs350.pne.Snapshot<br/>In method edu.odu.cs.cs350.pne.Snapshot.getSections()<br/>Field edu.odu.cs.cs350.pne.Snapshot.sections<br/>At Snapshot.java:[line 36]</p>
+            </td>
+         </tr>
+         <tr class="tablerow0" onclick="toggleRow('d1e208');">
+            <td>
+               <span class="priority-1">MS</span>
+            </td>
+            <td>edu.odu.cs.cs350.pne.Section.SnapCRN isn't final but should be</td>
+         </tr>
+         <tr class="detailrow0">
+            <td/>
+            <td>
+               <p id="d1e208" style="display: none;">
+                  <a href="#MS_SHOULD_BE_FINAL">Bug type MS_SHOULD_BE_FINAL (click for details)</a>
+                  <br/>In class edu.odu.cs.cs350.pne.Section<br/>Field edu.odu.cs.cs350.pne.Section.SnapCRN<br/>At Section.java:[line 112]</p>
+            </td>
+         </tr>
+         <tr class="tablerow1" onclick="toggleRow('d1e221');">
+            <td>
+               <span class="priority-1">MS</span>
+            </td>
+            <td>edu.odu.cs.cs350.pne.Section.SnapNum isn't final but should be</td>
+         </tr>
+         <tr class="detailrow1">
+            <td/>
+            <td>
+               <p id="d1e221" style="display: none;">
+                  <a href="#MS_SHOULD_BE_FINAL">Bug type MS_SHOULD_BE_FINAL (click for details)</a>
+                  <br/>In class edu.odu.cs.cs350.pne.Section<br/>Field edu.odu.cs.cs350.pne.Section.SnapNum<br/>At Section.java:[line 124]</p>
+            </td>
+         </tr>
+      </table>
+      <h2>
+         <a name="Warnings_STYLE">Dodgy code Warnings</a>
+      </h2>
+      <table class="warningtable" width="100%" cellspacing="0">
+         <tr class="tableheader">
+            <th align="left">Code</th>
+            <th align="left">Warning</th>
+         </tr>
+         <tr class="tablerow1" onclick="toggleRow('d1e145');">
+            <td>
+               <span class="priority-2">DLS</span>
+            </td>
+            <td>Dead store to addDeadline in edu.odu.cs.cs350.pne.Projection.projectionSem(String)</td>
+         </tr>
+         <tr class="detailrow1">
+            <td/>
+            <td>
+               <p id="d1e145" style="display: none;">
+                  <a href="#DLS_DEAD_LOCAL_STORE">Bug type DLS_DEAD_LOCAL_STORE (click for details)</a>
+                  <br/>In class edu.odu.cs.cs350.pne.Projection<br/>In method edu.odu.cs.cs350.pne.Projection.projectionSem(String)<br/>Local variable named addDeadline<br/>At Projection.java:[line 89]</p>
+            </td>
+         </tr>
+         <tr class="tablerow0" onclick="toggleRow('d1e161');">
+            <td>
+               <span class="priority-2">DLS</span>
+            </td>
+            <td>Dead store to preReg in edu.odu.cs.cs350.pne.Projection.projectionSem(String)</td>
+         </tr>
+         <tr class="detailrow0">
+            <td/>
+            <td>
+               <p id="d1e161" style="display: none;">
+                  <a href="#DLS_DEAD_LOCAL_STORE">Bug type DLS_DEAD_LOCAL_STORE (click for details)</a>
+                  <br/>In class edu.odu.cs.cs350.pne.Projection<br/>In method edu.odu.cs.cs350.pne.Projection.projectionSem(String)<br/>Local variable named preReg<br/>At Projection.java:[line 88]</p>
+            </td>
+         </tr>
+         <tr class="tablerow1" onclick="toggleRow('d1e129');">
+            <td>
+               <span class="priority-2">NP</span>
+            </td>
+            <td>Possible null pointer dereference in edu.odu.cs.cs350.pne.Directory.grabFiles() due to return value of called method</td>
+         </tr>
+         <tr class="detailrow1">
+            <td/>
+            <td>
+               <p id="d1e129" style="display: none;">
+                  <a href="#NP_NULL_ON_SOME_PATH_FROM_RETURN_VALUE">Bug type NP_NULL_ON_SOME_PATH_FROM_RETURN_VALUE (click for details)</a>
+                  <br/>In class edu.odu.cs.cs350.pne.Directory<br/>In method edu.odu.cs.cs350.pne.Directory.grabFiles()<br/>Value loaded from filearr<br/>Dereferenced at Directory.java:[line 61]<br/>Known null at Directory.java:[line 59]</p>
+            </td>
+         </tr>
+         <tr class="tablerow0" onclick="toggleRow('d1e436');">
+            <td>
+               <span class="priority-2">NP</span>
+            </td>
+            <td>Possible null pointer dereference in new edu.odu.cs.cs350.pne.Snapshot(Path) due to return value of called method</td>
+         </tr>
+         <tr class="detailrow0">
+            <td/>
+            <td>
+               <p id="d1e436" style="display: none;">
+                  <a href="#NP_NULL_ON_SOME_PATH_FROM_RETURN_VALUE">Bug type NP_NULL_ON_SOME_PATH_FROM_RETURN_VALUE (click for details)</a>
+                  <br/>In class edu.odu.cs.cs350.pne.Snapshot<br/>In method new edu.odu.cs.cs350.pne.Snapshot(Path)<br/>Local variable stored in JVM register ?<br/>Dereferenced at Snapshot.java:[line 22]<br/>Known null at Snapshot.java:[line 22]</p>
+            </td>
+         </tr>
+      </table>
+      <h1>
+         <a name="Details">Details</a>
+      </h1>
+      <h2>
+         <a name="DLS_DEAD_LOCAL_STORE">DLS_DEAD_LOCAL_STORE: Dead store to local variable</a>
+      </h2>
+
+<p>
+This instruction assigns a value to a local variable,
+but the value is not read or used in any subsequent instruction.
+Often, this indicates an error, because the value computed is never
+used.
+</p>
+<p>
+Note that Sun's javac compiler often generates dead stores for
+final local variables.  Because SpotBugs is a bytecode-based tool,
+there is no easy way to eliminate these false positives.
+</p>
+
+    <h2>
+         <a name="DM_EXIT">DM_EXIT: Method invokes System.exit(...)</a>
+      </h2>
+
+  <p> Invoking System.exit shuts down the entire Java virtual machine. This
+   should only been done when it is appropriate. Such calls make it
+   hard or impossible for your code to be invoked by other code.
+   Consider throwing a RuntimeException instead.</p>
+
+    <h2>
+         <a name="DM_DEFAULT_ENCODING">DM_DEFAULT_ENCODING: Reliance on default encoding</a>
+      </h2>
+
+<p> Found a call to a method which will perform a byte to String (or String to byte) conversion, and will assume that the default platform encoding is suitable. This will cause the application behaviour to vary between platforms. Use an alternative API and specify a charset name or Charset object explicitly.  </p>
+
+      <h2>
+         <a name="EI_EXPOSE_REP">EI_EXPOSE_REP: May expose internal representation by returning reference to mutable object</a>
+      </h2>
+
+  <p> Returning a reference to a mutable object value stored in one of the object's fields
+  exposes the internal representation of the object.&nbsp;
+   If instances
+   are accessed by untrusted code, and unchecked changes to
+   the mutable object would compromise security or other
+   important properties, you will need to do something different.
+  Returning a new copy of the object is better approach in many situations.</p>
+
+    <h2>
+         <a name="MS_SHOULD_BE_FINAL">MS_SHOULD_BE_FINAL: Field isn't final but should be</a>
+      </h2>
+
+   <p>
+This static field public but not final, and
+could be changed by malicious code or
+        by accident from another package.
+        The field could be made final to avoid
+        this vulnerability.</p>
+
+    <h2>
+         <a name="NP_NULL_ON_SOME_PATH_FROM_RETURN_VALUE">NP_NULL_ON_SOME_PATH_FROM_RETURN_VALUE: Possible null pointer dereference due to return value of called method</a>
+      </h2>
+      
+<p> The return value from a method is dereferenced without a null check,
+and the return value of that method is one that should generally be checked
+for null.  This may lead to a <code>NullPointerException</code> when the code is executed.
+</p>
+      
+   <h2>
+         <a name="NP_UNWRITTEN_FIELD">NP_UNWRITTEN_FIELD: Read of unwritten field</a>
+      </h2>
+
+  <p> The program is dereferencing a field that does not seem to ever have a non-null value written to it.
+Unless the field is initialized via some mechanism not seen by the analysis,
+dereferencing this value will generate a null pointer exception.
+</p>
+
+    <h2>
+         <a name="NM_FIELD_NAMING_CONVENTION">NM_FIELD_NAMING_CONVENTION: Field names should start with a lower case letter</a>
+      </h2>
+
+  <p>
+Names of fields that are not final should be in mixed case with a lowercase first letter and the first letters of subsequent words capitalized.
+</p>
+
+    <h2>
+         <a name="UWF_UNWRITTEN_FIELD">UWF_UNWRITTEN_FIELD: Unwritten field</a>
+      </h2>
+
+  <p> This field is never written.&nbsp; All reads of it will return the default
+value. Check for errors (should it have been initialized?), or remove it if it is useless.</p>
+
+    </body>
+</html>
