@@ -9,6 +9,12 @@ import edu.odu.cs.cs350.pne.Read;
 import edu.odu.cs.cs350.pne.Section;
 
 
+/** This is the Snapshot class
+ * @author Group A4
+ * 
+ */
+
+
 public class Snapshot {
     private LocalDate date;
     private ArrayList<Section> sections;

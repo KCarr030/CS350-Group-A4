@@ -5,6 +5,11 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
+/** This is the section class
+ * @author Group A4
+ * 
+ */
+
 
 public class Section {
     private String campus;
