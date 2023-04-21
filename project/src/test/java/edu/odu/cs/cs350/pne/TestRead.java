@@ -31,7 +31,12 @@ public class TestRead {
             fail("File path: " + System.getProperty("user.dir"));
         }
         ArrayList<Section> sections2 = Read.sections;
+        // Make sure the ArrayList sections2 has data in it.
         assertFalse(sections2.isEmpty());
+        // Check if the first value of the first section is correct.
+        Section first = sections2.get(0);
+        String firstSeats = first.getSeats();
+        assertEquals("50", firstSeats);
     }
     
 }
