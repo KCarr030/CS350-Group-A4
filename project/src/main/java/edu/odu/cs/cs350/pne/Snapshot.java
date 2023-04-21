@@ -6,7 +6,7 @@ import java.net.URL;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import edu.odu.cs.cs350.pne.Read;
-import edu.odu.cs.cs350.pne.Section;
+import java.io.IOException;
 
 
 /** This is the Snapshot class
@@ -17,21 +17,22 @@ import edu.odu.cs.cs350.pne.Section;
 
 public class Snapshot {
     private LocalDate date;
-    private ArrayList<Section> sections;
+    private ArrayList<Section> sections = new ArrayList<>();
 
     public Snapshot() {
         this.date = null;
         this.sections = new ArrayList<>();
     }
 
-    public Snapshot(Path filePath) {
-        this.date = getDateFromFileName(filePath.getFileName().toString());
-        //this.sections = Read.csvReadFunction(filePath.toFile());
+    public Snapshot(Path filePath) throws IOException {
+        Read.file = filePath.toString();
+        Read.csvReadFunction();
+        sections = Read.sections;
     }
 
     public Snapshot(URL url) {
         this.date = null; 
-        //this.sections = Read.csvReadFunction(url);
+       // this.sections = Read.csvReadFunction(url);
     }
 
     public LocalDate getDate() {
@@ -39,11 +40,11 @@ public class Snapshot {
     }
 
     public ArrayList<Section> getSections() {
-        return this.sections;
+        return sections;
     }
 
-    public Section getSection(int index) {
-        return this.sections.get(index);
+    public void setSections(ArrayList<Section> sections) {
+        this.sections = sections;
     }
 
     private LocalDate getDateFromFileName(String fileName) {
