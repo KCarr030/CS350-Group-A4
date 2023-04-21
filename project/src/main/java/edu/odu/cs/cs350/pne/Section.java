@@ -28,6 +28,7 @@ public class Section {
     private String ptrmEnd;
     private int capacity;
 	private int num;
+    private String name;
 
 
 //-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -278,6 +279,15 @@ public class Section {
 
     public void setCRN(int crn) {
         this.CRN = crn;
+    }
+
+
+    public Section(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return this.name;
     }
 
 }

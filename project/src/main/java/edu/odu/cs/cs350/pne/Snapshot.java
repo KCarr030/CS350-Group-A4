@@ -44,4 +44,13 @@ public class Snapshot {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         return LocalDate.parse(fileName.substring(0, 10), formatter);
     }
+
+    public static void main(String[] args) {
+        // Create a new Section object
+        Section section = new Section("Example Section");
+
+        // Call the getName() method on the Section object
+        String name = section.getName();
+        System.out.println("Section name: " + name);
+    }
 }
