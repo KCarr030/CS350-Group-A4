@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Offering.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">project</a> &gt; <a href="index.source.html" class="el_package">edu.odu.cs.cs350.pne</a> &gt; <span class="el_source">Offering.java</span></div><h1>Offering.java</h1><pre class="source lang-java linenums">package edu.odu.cs.cs350.pne;
+import java.time.LocalDate;
+import java.time.format.DateTimeParseException;
+import java.util.HashSet;
+import java.util.Set;
+
+/*
+ * Object that will contain all the information for each individual offerings. 
+ * (each unique class offering in CSV files)
+ * 
+ */
+
+/** This is the class
+ * @author Group A4
+ * 
+ */
+
+ public class Offering {
+    private String courseName;
+    private LocalDate time;
+   // private Directory directory;
+    private String group;
+    private int seats;
+    private int enrollment;
+    private int maxCapacity;
+    private String instructorName;
+
+
+    //Constructor for integers and string variables
+<span class="fc" id="L30">    public Offering(String courseName, LocalDate time, String group, int seats, int enrollment, int maxCapacity, String instructorName) {</span>
+<span class="fc" id="L31">        this.courseName = courseName;</span>
+<span class="fc" id="L32">        this.time = time;</span>
+       // this.directory = new Directory(directoryPath);
+<span class="fc" id="L34">        this.group = group;</span>
+<span class="fc" id="L35">        this.seats = seats;</span>
+<span class="fc" id="L36">        this.enrollment = enrollment;</span>
+<span class="fc" id="L37">        this.maxCapacity = maxCapacity;</span>
+<span class="fc" id="L38">        this.instructorName = instructorName;</span>
+<span class="fc" id="L39">        }</span>
+// getters
+        public String getCourseName() {
+<span class="fc" id="L42">            return courseName;</span>
+        }
+    
+        public LocalDate getTime() {
+<span class="fc" id="L46">            return time;</span>
+        }
+    
+        public String getGroup() {
+<span class="fc" id="L50">            return group;</span>
+        }
+    
+        public int getSeats() {
+<span class="fc" id="L54">            return seats;</span>
+        }
+    
+        public int getEnrollment() {
+<span class="fc" id="L58">            return enrollment;</span>
+        }
+    
+        public int getMaxCapacity() {
+<span class="fc" id="L62">            return maxCapacity;</span>
+        }
+    
+        public String getInstructorName() {
+<span class="fc" id="L66">            return instructorName;</span>
+        }
+
+        public boolean isDuplicate(Offering other) {
+<span class="pc bpc" id="L70" title="2 of 6 branches missed.">            return courseName.equals(other.courseName) &amp;&amp; time.equals(other.time) &amp;&amp; group.equals(other.group);</span>
+        }
+
+        public double getPercentFilled() {
+<span class="fc" id="L74">            return (double) enrollment / maxCapacity * 100;</span>
+        }
+
+        
+        //create an offering object by providing a row of data (String) from the CSV file as param.         
+        public Offering(String[] fields)
+<span class="fc" id="L80">        {</span>
+<span class="fc" id="L81">            this.courseName = fields[3];</span>
+           // this.time = time;
+           // this.directory = new Directory(directoryPath);
+<span class="fc" id="L84">            this.group = fields[9];</span>
+<span class="fc" id="L85">            this.seats = Integer.parseInt(fields[23]);</span>
+<span class="fc" id="L86">            this.enrollment = 0;</span>
+<span class="fc" id="L87">            this.maxCapacity = Integer.parseInt(fields[6]);</span>
+<span class="fc" id="L88">            this.instructorName = fields[20];</span>
+<span class="fc" id="L89">        }</span>
+        
+
+    }
+/*
+        public String toString() {
+            return String.format(&quot;%s %s %s %d/%d (%.1f%%) %s&quot;, courseName, time, group, enrollment, maxCapacity,
+                    getPercentFilled(), instructorName);
+        }
+        */
+
+
+
+   /* 
+    public int setMaxCap(int maxCap) {
+    	this.maxCap = maxCap;
+		return maxCap;
+    }
+    
+    public int setnumSeats(int numSeats) {
+    	this.numSeats = numSeats;
+		return numSeats;
+    }
+    
+    public int getnumSeats(int numSeats) {
+		return numSeats;
+    }
+    
+    public int getMaxCap(int maxCap) {
+		return maxCap;
+    }
+    
+    */ 
+ 
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Directory.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">project</a> &gt; <a href="index.source.html" class="el_package">edu.odu.cs.cs350.pne</a> &gt; <span class="el_source">Directory.java</span></div><h1>Directory.java</h1><pre class="source lang-java linenums">package edu.odu.cs.cs350.pne;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Vector;
+import java.io.File;
+
+/**
+ * This is the Directory class
+ * 
+ * @author Group A4
+ *         The Directory class is responsible for storing the list of files and
+ *         their paths for a SINGLE directory.
+ */
+
+public class Directory {
+
+    private String dir; // The directory selected
+<span class="fc" id="L22">    private Vector&lt;File&gt; files = new Vector(10); // The filenames within the directory</span>
+
+    /**
+     * Constructor of Directory takes a directory path as input
+     * 
+     * @param d A path leading to a directory (ex. /data/History/202010)
+     */
+<span class="fc" id="L29">    public Directory(String d) {</span>
+<span class="fc" id="L30">        this.dir = d;</span>
+<span class="fc" id="L31">        grabFiles();</span>
+<span class="fc" id="L32">    }</span>
+
+    /**
+     * setDirectory sets the directory currently stored
+     * 
+     * @param d the directory to store
+     */
+    public void setDirectory(String d) {
+<span class="fc" id="L40">        this.dir = d;</span>
+<span class="fc" id="L41">        grabFiles();</span>
+<span class="fc" id="L42">    }</span>
+
+    /**
+     * grabFiles fills the Vector files with the names of all files
+     * currently contained in the directory specified by dir.
+     * 
+     * DO NOT call this function directly,
+     * it is meant to be called by other functions
+     * to update existing data,
+     * and will be called automatically when needed in
+     * this class.
+     */
+    public void grabFiles() {
+<span class="fc" id="L55">        files.clear(); /// The vector needs to be emptied prior to refilling with new data</span>
+<span class="fc" id="L56">        File d = new File(dir);</span>
+        // System.out.println(d);
+        // System.out.println(d.listFiles());
+<span class="fc" id="L59">        File[] filearr = d.listFiles();</span>
+        // System.out.println(filearr);
+<span class="fc bfc" id="L61" title="All 2 branches covered.">        for (File names : filearr) {</span>
+            // System.out.println(names);
+<span class="fc" id="L63">            files.add(names);</span>
+        }
+<span class="fc" id="L65">    }</span>
+    
+    // public getter for files vector.
+    public Vector&lt;File&gt; getFiles(){
+<span class="nc" id="L69">        return files;</span>
+    }
+
+    /**
+     * printContents is a function for checking output
+     * its sole purpose is to print the content of the directory
+     * to the CLI
+     */
+    public void printContents() {
+<span class="nc bnc" id="L78" title="All 2 branches missed.">        for (File name : files) {</span>
+<span class="nc" id="L79">            System.out.println(name.getName());</span>
+<span class="nc" id="L80">        }</span>
+<span class="nc" id="L81">    }</span>
+
+    /**
+     * getFileName returns the name of a file inside the directory
+     * it DOES NOT give the full path to said file
+     * 
+     * @param index the index of the requested file
+     * @return the name of the file, null if invalid
+     */
+    public String getFileName(int index) {
+<span class="pc bpc" id="L91" title="2 of 4 branches missed.">        if (index &gt;= 0 &amp;&amp; index &lt; files.size()) {</span>
+<span class="fc" id="L92">            return files.elementAt(index).getName();</span>
+        }
+<span class="nc" id="L94">        return null;</span>
+    }
+
+    /**
+     * getFilePath returns the path to a file inside
+     * the directory
+     * 
+     * @param index the index of the requested file
+     * @return the File describing the full path to the file
+     */
+    public File getFilePath(int index) {
+<span class="fc" id="L105">        String name = getFileName(index);</span>
+<span class="fc" id="L106">        return new File(dir + '/' + name);</span>
+    }
+
+    /**
+     * the size of the directory
+     * measured by the number of files inside
+     * 
+     * @return the number of files inside the directory
+     */
+    public int dirSize() {
+<span class="fc" id="L116">        return files.size();</span>
+    }
+
+    public String getPath() {
+<span class="nc" id="L120">        return dir;</span>
+    }
+
+    /**
+     * Returns the index of the dates.txt file within the File array
+     * 
+     * @return the index of dates.txt, -1 if it does not exist
+     */
+    public int datesIndex() {
+<span class="pc bpc" id="L129" title="1 of 2 branches missed.">        for (int x = dirSize() - 1; x &gt;= 0; x--) {</span>
+<span class="fc bfc" id="L130" title="All 2 branches covered.">            if (files.get(x).getName().equals(&quot;dates.txt&quot;)) {</span>
+<span class="fc" id="L131">                return x;</span>
+            }
+        }
+<span class="nc" id="L134">        return -1;</span>
+    }
+
+    /**
+     * Removes all data stored in the vector earlier than a date specified
+     * 
+     * @param lower The lower bound indicated in the format YYYY-MM-DD
+     */
+    public void trimStartDate(String lower) {
+<span class="nc bnc" id="L143" title="All 2 branches missed.">        for (int i = dirSize() - 1; i &gt;= 0; i--) {</span>
+<span class="nc bnc" id="L144" title="All 2 branches missed.">            if (files.get(i).getName().compareTo(lower) &lt; 0) {</span>
+<span class="nc" id="L145">                files.remove(i);</span>
+            }
+        }
+<span class="nc" id="L148">    }</span>
+
+    /**
+     * Removes all data stored in the vector later than a date specified
+     * 
+     * @param upper The upper bound indicated in the format YYYY-MM-DD
+     */
+    public void trimEndDate(String upper) {
+<span class="nc bnc" id="L156" title="All 2 branches missed.">        for (int i = dirSize() - 1; i &gt;= 0; i--) {</span>
+<span class="nc bnc" id="L157" title="All 4 branches missed.">            if (files.get(i).getName().compareTo(upper) &gt; 0 &amp;&amp; !(files.get(i).getName().equals(&quot;dates.txt&quot;)</span>
+<span class="nc bnc" id="L158" title="All 2 branches missed.">                    || files.get(i).getName().equals(&quot;dates.txt~&quot;))) {</span>
+<span class="nc" id="L159">                files.remove(i);</span>
+            }
+        }
+<span class="nc" id="L162">    }</span>
+
+    /**
+     * 
+     * @param lower The lower bound indicated in the format YYYY-MM-DD
+     * @param upper The upper bound indicated in the format YYYY-MM-DD
+     */
+    public void trimDates(String lower, String upper) {
+<span class="nc" id="L170">        trimStartDate(lower);</span>
+<span class="nc" id="L171">        trimEndDate(upper);</span>
+<span class="nc" id="L172">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
