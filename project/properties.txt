@@ -5,26 +5,26 @@ Project ':project'
 
 Reports: task ':project:Reports'
 allprojects: [project ':project']
-ant: org.gradle.api.internal.project.DefaultAntBuilder@bf1c526
-antBuilderFactory: org.gradle.api.internal.project.DefaultAntBuilderFactory@3d36017d
+ant: org.gradle.api.internal.project.DefaultAntBuilder@528c39bc
+antBuilderFactory: org.gradle.api.internal.project.DefaultAntBuilderFactory@7539c75
 application: extension 'application'
 applicationDefaultJvmArgs: []
-applicationDistribution: org.gradle.api.internal.file.copy.DefaultCopySpec_Decorated@15f5c367
+applicationDistribution: org.gradle.api.internal.file.copy.DefaultCopySpec_Decorated@2efcfc30
 applicationName: project
 archivesBaseName: project
-artifacts: org.gradle.api.internal.artifacts.dsl.DefaultArtifactHandler_Decorated@6bcddf37
+artifacts: org.gradle.api.internal.artifacts.dsl.DefaultArtifactHandler_Decorated@272e4bae
 asDynamicObject: DynamicObject for project ':project'
 autoTargetJvmDisabled: false
 base: extension 'base'
-baseClassLoaderScope: org.gradle.api.internal.initialization.DefaultClassLoaderScope@6e90ff9d
+baseClassLoaderScope: org.gradle.api.internal.initialization.DefaultClassLoaderScope@14dcd72e
 buildDir: /home/cs_mbank010/PROJECT/CS350-Group-A4/project/build
 buildFile: /home/cs_mbank010/PROJECT/CS350-Group-A4/project/build.gradle
 buildPath: :
-buildScriptSource: org.gradle.groovy.scripts.TextResourceScriptSource@63a036db
-buildscript: org.gradle.api.internal.initialization.DefaultScriptHandler@58753f33
+buildScriptSource: org.gradle.groovy.scripts.TextResourceScriptSource@f7741f4
+buildscript: org.gradle.api.internal.initialization.DefaultScriptHandler@46a33156
 childProjects: {}
 class: class org.gradle.api.internal.project.DefaultProject_Decorated
-classLoaderScope: org.gradle.api.internal.initialization.DefaultClassLoaderScope@5d44776d
+classLoaderScope: org.gradle.api.internal.initialization.DefaultClassLoaderScope@13857117
 classes: task ':project:classes'
 clean: task ':project:clean'
 clearPages: task ':project:clearPages'
@@ -32,20 +32,20 @@ commitWebsite: task ':project:commitWebsite'
 compileJava: task ':project:compileJava'
 compileTestJava: task ':project:compileTestJava'
 components: SoftwareComponentInternal set
-configurationActions: org.gradle.configuration.project.DefaultProjectConfigurationActionContainer@3441174f
-configurationTargetIdentifier: org.gradle.configuration.ConfigurationTargetIdentifier$1@56b5f9f2
+configurationActions: org.gradle.configuration.project.DefaultProjectConfigurationActionContainer@6192b1ee
+configurationTargetIdentifier: org.gradle.configuration.ConfigurationTargetIdentifier$1@54df24c9
 configurations: configuration container
-convention: org.gradle.internal.extensibility.DefaultConvention@2748d8b0
+convention: org.gradle.internal.extensibility.DefaultConvention@ba98685
 copyReports: task ':project:copyReports'
 copyWebsite: task ':project:copyWebsite'
-crossProjectModelAccess: org.gradle.api.internal.project.DefaultCrossProjectModelAccess@59493c2b
+crossProjectModelAccess: org.gradle.api.internal.project.DefaultCrossProjectModelAccess@339c432e
 defaultArtifacts: extension 'defaultArtifacts'
 defaultTasks: []
-deferredProjectConfiguration: org.gradle.api.internal.project.DeferredProjectConfiguration@650eb322
-dependencies: org.gradle.api.internal.artifacts.dsl.dependencies.DefaultDependencyHandler_Decorated@1c8dac18
-dependencyFactory: org.gradle.api.internal.artifacts.DefaultDependencyFactory@7d616a61
-dependencyLocking: org.gradle.internal.locking.DefaultDependencyLockingHandler_Decorated@6d59b982
-dependencyMetaDataProvider: org.gradle.internal.service.scopes.ProjectScopeServices$ProjectBackedModuleMetaDataProvider@7dde80a8
+deferredProjectConfiguration: org.gradle.api.internal.project.DeferredProjectConfiguration@47759972
+dependencies: org.gradle.api.internal.artifacts.dsl.dependencies.DefaultDependencyHandler_Decorated@6a211439
+dependencyFactory: org.gradle.api.internal.artifacts.DefaultDependencyFactory@2dfb2a56
+dependencyLocking: org.gradle.internal.locking.DefaultDependencyLockingHandler_Decorated@7caf99f4
+dependencyMetaDataProvider: org.gradle.internal.service.scopes.ProjectScopeServices$ProjectBackedModuleMetaDataProvider@177a311a
 dependencyReport: task ':project:dependencyReport'
 deployReports: task ':project:deployReports'
 depth: 1
@@ -60,16 +60,16 @@ distsDirectory: extension 'base' property 'distsDirectory'
 docsDir: /home/cs_mbank010/PROJECT/CS350-Group-A4/project/build/docs
 docsDirName: docs
 executableDir: bin
-ext: org.gradle.internal.extensibility.DefaultExtraPropertiesExtension@cc20e67
-extensions: org.gradle.internal.extensibility.DefaultConvention@2748d8b0
-fileOperations: org.gradle.api.internal.file.DefaultFileOperations@7a064ffc
-fileResolver: org.gradle.api.internal.file.BaseDirFileResolver@5a337c97
+ext: org.gradle.internal.extensibility.DefaultExtraPropertiesExtension@75987f10
+extensions: org.gradle.internal.extensibility.DefaultConvention@ba98685
+fileOperations: org.gradle.api.internal.file.DefaultFileOperations@1c5526f
+fileResolver: org.gradle.api.internal.file.BaseDirFileResolver@1250b9a
 gradle: build 'GroupA4-EnrollmentProjection'
 group: GroupA4-EnrollmentProjection
 gstatus: task ':project:gstatus'
 htmlDependencyReport: task ':project:htmlDependencyReport'
 identityPath: :project
-inheritedScope: org.gradle.internal.extensibility.ExtensibleDynamicObject$InheritedDynamicObject@53617cb9
+inheritedScope: org.gradle.internal.extensibility.ExtensibleDynamicObject$InheritedDynamicObject@47910845
 internalStatus: property(java.lang.Object, fixed(class java.lang.String, integration))
 jacoco: extension 'jacoco'
 jacocoTestReport: task ':project:jacocoTestReport'
@@ -77,34 +77,34 @@ jar: task ':project:jar'
 java: extension 'java'
 javaToolchains: extension 'javaToolchains'
 javadoc: task ':project:javadoc'
-layout: org.gradle.api.internal.file.DefaultProjectLayout@4f4cf184
+layout: org.gradle.api.internal.file.DefaultProjectLayout@71c78f58
 libsDirName: libs
 libsDirectory: extension 'base' property 'libsDirectory'
-listenerBuildOperationDecorator: org.gradle.configuration.internal.DefaultListenerBuildOperationDecorator@77d3e3e
+listenerBuildOperationDecorator: org.gradle.configuration.internal.DefaultListenerBuildOperationDecorator@5abaed25
 logger: org.gradle.internal.logging.slf4j.OutputEventListenerBackedLogger@5c748d40
-logging: org.gradle.internal.logging.services.DefaultLoggingManager@46eb3d82
+logging: org.gradle.internal.logging.services.DefaultLoggingManager@736a5433
 mainClassName: edu.odu.cs.Projection
 model: project ':project'
 modelIdentityDisplayName: null
-modelRegistry: org.gradle.model.internal.registry.DefaultModelRegistry@1e371552
+modelRegistry: org.gradle.model.internal.registry.DefaultModelRegistry@3cf6a93b
 name: project
-normalization: org.gradle.normalization.internal.DefaultInputNormalizationHandler_Decorated@365f17c1
-objects: org.gradle.api.internal.model.DefaultObjectFactory@58bd53fa
+normalization: org.gradle.normalization.internal.DefaultInputNormalizationHandler_Decorated@71865cb2
+objects: org.gradle.api.internal.model.DefaultObjectFactory@7c585462
 owner: project ':project'
 parent: root project 'GroupA4-EnrollmentProjection'
 parentIdentifier: root project 'GroupA4-EnrollmentProjection'
 path: :project
 pluginContext: false
-pluginManager: org.gradle.api.internal.plugins.DefaultPluginManager_Decorated@47257242
-plugins: [org.gradle.api.plugins.HelpTasksPlugin@39ef32a4, org.gradle.buildinit.plugins.BuildInitPlugin@4ee1148e, org.gradle.buildinit.plugins.WrapperPlugin@28504266, org.gradle.language.base.plugins.LifecycleBasePlugin@53843a8a, org.gradle.api.plugins.BasePlugin@44aa8247, org.gradle.api.plugins.JvmEcosystemPlugin@97bd41, org.gradle.api.plugins.ReportingBasePlugin@4034816f, org.gradle.api.plugins.JvmToolchainsPlugin@63a31488, org.gradle.api.plugins.JavaBasePlugin$Inject@6a234a40, org.gradle.testing.base.plugins.TestSuiteBasePlugin@381428fa, org.gradle.api.plugins.JvmTestSuitePlugin@54926af5, org.gradle.api.plugins.JavaPlugin@324717e8, org.gradle.api.distribution.plugins.DistributionPlugin@49fc80a1, org.gradle.api.plugins.ApplicationPlugin@39bb153e, org.gradle.api.plugins.ProjectReportsPlugin@17d8ffd4, org.gradle.testing.jacoco.plugins.JacocoPlugin@dde9a07]
-processOperations: org.gradle.process.internal.DefaultExecActionFactory$DecoratingExecActionFactory@619e7271
+pluginManager: org.gradle.api.internal.plugins.DefaultPluginManager_Decorated@5db24c16
+plugins: [org.gradle.api.plugins.HelpTasksPlugin@61a1eab, org.gradle.buildinit.plugins.BuildInitPlugin@1f3de0af, org.gradle.buildinit.plugins.WrapperPlugin@5d1f280a, org.gradle.language.base.plugins.LifecycleBasePlugin@4d6d5b3, org.gradle.api.plugins.BasePlugin@356ddcc1, org.gradle.api.plugins.JvmEcosystemPlugin@a15034, org.gradle.api.plugins.ReportingBasePlugin@1e6e0d77, org.gradle.api.plugins.JvmToolchainsPlugin@7b802b3f, org.gradle.api.plugins.JavaBasePlugin$Inject@6262a468, org.gradle.testing.base.plugins.TestSuiteBasePlugin@2b85a498, org.gradle.api.plugins.JvmTestSuitePlugin@6fe17fa, org.gradle.api.plugins.JavaPlugin@5f9d3792, org.gradle.api.distribution.plugins.DistributionPlugin@674cc480, org.gradle.api.plugins.ApplicationPlugin@17e7c982, org.gradle.api.plugins.ProjectReportsPlugin@41bef8fe, org.gradle.testing.jacoco.plugins.JacocoPlugin@70f61274]
+processOperations: org.gradle.process.internal.DefaultExecActionFactory$DecoratingExecActionFactory@548499ea
 processResources: task ':project:processResources'
 processTestResources: task ':project:processTestResources'
 project: project ':project'
-projectConfigurator: org.gradle.api.internal.project.BuildOperationCrossProjectConfigurator@2fb1909c
+projectConfigurator: org.gradle.api.internal.project.BuildOperationCrossProjectConfigurator@17243c04
 projectDir: /home/cs_mbank010/PROJECT/CS350-Group-A4/project
 projectEvaluationBroadcaster: ProjectEvaluationListener broadcast
-projectEvaluator: org.gradle.configuration.project.LifecycleProjectEvaluator@1d213413
+projectEvaluator: org.gradle.configuration.project.LifecycleProjectEvaluator@29e191c6
 projectPath: :project
 projectReport: task ':project:projectReport'
 projectReportDir: /home/cs_mbank010/PROJECT/CS350-Group-A4/project/build/reports/project
@@ -112,24 +112,24 @@ projectReportDirName: project
 projects: [project ':project']
 properties: {...}
 propertyReport: task ':project:propertyReport'
-providers: org.gradle.api.internal.provider.DefaultProviderFactory_Decorated@717af297
+providers: org.gradle.api.internal.provider.DefaultProviderFactory_Decorated@667caa10
 publicType: org.gradle.api.plugins.BasePluginConvention
 pushWebsite: task ':project:pushWebsite'
 reporting: extension 'reporting'
 reportsDir: /home/cs_mbank010/PROJECT/CS350-Group-A4/project/build/reports
 repositories: repository container
-resources: org.gradle.api.internal.resources.DefaultResourceHandler@63650b33
+resources: org.gradle.api.internal.resources.DefaultResourceHandler@164734fc
 rootDir: /home/cs_mbank010/PROJECT/CS350-Group-A4
 rootProject: root project 'GroupA4-EnrollmentProjection'
 rootScript: false
 script: false
-scriptHandlerFactory: org.gradle.api.internal.initialization.DefaultScriptHandlerFactory@40f342b3
-scriptPluginFactory: org.gradle.configuration.ScriptPluginFactorySelector@54e67712
+scriptHandlerFactory: org.gradle.api.internal.initialization.DefaultScriptHandlerFactory@2035fe2c
+scriptPluginFactory: org.gradle.configuration.ScriptPluginFactorySelector@5ff344d
 serviceRegistryFactory: org.gradle.internal.service.scopes.ProjectScopeServices$$Lambda$2210/0x00000008411cac40@3a52e11c
 services: ProjectScopeServices
 sourceCompatibility: 11
 sourceSets: SourceSet container
-standardOutputCapture: org.gradle.internal.logging.services.DefaultLoggingManager@46eb3d82
+standardOutputCapture: org.gradle.internal.logging.services.DefaultLoggingManager@736a5433
 state: project state 'EXECUTED'
 status: integration
 subprojects: []
