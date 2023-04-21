@@ -54,7 +54,7 @@ task Reports (dependsOn: ['javadoc', 'test', 'jacocoTestReport']) {
         }
 
         copy {
-            from(file('build/reports/jacoco/test/html'))
+            from(file('build/reports/jacoco'))
             into(file('build/reports'))
         }
     }
