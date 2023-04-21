@@ -24,6 +24,7 @@ public class TestProjection {
         String out2 = out.toString();
         assertTrue(out2.contains("dates.txt"));
         //assertTrue(out2.contains("2021-01-09.csv"));
+        
     }
 
     @Test
