@@ -87,36 +87,13 @@ import java.util.Set;
             this.maxCapacity = Integer.parseInt(fields[6]);
             this.instructorName = fields[20];
         }
-        
 
-    }
-/*
         public String toString() {
             return String.format("%s %s %s %d/%d (%.1f%%) %s", courseName, time, group, enrollment, maxCapacity,
                     getPercentFilled(), instructorName);
         }
-        */
+    }
+        
 
 
 
-   /* 
-    public int setMaxCap(int maxCap) {
-    	this.maxCap = maxCap;
-		return maxCap;
-    }
-    
-    public int setnumSeats(int numSeats) {
-    	this.numSeats = numSeats;
-		return numSeats;
-    }
-    
-    public int getnumSeats(int numSeats) {
-		return numSeats;
-    }
-    
-    public int getMaxCap(int maxCap) {
-		return maxCap;
-    }
-    
-    */ 
- 
