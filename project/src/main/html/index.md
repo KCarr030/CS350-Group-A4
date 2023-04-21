@@ -13,3 +13,4 @@ Testing
 Analysis
 
 * [PMD](./pmd/main.html)
+* [SpotBugs](./spotbugs/main.html)

@@ -4,6 +4,7 @@ plugins {
     id 'project-report'
     id 'jacoco'
     id 'pmd'
+    id 'com.github.spotbugs' version '4.7.10'
 }
 
 repositories {
@@ -38,6 +39,17 @@ pmd {
 }
 pmdTest.enabled = false
 
+spotbugsMain {
+    ignoreFailures = true
+    effort = 'max'
+    reportLevel = 'medium'
+    reports {
+        xml.enabled = false
+        html.enabled = true
+    }
+}
+spotbugsTest.enabled = false
+
 mainClassName = 'edu.odu.cs.Projection'
 application {
     mainClass = 'edu.odu.cs.Projection'
@@ -48,7 +60,7 @@ java {
 	targetCompatibility = JavaVersion.toVersion(11)
 }
 
-task Reports (dependsOn: ['javadoc', 'test', 'jacocoTestReport', 'projectReport']) {
+task Reports (dependsOn: ['javadoc', 'test', 'jacocoTestReport', 'projectReport', 'spotbugsMain']) {
     doLast() {
         copy {
             from(file('src/main/html/'))
@@ -72,6 +84,11 @@ task Reports (dependsOn: ['javadoc', 'test', 'jacocoTestReport', 'projectReport'
         
         copy{
             from(file('build/reports/pmd'))
+            into(file('build/reports'))
+        }
+
+        copy{
+            from(file('build/reports/spotbugs'))
             into(file('build/reports'))
         }
     }
