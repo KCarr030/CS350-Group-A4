@@ -20,12 +20,12 @@ public class Snapshot {
 
     public Snapshot(Path filePath) {
         this.date = getDateFromFileName(filePath.getFileName().toString());
-        //this.sections = Read.csvReadFunction(filePath.toFile());
+        this.sections = Read.csvReadFunction(filePath.toFile());
     }
 
     public Snapshot(URL url) {
         this.date = null; 
-        //this.sections = Read.csvReadFunction(url);
+        this.sections = Read.csvReadFunction(url);
     }
 
     public LocalDate getDate() {
