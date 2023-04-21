@@ -70,10 +70,7 @@ public class Semester
         return offering;
     }
 
-    public String getName()  {
-		return this.name;
-	}
-	
+    
 
     
 
