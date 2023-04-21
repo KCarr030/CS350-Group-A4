@@ -1,8 +1,11 @@
 # Project Reports
 
-Group A4
+General
+
+* [JavaDoc](./javadoc/)
+* [Project Dependencies](./project/dependencies/)
+
+Testing
 
 * [Tests](./tests/test/)
-* [JavaDoc](./javadoc/)
-* [Project Dependencies](./project/dependencies/index.html)
 * [Unit Test Coverage](./jacoco/test/html/)
