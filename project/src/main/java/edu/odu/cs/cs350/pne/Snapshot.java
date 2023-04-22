@@ -1,11 +1,17 @@
 package edu.odu.cs.cs350.pne;
-import java.io.FileReader;
-import java.io.IOException;
-import java.net.URL;
+import java.io.File;
 import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.net.URL;
+import java.io.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
+import edu.odu.cs.cs350.pne.Read;
+import edu.odu.cs.cs350.pne.Section;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 
 import com.opencsv.CSVReader;
 import com.opencsv.CSVReaderBuilder;
@@ -27,7 +33,8 @@ import com.opencsv.exceptions.CsvValidationException;
  public class Snapshot {
     private LocalDate date; // The date of the snapshot
     private ArrayList<Section> sections = new ArrayList<>(); // A list of sections
-    private LocalDate cutoffDate; // The cutoff date beyond which snapshot date is ignored
+    private LocalDate cutoffDate; // The cutoff date for the snapshot
+
 
  
 
@@ -37,6 +44,7 @@ import com.opencsv.exceptions.CsvValidationException;
     public Snapshot() {
         this.date = null;
         this.sections = new ArrayList<>();
+        this.date = LocalDate.MIN;
     }
 
 
@@ -46,10 +54,28 @@ import com.opencsv.exceptions.CsvValidationException;
      * @throws IOException if there is an error reading the file.
      */
     public Snapshot(Path filePath) throws IOException {
+        this();
+        this.sections = sectionsFromFile(filePath);
+        this.date = getLocalDateFromFileName(filePath.getFileName().toString());
         Read.file = filePath.toString();
         Read.csvReadFunction();
         sections = Read.sections;
     }
+
+
+ /**
+     * Constructs a new Snapshot object with a specified date and list of sections.
+     * @param date The date of the snapshot.
+     * @param sections The list of sections.
+     */
+    public Snapshot(LocalDate date, ArrayList<Section> sections) {
+        this.date = date;
+        this.sections = sections;
+        this.cutoffDate = LocalDate.MIN;
+        this.date = date;
+        this.sections = sections;
+    }
+
 
 
      /**
@@ -58,6 +84,17 @@ import com.opencsv.exceptions.CsvValidationException;
      * @throws IOException if there is an error reading the file.
      */
     public Snapshot(URL url) throws IOException {
+        this();
+        Path path = Paths.get("src/test/java/edu/odu/cs/cs350/pne/2020-04-01.csv");
+        try {
+            URI uri = url.toURI();
+            // do something with the URI
+        } catch (URISyntaxException e) {
+            // handle the exception
+            e.printStackTrace();
+        }
+        this.sections = sectionsFromFile(path);
+        this.date = LocalDate.now();
         Read.file = url.toString();
         Read.csvReadFunction();
         sections = Read.sections;
@@ -97,6 +134,29 @@ import com.opencsv.exceptions.CsvValidationException;
     public LocalDate getLocalDateFromFileName(String fileName) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         return LocalDate.parse(fileName.substring(0, 10), formatter);
+    }
+
+        /**
+     * Reads data from a CSV file and creates Section objects from the data.
+     * The Section objects are added to the sections list.
+     *
+     * @param filePath The path to the CSV file.
+     * @return An ArrayList of Section objects.
+     * @throws IOException if there is an error reading the file.
+     */
+    private ArrayList<Section> sectionsFromFile(Path filePath) throws IOException {
+        ArrayList<Section> sections = new ArrayList<>();
+        BufferedReader br = new BufferedReader(new FileReader(filePath.toString()));
+        String line;
+        while ((line = br.readLine()) != null) {
+            String[] data = line.split(",");
+            String sectionName = data[0];
+            int sectionNumber = Integer.parseInt(data[1]);
+            // create a new Section object and add it to the sections list
+            sections.add(new Section(sectionName, sectionNumber));
+        }
+        br.close();
+        return sections;
     }
 
     /**

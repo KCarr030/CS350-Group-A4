@@ -4,6 +4,10 @@ package edu.odu.cs.cs350.pne;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.io.BufferedReader;
+import java.nio.file.Path;
+import java.io.IOException;
+import java.io.FileReader;
 
 /** This is the section class
  * @author Group A4
@@ -34,6 +38,7 @@ public class Section {
     private int capacity;
 	private int num;
     private String name;
+    private int number;
 
 
 //-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -62,6 +67,13 @@ public class Section {
         this.ptrmEnd = fields[27];
 	}
 
+
+    public Section(String name, int number) {
+        this.name = name;
+        this.number = number;
+    }
+
+
 //-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 	//This is a constructor for creating a new Section object from an existing Section object. 
 	//This is useful for creating copies of Section objects without altering the original object.
@@ -87,6 +99,8 @@ public class Section {
         this.ptrmStart = section.ptrmStart;
         this.ptrmEnd = section.ptrmEnd;
     }
+
+
 //-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 	//constructor
 	//creates a new Section object with default values for all its instance variables. These default values are empty strings or zero values.
@@ -182,6 +196,8 @@ public class Section {
 	}
 	
 //-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
 
 
     public String getCourse() {
@@ -294,6 +310,8 @@ public class Section {
     public String getName() {
         return this.name;
     }
+
+    
     
 
 }
