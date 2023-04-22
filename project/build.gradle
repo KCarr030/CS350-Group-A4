@@ -55,10 +55,7 @@ javadoc{}
 
 projectReport{}
 
-reportStats{
-    reportsURL = 'https://kcarr030.github.io/CS350-Group-A4/'
-}
-//reportStats.dependsOn Reports
+
 
 mainClassName = 'edu.odu.cs.Projection'
 application {
@@ -82,6 +79,13 @@ task Reports (dependsOn: ['javadoc', 'test']) {
             into(file('build/reports'))
         }
     }
+}
+
+reportStats{
+    reportsURL = 'https://kcarr030.github.io/CS350-Group-A4/'
+    htmlSourceDir = file('src/main/html')
+    reportsDir = file('build/reports')
+    dependsOn Reports
 }
 
 task gstatus () {
