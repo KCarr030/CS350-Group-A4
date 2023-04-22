@@ -1,13 +1,11 @@
 package edu.odu.cs.cs350.pne;
-import java.io.File;
-import java.nio.file.Path;
-import java.util.ArrayList;
+import java.io.FileReader;
+import java.io.IOException;
 import java.net.URL;
-import java.io.*;
+import java.nio.file.Path;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import edu.odu.cs.cs350.pne.Read;
-import java.io.IOException;
+import java.util.ArrayList;
 
 import com.opencsv.CSVReader;
 import com.opencsv.CSVReaderBuilder;
@@ -29,6 +27,7 @@ import com.opencsv.exceptions.CsvValidationException;
  public class Snapshot {
     private LocalDate date; // The date of the snapshot
     private ArrayList<Section> sections = new ArrayList<>(); // A list of sections
+    private LocalDate cutoffDate; // The cutoff date beyond which snapshot date is ignored
 
  
 
