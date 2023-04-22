@@ -5,6 +5,7 @@ plugins {
     id 'jacoco'
     id 'pmd'
     id 'com.github.spotbugs' version '4.7.10'
+    id 'edu.odu.cs.report_accumulator' version '1.4'
 }
 
 repositories {
@@ -53,6 +54,11 @@ spotbugsTest.enabled = false
 javadoc{}
 
 projectReport{}
+
+reportStats{
+    reportsURL = 'https://kcarr030.github.io/CS350-Group-A4/'
+}
+//reportStats.dependsOn Reports
 
 mainClassName = 'edu.odu.cs.Projection'
 application {
@@ -140,7 +146,7 @@ task pushWebsite (type: Exec, dependsOn: 'commitWebsite') {
     ignoreExitValue = true
 }
 
-task deployReports (type: Delete, dependsOn: 'pushWebsite') {
+task deployReports (type: Delete, dependsOn: ['pushWebsite', 'reportStats']) {
     group = "Reporting"
     description  'Commit and push website changes to GitHub'
     
