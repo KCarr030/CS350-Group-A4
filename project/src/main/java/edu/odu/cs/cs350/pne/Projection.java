@@ -115,7 +115,6 @@ import java.util.Vector;
             e.printStackTrace();
             }
         }
-
     }
 
     // Function that will allow a user to indicate a path for the file location where the detailed projection will be written.
