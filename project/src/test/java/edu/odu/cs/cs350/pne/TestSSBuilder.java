@@ -23,4 +23,18 @@ public class TestSSBuilder {
         con.addRow(info1);
         con.outputFile(pathname, "TestFile.xlsx");
     }
+
+    @Test
+    public void testFileSpecChars() {
+        String pathname = ("src/test/data/TestSheets");
+        String[] headers = { " ", ">", ".", "_" }; // Special chars
+        SSBuilder con = new SSBuilder("_;.!", headers); // Special chars
+        Integer[] info1 = { 0, -3, null, 49 }; // Negatives and 0
+        con.addRow(info1);
+        String[] info2 = { "", "--", null }; // Row smaller than # headers
+        con.addRow(info2);
+        Double[] info3 = { .01, .99, -.000003, 1.203, 0.0 }; // Row larger than # headers.
+        con.addRow(info3);
+        con.outputFile(pathname, "TestSpecialChars.xlsx");
+    }
 }
