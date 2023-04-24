@@ -23,7 +23,12 @@ jobs:
     - name: Reports
       run: ./gradlew Reports
     - name: deploy reports to site
-      run: ./gradlew deployReports
+      run: |
+        eval $(ssh-agent -s -t 600)
+        ssh-add <(echo "${{ secrets.REPORTS_SSH_KEY }}")
+        git config --global user.email "kcarr030@odu.edu"
+        git config --global user.name "KCarr030"
+        ./gradlew deployReports
     - name: Deploy
       uses: JamesIves/github-pages-deploy-action@v4.2.5
       with:
