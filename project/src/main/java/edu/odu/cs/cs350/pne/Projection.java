@@ -59,7 +59,7 @@ import java.util.Vector;
         if (dirCode.length() != 6) {
             System.out.println(dirCode + " is an invalid directory code...");
         }
-        String dirPath = "/src/test/data/History" + dirCode;
+        String dirPath = "./src/test/data/History/" + dirCode;
         // Check if the dates.txt file is in the directory.
         File datesFile = new File(dirPath + "/dates.txt");
         if (!datesFile.exists()){

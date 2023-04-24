@@ -57,9 +57,9 @@ projectReport{}
 
 
 
-mainClassName = 'edu.odu.cs.Projection'
+mainClassName = 'edu.odu.cs.cs350.pne.Projection'
 application {
-    mainClass = 'edu.odu.cs.Projection'
+    mainClass = 'edu.odu.cs.cs350.pne.Projection'
 }
 
 java {

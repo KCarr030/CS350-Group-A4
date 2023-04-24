@@ -190,9 +190,9 @@ public class Section {
 		}
 		Collections.sort(alpha, Section.SnapNum);
 	
-		for(int i = 0; i < alpha.size(); i++) {
-			System.out.print(spec + alpha.get(i).getCourse() + "/src/test/data/History/" + alpha.get(i).getEnrollment() + "/src/test/data/History/" + alpha.get(i).getCapacity() + "/src/test/data/History/");
-		}
+		//for(int i = 0; i < alpha.size(); i++) {
+			System.out.println(spec + alpha.get(0).getCourse() + " " + alpha.get(0).getEnrollment() + " " + alpha.get(0).getCapacity());
+		//}
 	}
 	
 //-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
