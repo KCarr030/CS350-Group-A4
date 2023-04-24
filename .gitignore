@@ -4,7 +4,7 @@
 # Ignored Directories
 project/build
 project/bin
-
+project/src/test/data/TestSheets/TestFile.xlsx
 # Ignored IDE files
 **/.vscode/
 **/.project
