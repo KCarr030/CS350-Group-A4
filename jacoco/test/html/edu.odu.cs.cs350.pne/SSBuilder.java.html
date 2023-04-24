@@ -51,12 +51,12 @@ public class SSBuilder {
 <span class="fc bfc" id="L51" title="All 2 branches covered.">        for (Object obj : data) {</span>
 <span class="fc" id="L52">            Cell cell = row.createCell(cellnum);</span>
 <span class="fc" id="L53">            cellnum++;</span>
-<span class="pc bpc" id="L54" title="1 of 2 branches missed.">            if (obj instanceof String) {</span>
-<span class="nc" id="L55">                cell.setCellValue((String) obj);</span>
+<span class="fc bfc" id="L54" title="All 2 branches covered.">            if (obj instanceof String) {</span>
+<span class="fc" id="L55">                cell.setCellValue((String) obj);</span>
 <span class="fc bfc" id="L56" title="All 2 branches covered.">            } else if (obj instanceof Integer) {</span>
 <span class="fc" id="L57">                cell.setCellValue((Integer) obj);</span>
-<span class="pc bpc" id="L58" title="1 of 2 branches missed.">            } else if (obj instanceof Double) {</span>
-<span class="nc" id="L59">                cell.setCellValue((Double) obj);</span>
+<span class="fc bfc" id="L58" title="All 2 branches covered.">            } else if (obj instanceof Double) {</span>
+<span class="fc" id="L59">                cell.setCellValue((Double) obj);</span>
             }
         }
 <span class="fc" id="L62">        rowToWrite++;</span>
