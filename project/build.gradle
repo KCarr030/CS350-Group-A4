@@ -5,7 +5,7 @@ plugins {
     id 'jacoco'
     id 'pmd'
     id 'com.github.spotbugs' version '4.7.10'
-    id 'edu.odu.cs.report_accumulator' version '1.4'
+   // id 'edu.odu.cs.report_accumulator' version '1.4'
 }
 
 repositories {
@@ -81,12 +81,12 @@ task Reports (dependsOn: ['javadoc', 'test']) {
     }
 }
 
-reportStats{
+/* reportStats{
     reportsURL = 'https://kcarr030.github.io/CS350-Group-A4/'
     htmlSourceDir = file('src/main/html')
     reportsDir = file('build/reports')
     dependsOn Reports
-}
+} */
 
 task gstatus () {
     doLast {
@@ -150,7 +150,7 @@ task pushWebsite (type: Exec, dependsOn: 'commitWebsite') {
     ignoreExitValue = true
 }
 
-task deployReports (type: Delete, dependsOn: ['pushWebsite', 'reportStats']) {
+task deployReports (type: Delete, dependsOn: 'pushWebsite') {
     group = "Reporting"
     description  'Commit and push website changes to GitHub'
     

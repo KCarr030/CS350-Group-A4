@@ -1,11 +1,2 @@
-pluginManagement{
-    repositories{
-        ivy {
-            url 'https://www.cs.odu.edu/~zeil/ivyrepo'
-        }
-        gradlePluginPortal()
-        mavenCentral()
-    }
-}
 rootProject.name = 'GroupA4-EnrollmentProjection'
 include ('project')
