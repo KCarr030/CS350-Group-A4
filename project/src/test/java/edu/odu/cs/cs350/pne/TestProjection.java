@@ -37,7 +37,6 @@ public class TestProjection {
         System.setOut(System.out);
         String out2 = out.toString();
         assertTrue(out2.contains("dates.txt"));
-        //assertTrue(out2.contains("2021-01-09.csv"));
     }
 
     @Test
@@ -48,7 +47,6 @@ public class TestProjection {
         try {
             Projection.projectionSem("202");
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
         System.setOut(System.out);
@@ -68,24 +66,37 @@ public class TestProjection {
             write.write("2021-05-02\n");
             write.close();
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
         File1 = new File(subdirectory, "File1.csv");
-        //File1.createNewFile();
+        try {
+            File1.createNewFile();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         File2 = new File(subdirectory, "File2.csv");
-        //File2.createNewFile();
+        try {
+            File2.createNewFile();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         String path = subdirectory.getAbsolutePath();
         Directory dir = new Directory(path);
         assertEquals(3, dir.dirSize());
-        //assertTrue(files.contains(File1));
+        assertTrue(dir.getFiles().contains(File1));
+        assertTrue(dir.getFiles().contains(File2));
         subdirectory.delete();
     }
 
     @Test
     public void testdetailedProjection(){
         // Test file location input 
-
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(out));
+        Projection.detailedProjection("/src/test/data/testDetailed");
+        System.setOut(System.out);
+        String out2 = out.toString();
+        assertTrue(out2.contains("Excel"));
     }
 
 }

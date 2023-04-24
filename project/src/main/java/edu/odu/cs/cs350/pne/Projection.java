@@ -1,9 +1,5 @@
 package edu.odu.cs.cs350.pne;
 
-import com.opencsv.exceptions.CsvValidationException;
-//import org.apache.poi.ss.usermodel.*;
-//import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import java.io.FileReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -105,8 +101,13 @@ import java.util.Vector;
             Read.sections.clear();
             ArrayList<Section> sections2 = Read.sections;
             try {
+                // Determine the percent of enrollment time that has elapsed.
+                int percentPassed = 0;
+                // Read the .csv files.
                 Read.csvReadFunction();
-                // Perform the Summary projection.
+                System.out.println(percentPassed + " of enrollment period has elapsed");
+                System.out.println("Course  Enrollment  Projected  Cap");
+                // Perform the Summary projection and print data.
                 Section.math(sections2);
             }
             catch (IOException e) {
@@ -114,19 +115,21 @@ import java.util.Vector;
             e.printStackTrace();
             }
         }
-        System.out.println(" of enrollment period has elapsed");
-        System.out.println("Course  Enrollment  Projected  Cap");
-        // Print the summary projection report data.
+
     }
 
     // Function that will allow a user to indicate a path for the file location where the detailed projection will be written.
     public static void detailedProjection(String filepath){
         // Create an excel workbook that data will be written to.
         String fileLocation = filepath;
-        //XSSFWorkbook workbook = new XSSFWorkbook();
-
+        File file = new File(filepath);
+        String filename = file.getName();
+        String[] headers = {"Historical", "Projected"};
+        SSBuilder workbook = new SSBuilder(filename, headers);
         try (FileOutputStream out = new FileOutputStream(new File(fileLocation))) {
-            //workbook.write(out);
+            workbook.outputFile(fileLocation, filename);
+            // Add the data from projections
+            //workbook.addRow(headers);
             System.out.println("Excel spreadsheet created at file location typed");
         } catch (Exception e) {
             System.out.println("Could not create Excel spreadsheet: " + e.getMessage());
