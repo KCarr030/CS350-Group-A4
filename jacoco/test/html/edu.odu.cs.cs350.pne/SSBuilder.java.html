@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>SSBuilder.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">project</a> &gt; <a href="index.source.html" class="el_package">edu.odu.cs.cs350.pne</a> &gt; <span class="el_source">SSBuilder.java</span></div><h1>SSBuilder.java</h1><pre class="source lang-java linenums">package edu.odu.cs.cs350.pne;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+
+//The import of apache is not quite functioning fully as of yet.
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import java.io.FileOutputStream;
+
+public class SSBuilder {
+    private XSSFWorkbook workbook;
+    // private Map&lt;String, Object[]&gt; data = new TreeMap&lt;String, Object[]&gt;(); Unused
+    // in final version
+    private XSSFSheet sheet;
+    private int rowToWrite;
+
+    /**
+     * 
+     * @param sheetName The name of the first sheet
+     * @param headers   Array of all headers for data recorded
+     */
+<span class="fc" id="L25">    public SSBuilder(String sheetName, String[] headers) {</span>
+<span class="fc" id="L26">        workbook = new XSSFWorkbook();</span>
+<span class="fc" id="L27">        sheet = workbook.createSheet(sheetName);</span>
+
+<span class="fc" id="L29">        Row row = sheet.createRow(0);</span>
+<span class="fc" id="L30">        int cellnum = 0;</span>
+<span class="fc bfc" id="L31" title="All 2 branches covered.">        for (String str : headers) {</span>
+<span class="fc" id="L32">            Cell cell = row.createCell(cellnum);</span>
+<span class="fc" id="L33">            cellnum++;</span>
+<span class="fc" id="L34">            cell.setCellValue(str);</span>
+        }
+
+<span class="fc" id="L37">        rowToWrite = 1;</span>
+
+<span class="fc" id="L39">        System.out.println(&quot;Built SSBuilder&quot;);</span>
+<span class="fc" id="L40">    }</span>
+
+    /**
+     * This function will automatically add a row to the bottom of the list
+     * 
+     * @param data Data stored within a single row, in order matching the headers
+     */
+    public void addRow(Object[] data) {
+
+<span class="fc" id="L49">        Row row = sheet.createRow(rowToWrite);</span>
+<span class="fc" id="L50">        int cellnum = 0;</span>
+<span class="fc bfc" id="L51" title="All 2 branches covered.">        for (Object obj : data) {</span>
+<span class="fc" id="L52">            Cell cell = row.createCell(cellnum);</span>
+<span class="fc" id="L53">            cellnum++;</span>
+<span class="pc bpc" id="L54" title="1 of 2 branches missed.">            if (obj instanceof String) {</span>
+<span class="nc" id="L55">                cell.setCellValue((String) obj);</span>
+<span class="fc bfc" id="L56" title="All 2 branches covered.">            } else if (obj instanceof Integer) {</span>
+<span class="fc" id="L57">                cell.setCellValue((Integer) obj);</span>
+<span class="pc bpc" id="L58" title="1 of 2 branches missed.">            } else if (obj instanceof Double) {</span>
+<span class="nc" id="L59">                cell.setCellValue((Double) obj);</span>
+            }
+        }
+<span class="fc" id="L62">        rowToWrite++;</span>
+
+<span class="fc" id="L64">    }</span>
+
+    /**
+     * Replaces a row, assuming it already exists
+     * 
+     * @param replace Index of the row to be replaced
+     */
+    public void replaceRow(int replace, Object[] data) {
+<span class="nc" id="L72">        Row row = sheet.getRow(replace);</span>
+<span class="nc" id="L73">        int cellnum = 0;</span>
+<span class="nc bnc" id="L74" title="All 2 branches missed.">        for (Object obj : data) {</span>
+<span class="nc" id="L75">            Cell cell = row.createCell(cellnum);</span>
+<span class="nc" id="L76">            cellnum++;</span>
+<span class="nc bnc" id="L77" title="All 2 branches missed.">            if (obj instanceof String) {</span>
+<span class="nc" id="L78">                cell.setCellValue((String) obj);</span>
+<span class="nc bnc" id="L79" title="All 2 branches missed.">            } else if (obj instanceof Integer) {</span>
+<span class="nc" id="L80">                cell.setCellValue((Integer) obj);</span>
+<span class="nc bnc" id="L81" title="All 2 branches missed.">            } else if (obj instanceof Double) {</span>
+<span class="nc" id="L82">                cell.setCellValue((Double) obj);</span>
+            }
+        }
+<span class="nc" id="L85">    }</span>
+
+    public void clearRow(int row) {
+
+<span class="nc" id="L89">    }</span>
+
+    /**
+     * Outputs the currently built spreadsheet to a designated destination
+     * 
+     * @param destination The File indicating the final location to output to
+     * @param docName     The name of the document being made
+     */
+    public void outputFile(String destination, String docName) {
+        FileOutputStream out;
+<span class="fc" id="L99">        System.out.println(&quot;Enter outputFile&quot;);</span>
+        try {
+<span class="fc" id="L101">            File dest = new File(destination);</span>
+<span class="fc" id="L102">            dest.mkdirs();</span>
+<span class="fc" id="L103">            File f = new File(destination + &quot;/&quot; + docName);</span>
+<span class="fc" id="L104">            out = new FileOutputStream(f);</span>
+<span class="fc" id="L105">            workbook.write(out);</span>
+<span class="fc" id="L106">            out.close();</span>
+<span class="fc" id="L107">            System.out.println(&quot;Wrote to &quot; + f.getAbsolutePath());</span>
+<span class="nc" id="L108">        } catch (Exception e) {</span>
+            // TODO Auto-generated catch block
+<span class="nc" id="L110">            e.printStackTrace();</span>
+<span class="fc" id="L111">        }</span>
+<span class="fc" id="L112">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

@@ -21,54 +21,58 @@ public class Semester
         history = previous semester
         current = current semester*/
     
-    private List&lt;Offering&gt; offering; // not needed potentially?
-    private List&lt;Section&gt; sections;
+    private Offering offering; // not needed potentially?
     private Directory semestDirct; // don't know if we needed a list of directory -nolan
-    private List&lt;History&gt; history;
+    private History history;
 
     private String registDate, withwDate, current;
    
     
     //Constructor for integers and string variables
-    public Semester(Directory semesterDirct, String registDate, String withwDate, History history, String current, Offering offering, Section sections)
-<span class="nc" id="L34">    {</span>
+    public Semester(Directory semesterDirct, String registDate, String withwDate, History history, String current, Offering offering)
+<span class="fc" id="L33">    {</span>
         
-<span class="nc" id="L36">        this.registDate = registDate;</span>
-<span class="nc" id="L37">        this.withwDate = withwDate;</span>
-<span class="nc" id="L38">        this.current = current;</span>
-<span class="nc" id="L39">    }</span>
+<span class="fc" id="L35">        this.registDate = registDate;</span>
+<span class="fc" id="L36">        this.withwDate = withwDate;</span>
+<span class="fc" id="L37">        this.current = current;</span>
+<span class="fc" id="L38">        this.semestDirct = semesterDirct;</span>
+<span class="fc" id="L39">        this.history = history;</span>
+<span class="fc" id="L40">        this.offering = offering;</span>
+<span class="fc" id="L41">    }</span>
 
    
     ///Getters for private variables
     public Directory getSemestDirect()
     {
-<span class="nc" id="L45">        return semestDirct;</span>
+<span class="fc" id="L47">        return semestDirct;</span>
     }
 
     public String getRegistDate()
     {
-<span class="nc" id="L50">        return registDate;</span>
+<span class="fc" id="L52">        return registDate;</span>
     }
 
     public String getWithwDate()
     {
-<span class="nc" id="L55">        return withwDate;</span>
+<span class="fc" id="L57">        return withwDate;</span>
     }
 
-    public List&lt;History&gt; getHistory()
+    public History getHistory()
     {
-<span class="nc" id="L60">       return history;</span>
+<span class="fc" id="L62">       return history;</span>
     }
 
     public String getCurrent()
     {
-<span class="nc" id="L65">        return current;</span>
+<span class="fc" id="L67">        return current;</span>
     }
 
-    public  List&lt;Offering&gt; getOffering()
+    public  Offering getOffering()
     {
-<span class="nc" id="L70">        return offering;</span>
+<span class="fc" id="L72">        return offering;</span>
     }
+
+    
 
     
 
@@ -77,35 +81,35 @@ public class Semester
 
      public void readData()
      {
-<span class="nc" id="L80">        Vector&lt;File&gt; tempRead = this.semestDirct.getFiles();</span>
+<span class="nc" id="L84">        Vector&lt;File&gt; tempRead = this.semestDirct.getFiles();</span>
 
-<span class="nc bnc" id="L82" title="All 2 branches missed.">        for(File itr : tempRead)</span>
+<span class="nc bnc" id="L86" title="All 2 branches missed.">        for(File itr : tempRead)</span>
         {
             try
             {
-<span class="nc" id="L86">                Scanner scanner = new Scanner(itr); // new scanner</span>
-<span class="nc" id="L87">                scanner.nextLine();</span>
-<span class="nc bnc" id="L88" title="All 2 branches missed.">                while(scanner.hasNextLine())</span>
+<span class="nc" id="L90">                Scanner scanner = new Scanner(itr); // new scanner</span>
+<span class="nc" id="L91">                scanner.nextLine();</span>
+<span class="nc bnc" id="L92" title="All 2 branches missed.">                while(scanner.hasNextLine())</span>
                 {
-<span class="nc" id="L90">                    String curLine = scanner.nextLine();</span>
-<span class="nc" id="L91">                    curLine = curLine.trim();</span>
-<span class="nc" id="L92">                    String[] selected = curLine.split(&quot;,&quot;); // splits line into separate strings by comma</span>
-<span class="nc" id="L93">                    Section tempOff = new Section(selected);</span>
-<span class="nc" id="L94">                    sections.add(tempOff); // quickly switched to sections</span>
-<span class="nc" id="L95">                }</span>
-<span class="nc" id="L96">                scanner.close();</span>
+<span class="nc" id="L94">                    String curLine = scanner.nextLine();</span>
+<span class="nc" id="L95">                    curLine = curLine.trim();</span>
+<span class="nc" id="L96">                    String[] selected = curLine.split(&quot;,&quot;); // splits line into separate strings by comma</span>
+<span class="nc" id="L97">                    Section tempOff = new Section(selected);</span>
+                    //sections.add(tempOff); // quickly switched to sections
+<span class="nc" id="L99">                }</span>
+<span class="nc" id="L100">                scanner.close();</span>
                 
             }
-<span class="nc" id="L99">            catch (java.io.FileNotFoundException e)</span>
+<span class="nc" id="L103">            catch (java.io.FileNotFoundException e)</span>
             {
-<span class="nc" id="L101">                System.err.println(&quot;Error in finding files&quot;);</span>
-<span class="nc" id="L102">                System.exit(1);</span>
-<span class="nc" id="L103">            }</span>
-<span class="nc" id="L104">        }</span>
+<span class="nc" id="L105">                System.err.println(&quot;Error in finding files&quot;);</span>
+<span class="nc" id="L106">                System.exit(1);</span>
+<span class="nc" id="L107">            }</span>
+<span class="nc" id="L108">        }</span>
         
 
      
-<span class="nc" id="L108">    }</span>
+<span class="nc" id="L112">    }</span>
 
 }
 

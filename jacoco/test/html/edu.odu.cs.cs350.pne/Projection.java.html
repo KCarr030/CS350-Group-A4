@@ -60,8 +60,8 @@ import java.util.Vector;
     public static void projectionSem(String dirCode) throws IOException{
         
         // error message if the code is not 6 digits.
-<span class="pc bpc" id="L63" title="1 of 2 branches missed.">        if (dirCode.length() != 6) {</span>
-<span class="nc" id="L64">            System.out.println(dirCode + &quot; is an invalid directory code...&quot;);</span>
+<span class="fc bfc" id="L63" title="All 2 branches covered.">        if (dirCode.length() != 6) {</span>
+<span class="fc" id="L64">            System.out.println(dirCode + &quot; is an invalid directory code...&quot;);</span>
         }
 <span class="fc" id="L66">        String dirPath = &quot;/src/test/data/History&quot; + dirCode;</span>
         // Check if the dates.txt file is in the directory.
